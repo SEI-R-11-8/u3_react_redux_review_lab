@@ -4,10 +4,6 @@ const db = require('./db');
 const bodyParser = require('body-parser');
 const cors = require('cors')
 const logger = require('morgan');
-const mongoose = require('mongoose');
-const path = require('path')
-
-require('dotenv').config({ path: "./.env" });
 
 
 // require() imports and middleware here ^ ///////
