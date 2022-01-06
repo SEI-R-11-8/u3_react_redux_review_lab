@@ -10,7 +10,6 @@ function App() {
 		<div className='App'>
 			<Route exact path='/' component={(props) => <Home {...props} />} />
 			<Route
-				exact
 				path='/destinations'
 				component={(props) => <Destinations {...props} />}
 			/>

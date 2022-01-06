@@ -1,12 +1,12 @@
 const { REVIEW_LOADING_TYPE, GET_REVIEWS } = require('../types');
 
-const iState = {
+const initialState = {
 	reviews: [],
 	reviewsLoading: '', // Should be type enum('Loading', 'Loaded', 'Inactive')
 	newReview: {}, // needs two cases --- tues lesson was a string --- reviews are objects
 };
 
-const ReviewReducer = (state = iState, action) => {
+const ReviewReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case REVIEW_LOADING_TYPE:
 			return { ...state, productsLoading: action.payload };
@@ -17,4 +17,4 @@ const ReviewReducer = (state = iState, action) => {
 	}
 };
 
-export default ProductReducer;
+export default ReviewReducer;

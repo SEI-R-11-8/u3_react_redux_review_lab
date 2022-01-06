@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NewDestination from '../components/NewDestination';
+import Destinations from '../components/Destinations';
 
 const mapStateToProps = (state) => {
 	// return {
@@ -36,12 +38,7 @@ const Home = (props) => {
 	return (
 		<div className='Destinations'>
 			Hello from Home
-			<NewDestination
-			// newDestination={props.destinationState.newDestination}
-			// handleChange={handleChange}
-			// handleSubmit={handleSubmit}
-			// handleDelete={handleDelete}
-			/>
+			<Destinations />
 		</div>
 	);
 };

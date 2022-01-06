@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { LoadDestinations } from '../store/actions/DestinationActions';
 
-const mapStateToProps = ({ destinationState }) => {
-	return { destinationState };
+const mapStateToProps = ({ destinationState, reviewState }) => {
+	return { destinationState, reviewState };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -24,10 +24,8 @@ const Destinations = (props) => {
 		<div className='Destinations'>
 			Hello from Destinations!
 			{props.destinationState.destinations.map((destination) => (
-				<div key={destination._id}>
-					<Link to={`/destinations/${destination._id}`}>
-						{destination.city}
-					</Link>
+				<div>
+					<Destinations key={destination._id} name={destination.name} />
 				</div>
 			))}
 		</div>
