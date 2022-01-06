@@ -1,0 +1,2 @@
+export const BEACH_LOADING_TYPE = 'BEACH_LOADING_TYPE';
+export const GET_BEACHES = 'GET_BEACHES';
