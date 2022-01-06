@@ -1,11 +1,16 @@
-
+import { Route, Routes } from 'react-router-dom'
 import Post from './components/Post';
+import PostPage from './pages/PostPage';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <h2>Travel Site</h2>
-      < Post />
+      <Routes>
+        <Route path="/" element={ < Post /> } />
+        <Route path="/postPage/:postId" element={ <PostPage /> } />
+      </Routes>
+      
     </div>
   );
 }
