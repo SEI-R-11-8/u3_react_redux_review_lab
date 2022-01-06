@@ -7,5 +7,7 @@ router.get('/', (req, res) => res.send('This is root'))
 router.get('/posts', controllers.getAllPosts)
 router.get('/posts/:id', controllers.getComments)
 
+router.delete('/posts/:id', controllers.deleteComment)
+
 
 module.exports = router;

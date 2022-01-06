@@ -22,7 +22,17 @@ const getComments = async (req, res) => {
   }
 }
 
+const deleteComment = async (req, res) => {
+  try {
+    const comments = await Comment.findOneAndDelete({ _id: req.params.id });
+    return res.status(201).json({})
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
   getAllPosts,
   getComments,
+  deleteComment
 }
