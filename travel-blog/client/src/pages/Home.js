@@ -16,7 +16,7 @@ const Home = (props) => {
   useEffect(() => {
     props.fetchReviews();
   }, []);
-  console.log(props.reviewState.data);
+  console.log(props.reviewState);
   return <div>This is Home</div>;
 };
 

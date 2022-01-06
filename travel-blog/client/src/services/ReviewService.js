@@ -1,9 +1,9 @@
-import axios from 'axios';
+import Client from './';
 
 export const GetReviews = async () => {
   try {
-    const res = await axios.get(`http://localhost:3001/api/reviews`);
-    return res.data.results;
+    const res = await Client.get(`http://localhost:3001/api/reviews`);
+    return res.data.reviews;
   } catch (error) {
     throw error;
   }
