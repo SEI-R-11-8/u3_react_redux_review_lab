@@ -1,0 +1,4 @@
+export const GET_POSTS = 'GET_POSTS';
+export const POST_LOADING_TYPE = 'POST_LOADING_TYPE';
+export const GET_POSTS_BY_ID = 'GET_POSTS_BY_ID';
+export const POST_BY_ID_LOADING_TYPE = 'POST_BY_ID_LOADING_TYPE';
