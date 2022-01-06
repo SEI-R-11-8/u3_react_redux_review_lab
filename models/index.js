@@ -3,8 +3,8 @@ const Schema = mongoose.Schema
 const location = require ('./location')
 const review = require( './review')
 
-const locationModel = mongoose.model('Location', location)
+const Location = mongoose.model('Location', location)
 
-const reviewModel = mongoose.model('Review', review)
+const Review = mongoose.model('Review', review)
 
-module.exports= {locationModel, reviewModel}  
+module.exports= {Location, Review}  
