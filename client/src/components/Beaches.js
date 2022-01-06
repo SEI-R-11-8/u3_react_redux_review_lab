@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LoadBeaches } from '../store/actions/BeachActions';
 
 const mapStateToProps = ({ beachState }) => {
@@ -28,7 +28,7 @@ const Beaches = (props) => {
           <div>{beach.review}</div>
           <div>{beach.comments}</div>
           <div>{beach.likes}</div>
-          {/* <Link to={`/beaches/${beach._id}`}>{beach.name}</Link> */}
+          <Link to={`/beaches/${beach._id}`}>Review Comments</Link>
         </ul>
       ))}
     </div>
