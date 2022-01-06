@@ -1,3 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 
-export const Client = Axios.create({ baseURL: 'http://localhost:3001/api' });
+const Client = axios.create({ baseURL: 'http://localhost:3001/api' });
+export default Client;
