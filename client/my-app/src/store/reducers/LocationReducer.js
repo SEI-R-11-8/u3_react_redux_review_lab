@@ -1,18 +1,19 @@
-import {GET_ALL_LOCATIONS, GET_LOCATION_BY_ID} from('../types')
+import { GET_ALL_LOCATIONS } from '../types';
+import { GET_LOCATION_BY_ID } from '../types';
 
-const iState ={
+const iState = {
   location: [],
   selectedLocation: {}
 };
 
-const LocationReducer = (state = iState,action) =>{
-  switch(action.type){
+const LocationReducer = (state = iState, action) => {
+  switch (action.type) {
     case GET_ALL_LOCATIONS:
-      return {...state};
+      return { ...state };
     case GET_LOCATION_BY_ID:
-      return {...state}
+      return { ...state };
     default:
-      return{...state}
+      return { ...state };
   }
-}
-export default LocationReducer
+};
+export default LocationReducer;
