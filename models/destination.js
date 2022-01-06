@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const Destinations = new Schema(
+const Destination = new Schema(
   {
     city: { type: String, require: true },
     country: { type: String, require: true },
@@ -10,4 +10,4 @@ const Destinations = new Schema(
   { timestamps: true }
 );
 
-module.exports = Destinations;
+module.exports = Destination;

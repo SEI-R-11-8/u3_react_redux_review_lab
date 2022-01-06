@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 
-const Reviews = new Schema(
+const Review = new Schema(
   {
     username: { type: String, require: true },
     destination_id: { type: Schema.Types.ObjectId, ref: 'destinations' },
@@ -9,4 +9,4 @@ const Reviews = new Schema(
   { timestamps: true }
 );
 
-module.exports = Reviews;
+module.exports = Review;
