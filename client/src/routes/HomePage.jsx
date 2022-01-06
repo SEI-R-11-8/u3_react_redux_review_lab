@@ -20,13 +20,13 @@ function HomePage(props) {
     props.getAllLocations()
   }, [])
 
-  return (
-    <div>
-    {props.locationReducer.locations.map((location, index)=> (
-      <p key={index}>{location.name}</p>
-    ))}
-    </div>
-  )
+  return props.locationReducer.locations.map((location, index)=> (
+      <div key={index} className= "location-card" onClick={()=> {
+        props.history.push(`/${location._id}`)
+      }}>
+        <h2>{location.name}</h2>
+      </div>
+    ))
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(HomePage)

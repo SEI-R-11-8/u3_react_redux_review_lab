@@ -10,7 +10,7 @@ const LocationReducer = (state = iState, action ) => {
     case GET_ALL_LOCATIONS:
       return {...state, locations: action.payload}
     case GET_LOCATION_BY_ID:
-      return {...state}
+      return {...state, selectedLocation: action.payload}
     default:
       return {...state}
   }
