@@ -6,7 +6,7 @@ const reviewSeed = async() => {
     {
       author: 'Marvel',
       content: 'I know nothing about this city.',
-      reccomends: true
+      recommends: true
     }
   ]
   const addedLasVegasReviews = await Review.insertMany(lasVegasReviews)
@@ -15,7 +15,7 @@ const reviewSeed = async() => {
     {
       author: 'Joseph',
       content: 'They have fast internet.',
-      reccomends: true
+      recommends: true
     }
   ]
   const addedChattanoogaReviews = await Review.insertMany(chattanoogaReviews)
@@ -24,23 +24,23 @@ const reviewSeed = async() => {
     {
       author: 'Chris',
       content: 'Hard to walk around.',
-      reccomends: true
+      recommends: true
     }
   ]
-const addedTimesSquareReviews = await Review.insertMany(timesSquare)
+const addedTimesSquareReviews = await Review.insertMany(timesSquareReviews)
 
-const lasVegas = await Location.find({ name: 'Las Vegas'})
-lasVegas.reviews= addedlasVegasReviews
+const lasVegas = await Location.findOne({ name: 'Las Vegas'})
+lasVegas.reviews= addedLasVegasReviews
 await lasVegas.save()
 
-const chattanooga = await Location.find({ name: 'Chattanooga'})
-chattanooga.reviews= addedchattanoogaReviews
+const chattanooga = await Location.findOne({ name: 'Chattanooga'})
+chattanooga.reviews= addedChattanoogaReviews
 await chattanooga.save()
 
-const timesSquare = await Location.find({ name: 'Times Square'})
-timesSquare.reviews= addedtimesSquareReviews
+const timesSquare = await Location.findOne({ name: 'Times Square'})
+timesSquare.reviews= addedTimesSquareReviews
 await timesSquare.save()
 
 }
 
-reviewSeed()
+reviewSeed()   

@@ -10,7 +10,6 @@ router.get('/:locationId/review', controllers.getAllReviews)
 
 router.put('/review/:reviewId', controllers.updateReview)
 
-router.post('/:locationId/review/:reviewId', controllers.createReview)
-
+router.post('/:locationId/review', controllers.createReview)
 
 module.exports= router
