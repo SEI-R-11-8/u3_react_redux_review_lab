@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Beach = new Schema(
+const Post = new Schema(
   {
     name: { type: String, required: true },
     location: { type: String, required: true },
@@ -11,4 +11,4 @@ const Beach = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('beaches', Beach);
+module.exports = mongoose.model('posts', Post);
