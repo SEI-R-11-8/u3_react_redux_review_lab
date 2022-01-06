@@ -18,10 +18,32 @@ function DetailsPage(props) {
   useEffect(()=> {
     props.getLocationById(props.match.params.locationId)
   }, [props.match.params.locationId])
-  return (
-    <div>
 
+  const location= props.locationReducer.selectedLocation
+
+  return (
+    <div className="location-details">
+      <div className="location-image">
+        <h2>{location.name}</h2>
+      </div>
+      <form>
+        <label htmlFor="name">Name</label>
+        <input id="name" />
+        <label htmmlFor="reccomend">Reccomended</label>
+        <input id="reccomended" />
+        <label htmlFor="content">Content</label>
+        <textarea id="content" />
+      </form>
+    <div>
+      {location.reviews.map((review, index) => (
+        <div key={index} className="review-card">
+          <p>{review.author}</p>
+          <p>Recommends: {review.recommends}</p>
+          <p>{review.content}</p>
+        </div>
+      ))}
     </div>
+  </div>
   )
 }
 export default connect(mapStateToProps,mapActionsToProps)(DetailsPage)
