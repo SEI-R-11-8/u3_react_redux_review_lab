@@ -26,3 +26,11 @@ export const GetComments = async (id) => {
     throw err
   }
 }
+
+export const DelComment = async (id) => {
+  try {
+    const res = await Client.delete(`/comments/${id}`)
+  } catch (err) {
+    throw err
+  }
+}

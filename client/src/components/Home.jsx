@@ -18,8 +18,6 @@ function Home(props) {
     props.fetchPosts();
   }, []);
 
-  console.log(props.postState.posts);
-
   return (
     <div>
       {props.postState.posts.map((e, i) => (
