@@ -11,6 +11,18 @@ const getAllPosts = async (req, res) => {
   }
 }
 
+const getComments = async (req, res) => {
+  try {
+    const comments = await Comment.find({ id: req.params.id });
+    return res.status(201).json({
+      comments
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
-  getAllPosts
+  getAllPosts,
+  getComments,
 }
