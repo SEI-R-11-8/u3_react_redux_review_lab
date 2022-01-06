@@ -1,29 +1,15 @@
-import {
-	ADD_DESTINATION,
-	CREATE_DESTINATION,
-	REMOVE_DESTINATION,
-} from '../types';
+const { DESTINATION_LOADING_TYPE, GET_DESTINATIONS } = require('../types');
 
 const initialState = {
 	destinations: [],
-	newDestination: '',
+	destinationsLoading: '',
 };
-
 const DestinationReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case ADD_DESTINATION:
-			return {
-				...state,
-				todos: [...state.destination, action.payload],
-				newDestination: '',
-			};
-		case CREATE_DESTINATION:
-			return { ...state, newDestination: action.payload };
-		case REMOVE_DESTINATION:
-			const newDestinations = [...state.destinations];
-
-			newDestinations.splice(parseInt(action.payload), 1);
-			return { ...state, destinations: newDestinations };
+		case DESTINATION_LOADING_TYPE:
+			return { ...state, destinationsLoading: action.payload };
+		case GET_DESTINATIONS:
+			return { ...state, destinations: action.payload };
 		default:
 			return { ...state };
 	}
