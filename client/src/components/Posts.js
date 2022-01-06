@@ -22,7 +22,9 @@ const Posts = (props) => {
   return (
     <div>
       {props.postState.posts.map((post) => (
-        <ul key={post._id}>{post.name}</ul>
+        <ul key={post._id}>
+          <Link to={`/posts/${post._id}`}>{post.name}</Link>
+        </ul>
       ))}
     </div>
   );

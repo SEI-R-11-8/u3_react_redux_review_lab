@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { LoadComments } from '../store/actions/PostActions';
+
+const BASE_URL = 'http://localhost:3001/api';
 
 const mapStateToProps = ({ commentState }) => {
   return { commentState };
@@ -13,23 +16,20 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Comments = (props) => {
+  const [Comment, setComment] = useState();
+  const [newComment, setNewComment] = useState({
+    username: '',
+    details: ''
+  });
   console.log(props);
   useEffect(() => {
     props.fetchComments();
   }, []);
 
-  const FormInput = (props) => {
-    const [Comment, setComment] = useState();
-    const [newComment, setNewComment] = useState({
-      username: '',
-      details: '',
-      reference: ''
-    });
-  };
   const allComments = async () => {
     const res = await axios.post(`${BASE_URL}/createcomments`, newComment);
     setComment(res.data.posts);
-    console.log(data);
+    console.log(res.data.posts);
   };
 
   const addComment = (e) => {
@@ -39,8 +39,7 @@ const Comments = (props) => {
     currentComment.push(newComment);
     setNewComment({
       username: '',
-      details: '',
-      reference: ''
+      details: ''
     });
   };
 
@@ -61,14 +60,14 @@ const Comments = (props) => {
       <form onSubmit={formSubmit}>
         <input
           type="text"
-          value={username.name}
+          value={newComment.username}
           onChange={handleChange}
           name={''}
           placeholder={'Name'}
         />
         <input
           type="text"
-          value={updatedTrail.img}
+          value={newComment.details}
           onChange={handleChange}
           name={'details'}
           placeholder={'comment here'}

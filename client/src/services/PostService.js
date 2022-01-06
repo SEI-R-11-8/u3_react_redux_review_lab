@@ -21,8 +21,8 @@ export const GetPostsById = async (id) => {
 
 export const GetPostComments = async (postid) => {
   try {
-    const res = await Client.get(`/comments/${postid}`);
-    return res;
+    const res = await Client.get(`/posts/${postid}`);
+    return res.data.comm;
   } catch (error) {
     throw error;
   }
