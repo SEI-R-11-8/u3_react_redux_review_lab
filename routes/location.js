@@ -8,7 +8,7 @@ router.get('/', controllers.getAllLocations);
 //Review routes/// api/location/:locationID/review
 router.get('/:locationId/review', controllers.getAllReviews)
 
-router.put('/:locationId/review/:reviewId', controllers.updateReview)
+router.put('/review/:reviewId', controllers.updateReview)
 
 router.post('/:locationId/review/:reviewId', controllers.createReview)
 

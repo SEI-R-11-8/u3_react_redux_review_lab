@@ -21,9 +21,13 @@ const getAllReviews = async (req, res) => {
 
 const updateReview = async (req, res) => { 
   try {
-    const { locationId, reviewId} = req.params
-    await Review.findbyIdAndUpdate(id, req.body, { new: true }, (err, review) => {
-      if (err) {
+    const { reviewId } = req.params
+    await Review.findbyIdAndUpdate(
+      id,
+      req.body,
+      { new: true },
+      (err, review) => {
+        if (err) {
         res.status(500).send({msg: 'failed'})
       }
       return res.status(200).send(review)
