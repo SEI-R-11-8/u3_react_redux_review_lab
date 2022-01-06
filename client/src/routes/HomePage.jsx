@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = (dispach) => {
   return {
-    getAllLocations: () => dispach(GetAllLocations)
+    getAllLocations: () => dispach(GetAllLocations())
   }
 }
 

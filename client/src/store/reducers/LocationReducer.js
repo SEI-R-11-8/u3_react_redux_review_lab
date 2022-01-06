@@ -8,7 +8,7 @@ const iState = {
 const LocationReducer = (state = iState, action ) => {
   switch(action.type) {
     case GET_ALL_LOCATIONS:
-      return {...state}
+      return {...state, locations: action.payload}
     case GET_LOCATION_BY_ID:
       return {...state}
     default:
