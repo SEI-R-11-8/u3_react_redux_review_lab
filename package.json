@@ -4,7 +4,7 @@
   "description": "![React](https://blog.codecentric.de/files/2017/12/Bildschirmfoto-2017-12-01-um-08.53.32.png)",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

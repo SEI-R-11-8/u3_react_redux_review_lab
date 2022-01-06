@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { LoadPostComments } from '../store/actions/PostsActions'
 
 const mapStateToProps = ({ postCommentsState }) => {
@@ -9,26 +9,36 @@ const mapStateToProps = ({ postCommentsState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPostComments: () => dispatch(LoadPostComments),
+    fetchPostComments: (postId) => dispatch(LoadPostComments(postId)),
   }
 }
 
 const Posts = (props) => {
 
-  const navigate = useNavigate()
   const { id } = useParams()
 
   useEffect(() => {
-    props.fetchPostCommets(id)
-  }, [])
+    props.fetchPostComments(id)
+  }, [id])
 
-
-console.log(props.postCommentsState)
+  const postData = props.postCommentsState.post
 
   return (
     <div>
-      <h1>Post</h1>
-
+      <h1>{ postData.title }</h1>
+      <Link to="/">Home</Link>
+      <p>{ postData.post_body }</p>
+      <form>
+        <input
+          type="text"
+          name="newTodo"
+          value={props.newTodo}
+          onChange={props.handleChange}
+        />
+        <button type="submit" onClick={props.handleSubmit}>
+          Add Review
+        </button>
+      </form>
     </div>
   )
 }

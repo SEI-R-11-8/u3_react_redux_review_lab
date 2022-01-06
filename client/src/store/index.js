@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 const store = createStore(
   combineReducers({
       postsState: PostsReducer,
-      postsCommentsState: CommentsReducer
+      postCommentsState: CommentsReducer
     }),
     composeWithDevTools(applyMiddleware(thunk)))
 

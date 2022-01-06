@@ -9,11 +9,11 @@ export const GetPosts = async () => {
   }
 }
 
-export const GetPostComments = async (id) => {
+export const GetPostComments = async (postId) => {
   try{
-    const res = await Client.get(`/posts/${ id }`)
-    console.log(res.data)
-    return res.data
+    const res = await Client.get(`/posts/${ postId }`)
+    console.log(res.data.post)
+    return res.data.post
   } catch (error) {
     throw error
   }
