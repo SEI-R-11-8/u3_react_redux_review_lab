@@ -16,7 +16,8 @@ const main =  async () => {
       city: faker.address.cityName(),
       date: faker.date.recent(),
       likes: 0,
-      description: faker.company.catchPhrase()
+      description: faker.company.catchPhrase(),
+      photo: "https://lh3.googleusercontent.com/places/AAcXr8pPWFigstEZ9OU9-mRbNyiN-3Z2M-aWj8AFTXlU_5dKeoq_yXuL55HeHcENqjH8LPWJKU6S7u01zIvknwkpccPmNLzNczaVBl8=s1600-w800-h800"
     })
   })
 

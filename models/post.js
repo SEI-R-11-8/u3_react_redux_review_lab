@@ -7,7 +7,8 @@ const Post = new Schema (
     date: { type: String, required: true},
     description: {type: String, required: true},
     likes: { type: Number, required: true},
-    comments: [{ type: Schema.Types.ObjectId, ref: 'comment'}]
+    comments: [{ type: Schema.Types.ObjectId, ref: 'comment'}],
+    photo: { type: String }
   },
   { timestamps: true}
 )
