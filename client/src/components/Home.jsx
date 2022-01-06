@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { LoadPosts } from "../store/actions/PostActions";
 import Posts from "./Posts";
 
@@ -24,7 +23,7 @@ function Home(props) {
   return (
     <div>
       {props.postState.posts.map((e, i) => (
-        <Posts key={i} e={e}/>
+        <Posts key={i} e={e} />
       ))}
     </div>
   );

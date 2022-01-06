@@ -13,10 +13,21 @@ const getAllPosts = async (req, res) => {
   }
 }
 
+const getOnePost = async (req, res) => {
+  try {
+    const post = await Post.findOne({ _id: req.params.id });
+    return res.status(201).json({
+      post
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 // Gets single comment by it's _id from comments collection
 const getOneComment = async (req, res) => {
   try {
-    const comment = await Comment.find({ _id: req.params.id });
+    const comment = await Comment.findOne({ _id: req.params.id });
     return res.status(201).json({
       comment
     })
@@ -72,9 +83,10 @@ const updateComment = async (req, res) => {
 
 module.exports = {
   getAllPosts,
+  getOnePost,
   getComments,
   deleteComment,
   postComment,
   updateComment,
-  getOneComment
+  getOneComment,
 }

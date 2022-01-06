@@ -8,3 +8,21 @@ export const GetPosts = async () => {
     throw err
   }
 }
+
+export const GetOnePost = async (id) => {
+  try {
+    const res = await Client.get(`/posts/${id}`)
+    return res.data.post
+  } catch (err) {
+    throw err
+  }
+}
+
+export const GetComments = async (id) => {
+  try {
+    const res = await Client.get(`/comments/${id}`)
+    return res.data.comments
+  } catch (err) {
+    throw err
+  }
+}

@@ -5,10 +5,8 @@ const Posts = (props) => {
   return (
     <div>
       <Link to={props.e._id} style={{ textDecoration: "none" }}>
-        <p>{props.e.title}</p>
-        <p>{props.e.description}</p>
-        <p>{props.e.location}</p>
-        <p>{props.e.price}</p>
+        <h1>{props.e.title}</h1>
+        <h4>{props.e.price}</h4>
         <img className="post-image" src={props.e.image} alt=""></img>
       </Link>
     </div>

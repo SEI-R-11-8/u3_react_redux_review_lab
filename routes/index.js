@@ -5,6 +5,7 @@ const router = Router();
 router.get('/', (req, res) => res.send('This is root'))
 
 router.get('/posts', controllers.getAllPosts)
+router.get('/posts/:id', controllers.getOnePost)
 router.get('/comments/:id', controllers.getComments)
 router.get('/comment/:id', controllers.getOneComment)
 
