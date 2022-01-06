@@ -10,6 +10,7 @@
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "mongoose": "^6.1.5",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
@@ -41,5 +42,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "![React](https://blog.codecentric.de/files/2017/12/Bildschirmfoto-2017-12-01-um-08.53.32.png)",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealmikenew/u3_react_redux_review_lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therealmikenew/u3_react_redux_review_lab/issues"
+  },
+  "homepage": "https://github.com/therealmikenew/u3_react_redux_review_lab#readme"
 }
