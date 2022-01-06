@@ -60,9 +60,19 @@ const getAllLocations = async (req, res) => {
   }
 }
 
+const getLocationById = async (req, res) => { 
+  try {
+    const { locationId } = req.params
+    const location = await Location.findOne({ _id: locationId})
+    return res.status(200).send(location)
+  } catch (error) {
+    return res.status(500).send({ msg: 'failed'})
+  }
+}
 module.exports = {
   createReview,
   getAllReviews,
   updateReview,
   getAllLocations,
+  getLocationById
 }
