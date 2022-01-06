@@ -1,0 +1,34 @@
+{
+  "name": "u3_react_redux_review_lab",
+  "version": "1.0.0",
+  "description": "![React](https://blog.codecentric.de/files/2017/12/Bildschirmfoto-2017-12-01-um-08.53.32.png)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopherbowers/u3_react_redux_review_lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christopherbowers/u3_react_redux_review_lab/issues"
+  },
+  "homepage": "https://github.com/christopherbowers/u3_react_redux_review_lab#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
