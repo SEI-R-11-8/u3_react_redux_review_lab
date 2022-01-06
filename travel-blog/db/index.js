@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// require('dotenv').config(); // Add this line
 
 let dbUrl = 'mongodb://127.0.0.1:27017/travelDatabase';
 
