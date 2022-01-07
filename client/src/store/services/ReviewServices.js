@@ -1,6 +1,6 @@
 import Client from './'
 
-const RequestCreationOfNewReview = async (id, newReviewInfo) => {
-  const result = await Client.post(`/${id}/review`,newReviewInfo )
+export const RequestCreationOfNewReview = async (locationId, newReviewInfo) => {
+  const result = await Client.post(`/${locationId}/review`,newReviewInfo )
   return result.data
 }

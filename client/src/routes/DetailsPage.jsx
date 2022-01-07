@@ -5,17 +5,21 @@ import { SetReviewAuthor, SetReviewRecommends, SetReviewContent, CreateNewReview
 
 const mapStateToProps = (state) => {
   return {
-    locationReducer: state.locationReducer
+    locationReducer: state.locationReducer,
+    reviewReducer: state.reviewReducer
   }
 }
 
-const mapActionsToProps = (dispatch ) => {
+const mapActionsToProps = (dispatch) => {
   return {
-    getLocationById: (id) => dispatch(GetLocationById(id)),
+    getLocationById: (locationId) => dispatch(GetLocationById(locationId)),
     setReviewAuthor: (author) => dispatch(SetReviewAuthor(author)),
-    setReviewReccomends: (recommends) => dispatch(SetReviewRecommends())
+    setReviewRecommends: (recommends) => dispatch(SetReviewRecommends(recommends)),
+    setReviewContent: (content) => dispatch(SetReviewContent(content)),
+    createNewReview: (locationId, newReviewInfo) => dispatch(CreateNewReview(locationId, newReviewInfo))
   }
 }
+
 function DetailsPage(props) {
 
   useEffect(()=> {
@@ -35,16 +39,28 @@ function DetailsPage(props) {
         <h2>{location.name}</h2>
         
       </div>
+
+
       <form onSubmit={(e)=> {
         e.preventDefault()
-
+        props.createNewReview(props.match.params.locationId, {
+          author: props.reviewReducer.author,
+          recommends: props.reviewReducer.recommends,
+          content: props.reviewReducer.content
+        })
       }}>
         <label htmlFor="name">Name</label>
-        <input id="name" />
-        <label htmlFor="reccomend">Reccomended</label>
-        <input id="reccomended" type="checkbox" />
+        <input id="name" onChange={(e)=>{
+          props.setReviewAuthor(e.target.value) 
+        }} />
+        <label htmlFor="recommend">Recommended</label>
+        <input id="recommended" type="checkbox" onChange={(e)=>{
+          props.setReviewRecommends(e.target.value) 
+        }}/>
         <label htmlFor="content">Content</label>
-        <textarea id="content" />
+        <textarea id="content" onChange={(e)=>{
+          props.setReviewContent(e.target.value) 
+        }}/>
         <button type="submit">Submit</button>
       </form>
     <div>

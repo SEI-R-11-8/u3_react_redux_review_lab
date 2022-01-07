@@ -1,4 +1,5 @@
-import {SET_REVIEW_AUTHOR,SET_REVIEW_RECCOMENDS,SET_REVIEW_CONTENT,CREATE_NEW_REVIEW,} from '../types'
+import {SET_REVIEW_AUTHOR,SET_REVIEW_RECOMMENDS,SET_REVIEW_CONTENT,CREATE_NEW_REVIEW,} from '../types'
+import { RequestCreationOfNewReview } from '../services/ReviewServices'
 
 export const SetReviewAuthor = (author) => { 
   return {
@@ -8,7 +9,7 @@ export const SetReviewAuthor = (author) => {
 }
 export const SetReviewRecommends = (recommends) => { 
   return {
-    type: SET_REVIEW_RECCOMENDS,
+    type: SET_REVIEW_RECOMMENDS,
     payload: recommends
   }
 }
@@ -19,6 +20,11 @@ export const SetReviewContent = (content) => {
   }
 }
 
-export const CreateNewReview = (id) => { 
-  return async (dispatch) => {}
+export const CreateNewReview = (locationId, newReviewInfo) => { 
+  return async (dispatch) => {
+    await RequestCreationOfNewReview(locationId, newReviewInfo)
+    dispatch({
+      type: CREATE_NEW_REVIEW,
+    })
+  }
 }
