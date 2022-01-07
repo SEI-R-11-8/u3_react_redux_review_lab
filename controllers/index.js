@@ -3,13 +3,13 @@ const { Location, Review } = require('../models')
 
 const createReview = async (req, res) => { 
   try {
-    const {locationId} = rec.params
+    const {locationId} = req.params
     const addedReview = (await Review.insertMany(req.body))[0]
     const location = await Location.findOne({_id: locationId})
     location.reviews.push(addedReview._id)
     await location.save()
 
-    return res.status(201).send({ msg: 'success'})
+    return res.status(201).send(addedReview)
   } catch (error) {
     return res.status(500).send({ msg: 'failed'})
   }
@@ -31,7 +31,7 @@ const updateReview = async (req, res) => {
     const review = await Review.findOne({ _id: reviewId })
     review.author = req.body.author
     review.content = req.body.content
-    review.reccomends = req.body.reccomends
+    review.recommends = req.body.recommends
 
     await review.save()
  return res.status(200).send(review)

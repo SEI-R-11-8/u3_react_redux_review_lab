@@ -22,9 +22,14 @@ export const SetReviewContent = (content) => {
 
 export const CreateNewReview = (locationId, newReviewInfo) => { 
   return async (dispatch) => {
+    const addedReview = await RequestCreationOfNewReview(
+      locationId,
+      newReviewInfo
+    )
     await RequestCreationOfNewReview(locationId, newReviewInfo)
     dispatch({
       type: CREATE_NEW_REVIEW,
+      payload: addedReview
     })
   }
 }

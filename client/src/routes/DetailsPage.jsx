@@ -49,16 +49,28 @@ function DetailsPage(props) {
           content: props.reviewReducer.content
         })
       }}>
-        <label htmlFor="name">Name</label>
-        <input id="name" onChange={(e)=>{
+        <label htmlFor="author">Name</label>
+        <input 
+        id="author" 
+        name="author"
+        value={props.reviewReducer.author}
+        onChange={(e)=>{
           props.setReviewAuthor(e.target.value) 
         }} />
-        <label htmlFor="recommend">Recommended</label>
-        <input id="recommended" type="checkbox" onChange={(e)=>{
-          props.setReviewRecommends(e.target.value) 
-        }}/>
+        <label htmlFor="recommends">Recommended</label>
+        <input id="recommends" 
+        name="recommends" 
+        type="checkbox"
+        checked={props.reviewReducer.recommends}
+        onChange={(e)=>{
+          props.setReviewRecommends(e.target.checked) 
+        }}
+
+        />
         <label htmlFor="content">Content</label>
-        <textarea id="content" onChange={(e)=>{
+        <textarea id="content" name='content' 
+        value={props.reviewReducer.content}
+        onChange={(e)=>{
           props.setReviewContent(e.target.value) 
         }}/>
         <button type="submit">Submit</button>
@@ -67,7 +79,7 @@ function DetailsPage(props) {
       {location.reviews && location.reviews.map((review, index) => (
         <div key={index} className="review-card">
           <p>{review.author}</p>
-          <p>Recommends: {review.recommends}</p>
+          <p>Recommends: {review.recommends ? 'yes' : 'no'}</p>
           <p>{review.content}</p>
         </div>
       ))}
