@@ -43,3 +43,18 @@ export const LoadComments = (id) => {
     }
   };
 };
+
+export const AddLocation = (location) => ({
+  type: ADD_LOCATION,
+  payload: location
+});
+
+export const CreateNewLocation = (formValue) => ({
+  type: NEW_LOCATION,
+  payload: formValue
+});
+
+export const RemoveLocation = (index) => ({
+  type: REMOVE_LOCATION,
+  payload: index
+});
