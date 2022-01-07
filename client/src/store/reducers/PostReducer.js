@@ -1,4 +1,4 @@
-const { POST_LOADING_TYPE, GET_POSTS } = require('../types')
+const { POST_LOADING_TYPE, GET_POSTS, GET_POSTS_BY_ID } = require('../types')
 
 const iState = {
     posts: [],
@@ -11,6 +11,8 @@ const PostReducer = (state = iState, action) => {
             return { ...state, postsLoading: action.payload }
         case GET_POSTS:
             return { ...state, posts: action.payload }
+        case GET_POSTS_BY_ID:
+            return { ...state, posts: action.payload}
         default:
             return { ...state }
     }

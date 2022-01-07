@@ -21,10 +21,10 @@ const getAllComments = async (req, res) => {
 
   const addNewComment = async (req, res) => {
     try {
-      const comment = await new Comment(req.body);
-      await comment.save();
+      const comments = await new Comments(req.body);
+      await comments.save();
       return res.status(201).json({
-         comment
+         comments
       });
     } catch (error) {
       return res.status(500).json({ error: error.message });
@@ -33,10 +33,10 @@ const getAllComments = async (req, res) => {
 
   const addNewPost = async (req, res) => {
     try {
-      const post = await new Post(req.body);
-      await post.save();
+      const posts = await new Posts(req.body);
+      await posts.save();
       return res.status(201).json({
-        product
+        posts
       });
     } catch (error) {
       return res.status(500).json({ error: error.message });
@@ -46,9 +46,9 @@ const getAllComments = async (req, res) => {
   const getCommentById = async (req, res) => {
     try {
         const { id } = req.params;
-        const comment = await Comment.findById(id)
-        if (comment) {
-            return res.status(200).json({ comment });
+        const comments = await Comments.findById(id)
+        if (comments) {
+            return res.status(200).json({ comments });
         }
         return res.status(404).send('Comment with the specified ID does not exists');
     } catch (error) {
@@ -59,9 +59,9 @@ const getAllComments = async (req, res) => {
 const getPostById = async (req, res) => {
     try {
         const { id } = req.params;
-        const post = await Post.findById(id)
-        if (post) {
-            return res.status(200).json({ post });
+        const posts = await Posts.findById(id)
+        if (posts) {
+            return res.status(200).json({ posts });
         }
         return res.status(404).send('Post with the specified ID does not exists');
     } catch (error) {
@@ -72,18 +72,18 @@ const getPostById = async (req, res) => {
 const updateComment = async (req, res) => {
     try {
       const { id } = req.params;
-      await Comment.findByIdAndUpdate(
+      await Comments.findByIdAndUpdate(
         id,
         req.body,
         { new: true },
-        (err, comment) => {
+        (err, comments) => {
           // if (err) {
           //   res.status(500).send(err);
           // }
           // if (!review) {
           //   res.status(500).send('Review not found!');
           // }
-          return res.status(200).json(comment);
+          return res.status(200).json(comments);
         }
       );
     } catch (error) {
@@ -94,18 +94,18 @@ const updateComment = async (req, res) => {
   const updatePost = async (req, res) => {
     try {
       const { id } = req.params;
-      await Post.findByIdAndUpdate(
+      await Posts.findByIdAndUpdate(
         id,
         req.body,
         { new: true },
-        (err, post) => {
+        (err, posts) => {
           // if (err) {
           //   res.status(500).send(err);
           // }
           // if (!review) {
           //   res.status(500).send('Review not found!');
           // }
-          return res.status(200).json(post);
+          return res.status(200).json(posts);
         }
       );
     } catch (error) {
@@ -116,7 +116,7 @@ const updateComment = async (req, res) => {
   const deleteComment = async (req, res) => {
     try {
         const { id } = req.params;
-        const deleted = await Comment.findByIdAndDelete(id)
+        const deleted = await Comments.findByIdAndDelete(id)
         if (deleted) {
             return res.status(200).send("Comment deleted");
         }
@@ -129,7 +129,7 @@ const updateComment = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         const { id } = req.params;
-        const deleted = await Post.findByIdAndDelete(id)
+        const deleted = await Posts.findByIdAndDelete(id)
         if (deleted) {
             return res.status(200).send("Post deleted");
         }

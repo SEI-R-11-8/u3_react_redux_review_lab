@@ -22,7 +22,7 @@ const Posts = (props) => {
 
     }, [])
 
-    console.log('props postState.posts', props.postState.posts)
+    // console.log('props postState.posts', props.postState.posts)
 
     return (
         <div>
@@ -34,6 +34,7 @@ const Posts = (props) => {
                     <PostCard
                         post_location={post.post_location}
                         post_image={post.post_image}
+                        post_description={post.post_description}
                         id={post._id}
                     />
 
