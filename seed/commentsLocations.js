@@ -6,11 +6,16 @@ const locations = require('../data/locations');
 db.on('error', console.error.bind(console, 'MongoDB connection error;'));
 
 const createComments = async () => {
-  const cities = locations.map((loc) => loc.city);
-  const comments = Array[10].map(() => {
+  // const cities = locations.map((loc) => loc.city);
+  const comments = [...Array(10)].map(() => {
     return new Comment({
       name: faker.name.findName(),
-      city: faker.random.arrayElements[cities],
+      city: faker.random.arrayElements([
+        'New York City',
+        'Orlando',
+        'Seattle',
+        'Chengdu'
+      ]),
       comment: faker.lorem.paragraph(),
       rating: faker.datatype.float({ min: 1, max: 5, precision: 0.1 })
     });
