@@ -46,7 +46,7 @@ export const PostPage = (props) => {
         />
         <button>Submit</button>
       </form>
-      <PostList posts={props.postState.posts}/>
+        <PostList history={props.history} posts={props.postState.posts}/>
     </div>
   )
 }
