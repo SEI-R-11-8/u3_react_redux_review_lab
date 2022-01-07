@@ -12,10 +12,10 @@ const DestinationDetails = ({ destination }) => {
             {destination.city}, {destination.country}
           </h3>
           </Link>
-          
-          {destination.img.map((image, i) => (
+          <img src={destination.img[0]} alt="" />
+          {/* {destination.img.map((image, i) => (
             <img key={i} src={image}></img>
-          ))}
+          ))} */}
         </div>
       ) : null}
       

@@ -26,6 +26,19 @@ const main = async () => {
       It's a culture that is much celebrated by the Chinese themselves, as evidenced by the preservation of such important historic sites as the Forbidden City and the Summer Palace in Beijing, each recalling the days of China's emperors. And then, of course, there's the famous Great Wall, winding for 6,700 kilometers all the way from the Yellow Sea to Central Asia, while its countless shrines exude the spirit of age-old Eastern religions.
       Thanks to its size, China as a tourist destination offers limitless scope for exploration. Whether you choose to travel aboard a luxury cruise ship through the picturesque Yangtze gorges, visit a bustling city, or seek out the tranquility of an ancient temple, this country is full of incredible experiences and sightseeing possibilities.
       Discover fascinating, unusual, and adventurous things to do with our list of the top tourist attractions in China.`
+    },
+    {
+      city: 'Bangkok',
+      country: 'Thailand',
+      img: [
+        'https://media.nomadicmatt.com/bangkokguide.jpg',
+        'https://media.radissonhotels.net/image/destination-pages/localattraction/16256-118729-f63244685_3xl.jpg?impolicy=CustomCrop&cwidth=670&cheight=384'
+      ],
+      desc: `An increasing of tourists visiting Bangkok each year has proven that Bangkok is always a popular city for tourists.
+
+      For major tourist attractions in Bangkok, most of them are Historical sites or religious sites such as temples in Bangkok. There is beautiful architecture, wall painting and also important in History, such as Wat Phra Sri Rattanasamaram (Phra Kaew), Wat Phra Chetuphon Wimon Mangalaram (wat pho), wat arun Ratchawararam, Wat Sra Ket, and Phra Bor Banphot (Golden mountain), Wat Ratchanadda, Wat Traimit, Wat Benchamabophit, Wat Bowonniwet Vihara Suthasan, Wat Thep Wararam etc. 
+      
+      There are also other interesting places such as palaces, museums, parks, as well as various Shopping centres in Bangkok. There are both chilling places like Chatuchak Weekend Market, Sampeng Market, Yaowarat and Phahurat night market or luxury level such as many leading department stores in all areas of Bangkok as well.`
     }
   ];
   await Destination.insertMany(destinations);

@@ -1,13 +1,15 @@
 import {
   GetDestinations,
   GetDetails,
-  GetReviews
+  GetReviews,
+  PostReview
 } from '../../services/DestinationService';
 import {
   GET_DESTINATIONS,
   GET_DESTINATION_DETAILS,
   GET_REVIEWS,
-  ADD_NEW_REVIEW
+  ADD_NEW_REVIEW,
+  NEW_REVIEW
 } from '../types';
 
 export const LoadDestinations = () => {
@@ -55,7 +57,19 @@ export const LoadReviews = () => {
   };
 };
 
+export const PostNewReview = (review) => {
+  return async (dispatch) => {
+    try {
+      const newReview = await PostReview(review);
+      console.log(review);
+      dispatch({ type: ADD_NEW_REVIEW, payload: newReview });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
 export const CreateNewReview = (formValue) => ({
-  type: ADD_NEW_REVIEW,
+  type: NEW_REVIEW,
   payload: formValue
 });

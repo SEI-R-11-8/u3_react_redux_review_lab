@@ -27,9 +27,9 @@ export const GetReviews = async () => {
   }
 };
 
-export const PostReviews = async () => {
+export const PostReview = async (review) => {
   try {
-    const res = await Client.post('/reviews');
+    const res = await Client.post('/reviews', review);
     return res.data;
   } catch (error) {
     throw error;

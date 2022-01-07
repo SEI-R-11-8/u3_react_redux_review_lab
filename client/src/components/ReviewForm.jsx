@@ -1,15 +1,24 @@
 import React from 'react';
 
-const ReviewForm = (props) => {
+const ReviewForm = ({handleSubmit, handleUsernameChange,handleReviewChange, reviewState}) => {
   return (
     <form>
       <input
         type="text"
-        name="newTodo"
-        value={props.newTodo}
-        onChange={props.handleChange}
+        name="username"
+        placeholder='User name'
+        value={reviewState.username}
+        onChange={handleUsernameChange}
       />
-      <button type="submit" onClick={props.handleSubmit}>Add Todo</button>
+      <input
+        type="text"
+        name="review"
+        placeholder='Review'
+        value={reviewState.review}
+        onChange={handleReviewChange}
+      />                                                       
+     
+      <input type="submit" onClick={handleSubmit}/>
     </form>
   );
 };
