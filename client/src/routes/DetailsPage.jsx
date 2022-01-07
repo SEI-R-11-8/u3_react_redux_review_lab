@@ -43,11 +43,11 @@ function DetailsPage(props) {
 
       <form onSubmit={(e)=> {
         e.preventDefault()
-        props.createNewReview(props.match.params.locationId, {
-          author: props.reviewReducer.author,
+        const newReviewInfo = {author: props.reviewReducer.author,
           recommends: props.reviewReducer.recommends,
-          content: props.reviewReducer.content
-        })
+          content: props.reviewReducer.content}
+        props.createNewReview(props.match.params.locationId, newReviewInfo)
+        location.reviews.push(newReviewInfo)
       }}>
         <label htmlFor="author">Name</label>
         <input 
