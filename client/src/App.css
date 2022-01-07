@@ -57,3 +57,14 @@
 .postDetails span {
   margin-right: 1em;
 }
+
+/* Reviews */
+.postReview {
+  margin: 1em auto;
+  border: 1px solid black;
+  padding: 0 0 1em 0;
+  width: 60%;
+}
+.postReview span {
+  margin-right: 1em;
+}

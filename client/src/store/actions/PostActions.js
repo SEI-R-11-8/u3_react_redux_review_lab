@@ -1,4 +1,8 @@
-import { GetAllPosts, GetPostById, AddPostLike } from "../../services/PostService";
+import { 
+    GetAllPosts, 
+    GetPostById, 
+    AddPostLike
+} from "../../services/PostService";
 
 export const LoadAllPosts = () => {
     return async (dispatch) => {
