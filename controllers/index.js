@@ -1,3 +1,4 @@
+const { comment } = require('postcss');
 const { Location, Comment } = require('../models/Locations')
 
 
@@ -51,7 +52,6 @@ const createComment = async (req, res) => {
         const location = await Location.findById(req.params.id)
         location.comments.push(comment.id)
         location.save()
-        console.log(location)
         return res.status(201).json({ comment });
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -74,14 +74,14 @@ const updateLocation = async (req, res) => {
         return res.status(500).send(error.message);
     }
 }
-const deleteLocation = async (req, res) => {
+const deleteComment = async (req, res) => {
     try {
         const { id } = req.params;
-        const deleted = await Location.findByIdAndDelete(id)
+        const deleted = await Comment.findByIdAndDelete(id)
         if (deleted) {
-            return res.status(200).send("Location deleted");
+            return res.status(200).send("Comment deleted");
         }
-        throw new Error("Location not found");
+        throw new Error("Comment not found");
     } catch (error) {
         return res.status(500).send(error.message);
     }
@@ -94,7 +94,8 @@ const deleteLocation = async (req, res) => {
       getLocationById,
       createLocation,
       updateLocation,
-      deleteLocation,
+      deleteComment,
       getAllComments,
-      createComment
+      createComment,
+      
   }

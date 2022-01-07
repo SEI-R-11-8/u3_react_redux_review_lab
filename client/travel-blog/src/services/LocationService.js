@@ -20,3 +20,11 @@ export const GetLocations = async () => {
       throw error
     }
   }
+  export const PostComments = async () => {
+    try {
+      const res = await Client.post(`/locations/:id/comment`)
+      return res.data.locations
+    } catch (error) {
+      throw error
+    }
+  }

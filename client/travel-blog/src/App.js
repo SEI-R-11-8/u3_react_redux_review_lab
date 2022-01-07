@@ -4,7 +4,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import Header from './components/Header';
 import Location from './components/Location';
 import LocationCard from './components/LocationCard';
-import LocationDetails from './components/LocationDetails';
+import LocationDetails from './components/LocationComments';
 
 
 

@@ -10,7 +10,7 @@ router.get('/locations/:id', controllers.getLocationById)
 router.get('/locations', controllers.getAllLocations)
 router.get('/comments', controllers.getAllComments)
 router.put('/locations/update/:id', controllers.updateLocation)
-router.delete('/locations/:id', controllers.deleteLocation)
+router.delete('/comments/:id', controllers.deleteComment)
 router.post('/locations', controllers.createLocation)
 router.post('/locations/:id/comment', controllers.createComment)
 

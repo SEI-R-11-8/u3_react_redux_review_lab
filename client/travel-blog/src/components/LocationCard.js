@@ -1,15 +1,22 @@
 import React from 'react'
+import CommentCard from './CommentCard'
+import AddComment from './LocationComments'
 
 const LocationCard = (props) => {
   
   return (
       
-    <div className="location-card" onClick={props.onClick}>
-        <img className = 'img' src={props.img} alt="Game"/> 
-      <div className="info-wrapper flex-row space">
-        <h3>{props.name} {props.description} {props.comments}</h3>
+    <div className="location-card" >
+      <div className="info-wrapper flex-row space" onClick={props.onClick}>
+        <h3>{props.name} {props.description} <br/> </h3>
+        <img className = 'img' src={props.img} alt="image"/> 
+        </div>
+        <div>
+        <AddComment
+        id = {props.id}/>
       </div>
     </div>
+    
     
   )
 }
