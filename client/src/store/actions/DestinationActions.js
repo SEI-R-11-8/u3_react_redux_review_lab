@@ -6,7 +6,8 @@ import {
 import {
   GET_DESTINATIONS,
   GET_DESTINATION_DETAILS,
-  GET_REVIEWS
+  GET_REVIEWS,
+  ADD_NEW_REVIEW
 } from '../types';
 
 export const LoadDestinations = () => {
@@ -53,3 +54,8 @@ export const LoadReviews = () => {
     }
   };
 };
+
+export const CreateNewReview = (formValue) => ({
+  type: ADD_NEW_REVIEW,
+  payload: formValue
+});
