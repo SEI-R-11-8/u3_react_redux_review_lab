@@ -9,7 +9,7 @@ function App(props) {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/details/:id" element={<CityDetail props={props} />} />
+        <Route path="/details/:id" element={<CityDetail />} />
       </Routes>
     </div>
   );
