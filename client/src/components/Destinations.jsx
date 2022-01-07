@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { LoadDestinations } from '../store/actions/DestinationActions';
 
 const mapStateToProps = ({ destinationState, reviewState }) => {
@@ -24,8 +24,21 @@ const Destinations = (props) => {
 		<div className='Destinations'>
 			Hello from Destinations!
 			{props.destinationState.destinations.map((destination) => (
-				<div>
-					<Destinations key={destination._id} name={destination.name} />
+				<div
+					key={destination._id}
+					onClick={() => props.history.push(`/destinations/${destination.id}`)}>
+					<h2>Destination: {destination.destination}</h2>
+
+					<div className='destionation-div-item'>City: {destination.city}</div>
+					<div className='destionation-div-item'>
+						State: {destination.state}
+					</div>
+					<div className='destionation-div-item'>
+						Country: {destination.country}
+					</div>
+					<div className='destionation-div-item'>
+						Description: {destination.content}
+					</div>
 				</div>
 			))}
 		</div>
