@@ -13,7 +13,7 @@ const mapDispatchtoProps = (dispatch) => {
 }
 
 const ReviewCard = (props) => {
-  console.log(props.photoUrl)
+
   return (
   <div>
     <img src={`${props.photoUrl}`}></img>

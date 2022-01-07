@@ -1,8 +1,23 @@
-const { GET_REVIEWS, ADD_REVIEW, NEW_REVIEW } = require('../types');
+const {
+  GET_REVIEWS,
+  ADD_REVIEW,
+  NEW_REVIEW,
+  SET_FORM,
+  SUBMIT_FORM
+} = require('../types');
 
 const iState = {
   reviews: [],
-  newReview: ''
+  newReview: '',
+  form: {
+    locationName: '',
+    content: '',
+    description: '',
+    address: '',
+    likes: 0,
+    photoUrl: '',
+    comments: []
+  }
 };
 
 const ReviewReducer = (state = iState, action) => {
@@ -17,6 +32,22 @@ const ReviewReducer = (state = iState, action) => {
       };
     case NEW_REVIEW:
       return { ...state, newReview: action.payload };
+    case SET_FORM:
+      return { ...state, form: action.payload };
+    case SUBMIT_FORM:
+      return {
+        ...state,
+        reviews: [...state.reviews, action.payload]
+        // form: {
+        //   locationName: '',
+        //   content: '',
+        //   description: '',
+        //   address: '',
+        //   likes: 0,
+        //   photoUrl: '',
+        //   comments: []
+        // }
+      };
     default:
       return { ...state };
   }
