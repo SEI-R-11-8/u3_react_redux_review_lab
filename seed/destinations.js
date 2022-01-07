@@ -6,7 +6,7 @@ const main = async () => {
   const destinations = [
     {
       city: 'Tokyo',
-      coutry: 'Japan',
+      country: 'Japan',
       img: [
         'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dG9reW98ZW58MHx8MHx8&w=1000&q=80',
         'https://media.istockphoto.com/photos/mt-fuji-and-tokyo-skyline-picture-id904453184?b=1&k=20&m=904453184&s=170667a&w=0&h=rwzxuUV5F3Sr8qm9eqE09ZrknCIGe2ZgKmyxo2fIDgo='
@@ -17,7 +17,7 @@ const main = async () => {
     },
     {
       city: 'Beijing',
-      coutry: 'China',
+      country: 'China',
       img: [
         'https://www.planetware.com/wpimages/2020/01/china-in-pictures-beautiful-places-to-photograph-the-great-wall.jpg',
         'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5df7fb014e2917000783339f%2FChina-is-projected-to-surpass-the-U-S--as-the-world-s-largest-economy-in-the-next%2F960x0.jpg%3Ffit%3Dscale'

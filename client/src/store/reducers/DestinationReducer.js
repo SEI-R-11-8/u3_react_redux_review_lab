@@ -8,7 +8,6 @@ const DestinationReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_DESTINATIONS:
       return { ...state, destinations: action.payload };
-
     default:
       return { ...state };
   }

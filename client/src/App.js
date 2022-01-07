@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Destinations from './pages/Destinations';
+import DestinationPage from './pages/DestinationPage';
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
       <Header />
 
       <Route exact path="/" component={Home} />
+      <Route
+        exact
+        path="/destinations/:id"
+        component={(props) => <DestinationPage {...props} />}
+      />
       <Route exact path="/about" component={About} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/destinations" component={Destinations} />

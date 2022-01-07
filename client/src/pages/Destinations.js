@@ -1,10 +1,33 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import DestinationDetails from '../components/DestinationDetails';
 import { LoadDestinations } from '../store/actions/DestinationActions';
 
-const Destinations = () => {
-  return <div>List of reviews</div>;
+const mapStateToProps = ({ destinationState }) => {
+  return { destinationState };
 };
 
-export default Destinations;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchDestinations: () => dispatch(LoadDestinations())
+  };
+};
+
+const Destinations = ({ destinationState, fetchDestinations }) => {
+  useEffect(() => {
+    fetchDestinations();
+  }, []);
+  const destinations = destinationState.destinations;
+
+  return (
+    <div>
+      {destinations
+        ? destinations.map((destination, i) => (
+            <DestinationDetails destination={destination} key={i} />
+          ))
+        : null}
+    </div>
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Destinations);
