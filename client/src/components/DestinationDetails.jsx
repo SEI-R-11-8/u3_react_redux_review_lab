@@ -4,18 +4,16 @@ import { Link } from 'react-router-dom';
 const DestinationDetails = ({ destination }) => {
   console.log(destination);
   return (
-    <div>
+    <div className="destination-wrapper">
       {destination ? (
-        <div>
-          <Link to={`/destinations/${destination._id}`}>
-          <h3>
+        <div className="destination--wraper2">
+          <Link className="city--country--name"  to={`/destinations/${destination._id}`}>
+          <h3 className='city--conutry--text'>
             {destination.city}, {destination.country}
           </h3>
           </Link>
-          <img src={destination.img[0]} alt="" />
-          {/* {destination.img.map((image, i) => (
-            <img key={i} src={image}></img>
-          ))} */}
+          <img className="city--avatar"src={destination.img[0]} alt="" />
+       
         </div>
       ) : null}
       
@@ -24,3 +22,5 @@ const DestinationDetails = ({ destination }) => {
 };
 
 export default DestinationDetails;
+
+// style={{textDecoration: 'none', color: 'white'}}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewForm = ({handleSubmit, handleUsernameChange,handleReviewChange, reviewState}) => {
   return (
-    <form>
+    <form className="form">
       <input
         type="text"
         name="username"
@@ -10,7 +10,7 @@ const ReviewForm = ({handleSubmit, handleUsernameChange,handleReviewChange, revi
         value={reviewState.username}
         onChange={handleUsernameChange}
       />
-      <input
+      <input className="review-input"
         type="text"
         name="review"
         placeholder='Review'
@@ -18,7 +18,7 @@ const ReviewForm = ({handleSubmit, handleUsernameChange,handleReviewChange, revi
         onChange={handleReviewChange}
       />                                                       
      
-      <input type="submit" onClick={handleSubmit}/>
+      <input className="btn "type="submit" onClick={handleSubmit}/>
     </form>
   );
 };

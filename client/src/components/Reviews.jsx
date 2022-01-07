@@ -23,12 +23,12 @@ const Reviews = ({ reviewState, fetchReviews, destinationId }) => {
   });
 
   return (
-    <div>
+    <div className='reviews'>
       {filteredReviews.map((review ,i) => (
         <div className="review" key={i}>
        
-          <p>{review.username}</p>
-          <p>{review.review}</p>
+          <p className='username'>{review.username}</p>
+          <p className='review--text'>{review.review}</p>
         </div>
       ))}
     </div>

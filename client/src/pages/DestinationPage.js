@@ -67,10 +67,10 @@ const DestinationPage = ({
   return (
     <div>
       {details && reviewState ? (
-        <div>
+        <div className="destination-details">
           <h1>{details.city}</h1>
           <h3>{details.country}</h3>
-          <Carousel>
+          <Carousel className="carousel">
             {details.img.map((image, i) => (
               <img key={i} src={image} alt="image" />
             ))}

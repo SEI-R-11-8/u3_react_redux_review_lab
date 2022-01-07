@@ -20,7 +20,7 @@ const Destinations = ({ destinationState, fetchDestinations }) => {
   const destinations = destinationState.destinations;
 
   return (
-    <div>
+    <div className="destinations">
       {destinations
         ? destinations.map((destination, i) => (
             <DestinationDetails destination={destination} key={i} />

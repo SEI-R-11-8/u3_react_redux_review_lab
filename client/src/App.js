@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Header />
+      {/* <Header /> */}
 
       <Route exact path="/" component={Home} />
       <Route
