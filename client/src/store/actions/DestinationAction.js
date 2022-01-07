@@ -1,5 +1,5 @@
-import { GetDestinations } from "../../services/DestinationService";
-import { GET_DESTINATIONS } from "../types";
+import { GetDestinationById, GetDestinations } from "../../services/DestinationService";
+import { GET_DESTINATIONS, GET_DESTINATION_BY_ID } from "../types";
 
 export const LoadDestinations = () => {
     return async (dispatch) => {
@@ -7,10 +7,25 @@ export const LoadDestinations = () => {
             const destinations = await GetDestinations()
             dispatch({
                 type: GET_DESTINATIONS,
-                payload: destinations
+                payload: destinations.destination
             })
             // console.log(destinations)
         } catch (error) {
+            throw error
+        }
+    }
+}
+
+export const LoadDestinationsById = (id) => {
+    return async (dispatch) => {
+        try {
+            const destination = await GetDestinationById(id)
+            dispatch({
+                type: GET_DESTINATION_BY_ID,
+                payload: destination
+            })
+            console.log(destination)
+        }catch(error){
             throw error
         }
     }

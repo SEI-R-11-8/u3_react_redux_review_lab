@@ -8,3 +8,12 @@ export const GetDestinations = async () => {
         throw error
     }
 }
+
+export const GetDestinationById = async (destinationId) => {
+    try {
+        const response = await Client.get(`/destinations/${destinationId}`)
+        return response.data
+    } catch (error) {
+        throw error
+    }
+}

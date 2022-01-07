@@ -28,14 +28,10 @@ const Destinations = (props) => {
     return(
         <div>
             these are destinations
-            {props.destinationState.destinations.destination.map( (e) => (
+            {props.destinationState.destinations.map( (e) => (
                 <div key={e._id}>
                         <Link to={`/destinations/${e._id}`}> {e.name} </Link>
                     <img src={`${e.image}`}/>
-                    <div> {e.details} </div>
-                    <div> <button> Like </button> {e.likes} </div>
-                    <div> Comments: </div>
-                    <div> Reviews: </div>
                 </div>
             ))}
         </div>

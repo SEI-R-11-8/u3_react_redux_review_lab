@@ -1,25 +1,10 @@
-import React, {useEffect } from 'react'
-import { LoadDestinations } from '../store/actions/DestinationAction'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
 
-const mapStateToProps = ({ destinationState }) => {
-    return { destinationState }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchDestinations: () => dispatch(LoadDestinations())
-    }
-}
 
-const Home = (props) => {
+const Home = () => {
 
-    useEffect(() => {
-        props.fetchDestinations()
-    }, [])
-    
     return (
         <div>
             this is home
@@ -27,4 +12,4 @@ const Home = (props) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
