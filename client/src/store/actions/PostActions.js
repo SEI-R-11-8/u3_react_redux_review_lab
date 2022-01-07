@@ -1,6 +1,6 @@
-import { GetPosts, GetComments, GetOnePost, DelComment } from '../../services/PostService'
+import { GetPosts, GetComments, GetOnePost, DelComment, postComment } from '../../services/PostService'
 
-import { GET_POSTS, GET_COMMENTS, GET_ONE_POST, DELETE_COMMENT } from '../types'
+import { GET_POSTS, GET_COMMENTS, GET_ONE_POST, EDIT_NAME, EDIT_TEXT, EDIT_RATING, EDIT_ID } from '../types'
 
 export const LoadPosts = () => {
   return async (dispatch) => {
@@ -48,12 +48,38 @@ export const DeleteComment = (id) => {
   return async (dispatch) => {
     try {
       const deletecomment = await DelComment(id)
-      // dispatch({
-      //   type: DELETE_COMMENT,
-      //   payload: deletecomment
-      // })
     } catch (err) {
       throw err
     }
   }
 }
+
+export const PostComment = (body, id) => {
+  return async (dispatch) => {
+    try {
+      const postcomment = await postComment(body, id)
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
+export const ChangeName = (value) => ({
+  type: EDIT_NAME,
+  payload: value
+})
+
+export const ChangeText = (value) => ({
+  type: EDIT_TEXT,
+  payload: value
+})
+
+export const ChangeRating = (value) => ({
+  type: EDIT_RATING,
+  payload: value
+})
+
+export const ChangeId = (value) => ({
+  type: EDIT_ID,
+  payload: value
+})

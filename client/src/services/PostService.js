@@ -34,3 +34,11 @@ export const DelComment = async (id) => {
     throw err
   }
 }
+
+export const postComment = async (value, id) => {
+  try {
+    const res = await Client.post(`/comments/${id}`, value)
+  } catch (err) {
+    throw err
+  }
+}
