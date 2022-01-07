@@ -44,10 +44,13 @@ const updateLocation = async (req, res) => {
       { new: true },
       (err, location) => {
         if (err) {
-          res.status(500).send(err);
+          res.status(500);
+          console.log(err);
+          console.log('error in 500');
         }
         if (!location) {
-          res.status(500).send('no porcelain throne found');
+          res.status(500);
+          console.log('no porcelain throne found');
         }
         return res.status(200).json(location);
       }
