@@ -66,6 +66,7 @@ const getLocationById = async (req, res) => {
   try {
     const { locationId } = req.params;
     const location = await Location.findOne({ _id: locationId });
+    await location.populate('reviews');
     return res.status(200).send(location);
   } catch (error) {
     return res.status(500).send({ msg: 'failed' });
