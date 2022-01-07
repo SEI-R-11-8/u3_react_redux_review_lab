@@ -5,9 +5,10 @@ export const LoadCities = () => {
   return async (dispatch) => {
     try {
       const cities = await GetCities();
+      //console.log(cities.data.cities);
       dispatch({
         type: GET_CITIES,
-        payload: cities,
+        payload: cities.data.cities,
       });
     } catch (error) {
       throw error;

@@ -39,10 +39,10 @@ const updateComment = async (req, res) => {
       { new: true },
       (err, comment) => {
         if (err) {
-          res.status(500).send(err);
+          res.status(500);
         }
         if (!comment) {
-          res.status(500).send("Comment not found!");
+          res.status(500);
         }
       }
     );

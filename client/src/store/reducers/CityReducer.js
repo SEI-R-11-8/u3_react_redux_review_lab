@@ -1,4 +1,4 @@
-const GET_CITIES = require("../types");
+const { GET_CITIES } = require("../types");
 
 const initialState = {
   cities: [],
@@ -7,7 +7,7 @@ const initialState = {
 const CityReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CITIES:
-      console.log(action);
+      //console.log(action.payload);
       return { ...state, cities: action.payload };
 
     default:
