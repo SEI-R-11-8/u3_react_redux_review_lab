@@ -9,11 +9,11 @@ export const GetBeaches = async () => {
   }
 };
 
-// export const GetDepartmentProducts = async (departmentId) => {
-//   try {
-//     const res = await Client.get(`/departments/${departmentId}`)
-//     return res.data.Products
-//   } catch (error) {
-//     throw error
-//   }
-// }
+export const CreateBeach = async () => {
+  try {
+    const res = await Client.post(`/addbeach`);
+    return res.data.beaches;
+  } catch (error) {
+    throw error;
+  }
+};

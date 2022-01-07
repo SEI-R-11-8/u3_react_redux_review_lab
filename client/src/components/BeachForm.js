@@ -1,24 +1,72 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import {
+  AddBeachAction,
+  CreateNewBeach,
+  LoadBeaches
+} from '../store/actions/BeachActions';
 
-const BeachForm = () => {
+const mapStateToProps = (state) => {
+  return { beachState: state.beachState };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchBeaches: () => dispatch(LoadBeaches()),
+    addBeach: () => dispatch(AddBeachAction()),
+    createBeach: () => dispatch(CreateNewBeach())
+  };
+};
+
+const BeachForm = (props) => {
+  const handleChange = (event) => {
+    props.createBeach({
+      ...props.beachState.newBeach,
+      [event.target.name]: event.target.value
+    });
+    console.log(props.beachState.newBeach);
+    console.log(props.beachState.beach);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.addBeach(props.beachState.beach);
+    // console.log(props.beachState.newBeach);
+  };
+
   return (
     <div>
       <form className="form">
-        <input type="text" name="beachName" placeholder={'Name'} />
-        <input type="text-area" name="review" placeholder={'Review'} />
-        <input type="text-area" name="address" placeholder={'Address'} />
-        <input type="text-area" name="image" placeholder={'Image'} />
-        <button className="button">Create Beach</button>
+        <input
+          type="text"
+          name="beachName"
+          placeholder={'Name'}
+          onChange={handleChange}
+        />
+        <input
+          type="text-area"
+          name="review"
+          placeholder={'Review'}
+          onChange={handleChange}
+        />
+        <input
+          type="text-area"
+          name="address"
+          placeholder={'Address'}
+          onChange={handleChange}
+        />
+        <input
+          type="text-area"
+          name="image"
+          placeholder={'Image'}
+          onChange={handleChange}
+        />
+        <button className="button" onClick={handleSubmit}>
+          Create Beach
+        </button>
       </form>
     </div>
   );
 };
 
-export default BeachForm;
-
-// beachName: { type: String, required: true },
-// review: { type: String, required: true },
-// address: { type: String, required: true },
-// image: { type: String, required: true },
-// comments: { type: Array, required: true },
-// likes: { type: Number, required: true }
+export default connect(mapStateToProps, mapDispatchToProps)(BeachForm);

@@ -1,9 +1,10 @@
 import './styles/App.css';
 import Beaches from './components/Beaches';
 import BeachForm from './components/BeachForm';
+
 // import { Route } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="App">
       <h3>Rhode Island Beach Reviews</h3>
