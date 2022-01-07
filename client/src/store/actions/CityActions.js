@@ -16,13 +16,13 @@ export const LoadCities = () => {
   };
 };
 
-export const LoadCityByID = () => {
+export const LoadCityByID = (id) => {
   return async (dispatch) => {
     try {
-      const city = await GetCityById();
+      const city = await GetCityById(id);
       dispatch({
         type: GET_CITY,
-        payload: city,
+        payload: city.data.city,
       });
     } catch (error) {
       throw error;

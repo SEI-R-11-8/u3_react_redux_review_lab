@@ -3,8 +3,6 @@ import {connect} from "react-redux"
 import { LoadCities } from '../store/actions/CityActions';
 import { Link } from 'react-router-dom';
 
-
-
 const mapStateToProps = ({ cityState }) => {
     return { cityState };
   };
@@ -21,8 +19,6 @@ const Home = (props) => {
         props.fetchCities() 
     },[])
 
-    
-    
     return (
         <div>
             <h1>Cities of the World!</h1>

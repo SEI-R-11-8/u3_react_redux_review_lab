@@ -10,9 +10,9 @@ export const GetCities = async () => {
   }
 };
 
-export const GetCityById = async () => {
+export const GetCityById = async (id) => {
   try {
-    const res = await Client.get("/city/:id");
+    const res = await Client.get(`/city/${id}`);
     return res;
   } catch (error) {
     throw error;
