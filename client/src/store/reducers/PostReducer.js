@@ -15,7 +15,7 @@ const PostReducer = (state = initialState, action) => {
     case GET_POSTS:
       return { ...state, posts: action.payload }
     case NEW_POST:
-      return { ...state, newPost: action.payload }
+      return { ...state, newPost: {...action.payload, likes: 0} }
     default:
       return { ...state }  
   }
