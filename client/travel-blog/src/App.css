@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+}
+
+nav{
+  border-radius: 5px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  font-size: 2vw;
+  font-weight: bold;
+}
+.nav   {
+  margin: 0 1em;
+  color: rgb(3, 20, 36); 
+  text-decoration: none;
+}
+.nav:hover{
+  transform: scale(1.2);
+}
+.items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 1rem;
+ }
+.item-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 10em;
+  max-width: auto;
+}
+.img{
+  height:30vmin ;
+  width: auto;
+  border-radius: 1vmin;
+}
