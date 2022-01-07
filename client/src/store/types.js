@@ -1,5 +1,8 @@
 export const GET_CITIES = 'GET_CITIES';
 export const GET_CITY_REVIEWS = 'GET_CITY_REVIEWS';
-export const CREATE_CITY_REVIEW = 'CREATE_CITY_REVIEW';
+export const ADD_CITY_REVIEW = 'ADD_CITY_REVIEW';
+export const NEW_CITY_REVIEW = 'NEW_CITY_REVIEW';
 export const CITY_LOADING_TYPE = 'CITY_LOADING_TYPE';
 export const REVIEW_LOADING_TYPE = 'REVIEW_LOADING_TYPE';
+export const GET_CITY = 'GET_CITY';
+export const GET_REVIEW = 'GET_REVIEW';

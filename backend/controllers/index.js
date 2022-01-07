@@ -18,7 +18,7 @@ const createReview = async (req, res) => {
   try {
     console.log(req.body);
     const review = await new Review(req.body);
-    await experience.save();
+    await review.save();
     return res.status(201).json({
       review
     });

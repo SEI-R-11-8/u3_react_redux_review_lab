@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { LoadReviews } from '../store/actions/CityActions'
-import { AddReview, LoadReview } from '../store/actions/CityActions'
 
 
 
@@ -23,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-const Reviews = (props) => {
+const CityDetails = (props) => {
     console.log(props)
     useEffect(() => {
         props.fetchReviews(props.match.params.id)
@@ -31,7 +30,7 @@ const Reviews = (props) => {
 
     return (
         <div>
-
+            <h1>Reviews</h1>
         {props.reviewState.reviews.map((review) => (
         <ul key={review.id}> {review.review}</ul>
         ))}
@@ -40,4 +39,4 @@ const Reviews = (props) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (Reviews)
+export default connect(mapStateToProps, mapDispatchToProps) (CityDetails)

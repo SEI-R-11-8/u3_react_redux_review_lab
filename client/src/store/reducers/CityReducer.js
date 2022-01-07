@@ -1,4 +1,9 @@
-const { CITY_LOADING_TYPE, GET_CITIES, GET_CITY_REVIEWS } = require('../types');
+const {
+  CITY_LOADING_TYPE,
+  GET_CITIES,
+  GET_CITY_REVIEWS,
+  GET_CITY
+} = require('../types');
 
 const iState = {
   cities: [],
@@ -11,6 +16,8 @@ const CityReducer = (state = iState, action) => {
       return { ...state, citiesLoading: action.payload };
     case GET_CITIES:
       return { ...state, cities: action.payload };
+    case GET_CITY:
+      return { ...state, city: action.payload };
     default:
       return { ...state };
   }

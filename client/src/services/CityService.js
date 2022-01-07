@@ -3,7 +3,7 @@ import Client from './';
 export const GetCities = async () => {
   try {
     const res = await Client.get('/cities');
-    return res.data;
+    return res.data.cities;
   } catch (error) {
     throw error;
   }
@@ -12,7 +12,7 @@ export const GetCities = async () => {
 export const GetCityById = async (cityId) => {
   try {
     const res = await Client.get(`/cities/details/${cityId}`);
-    return res.data.Cities;
+    return res.data.cities;
   } catch (error) {
     throw error;
   }
@@ -21,7 +21,7 @@ export const GetCityById = async (cityId) => {
 export const GetReviews = async () => {
   try {
     const res = await Client.get('/reviews');
-    return res.data;
+    return res.data.reviews;
   } catch (error) {
     throw error;
   }
@@ -29,17 +29,17 @@ export const GetReviews = async () => {
 export const GetReviewById = async (reviewId) => {
   try {
     const res = await Client.get(`/reviews/details/${reviewId}`);
-    return res.data.Reviews;
+    return res.data.reviews;
   } catch (error) {
     throw error;
   }
 };
 
-// export const CreateCityReview = async () => {
-//   try {
-//     const res = await Client.post('/reviews');
-//     return res.data.Reviews;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const CreateReview = async () => {
+  try {
+    const res = await Client.post('/reviews/');
+    return res.data.reviews;
+  } catch (error) {
+    throw error;
+  }
+};
