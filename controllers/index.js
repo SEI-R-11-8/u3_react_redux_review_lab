@@ -12,7 +12,7 @@ const createReview = async (req, res) => {
     location.reviews.push(addedReview._id);
     await location.save();
 
-    return res.status(201).send({ msg: 'success' });
+    return res.status(201).send(addedReview);
   } catch (error) {
     return res.status(500).send({ msg: 'failed' });
   }
@@ -68,6 +68,7 @@ const getLocationById = async (req, res) => {
   try {
     const { locationId } = req.params;
     const location = await Location.findOne({ _id: locationId });
+    await location.populate('reviews');
     return res.status(200).send(location);
   } catch (error) {
     return res.status(500).send({ msg: 'failed' });
