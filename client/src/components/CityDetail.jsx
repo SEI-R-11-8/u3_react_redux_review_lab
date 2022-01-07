@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 
 export default function CityDetail(props) {
     console.log(props)
+    let {id} = useParams()
+    console.log(id)
 
 
     return (

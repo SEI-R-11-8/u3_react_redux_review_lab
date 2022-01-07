@@ -8,7 +8,10 @@ router.get("/", (req, res) => res.send("This is root!"));
 
 router.get("/cities", controllers.getAllCities);
 
+router.get("/city/:id", controllers.getCity);
+
 //////
+
 router.post("/comments", controllers.postComment);
 
 router.get("/comments", controllers.getAllComments);

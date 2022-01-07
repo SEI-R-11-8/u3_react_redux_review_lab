@@ -9,6 +9,16 @@ const getAllCities = async (req, res) => {
   }
 };
 
+const getCity = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const city = await City.findById(id);
+    return res.status(200).json({ city });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 /////////////
 
 const postComment = async (req, res) => {
@@ -93,4 +103,5 @@ module.exports = {
   postComment,
   updateComment,
   deleteComment,
+  getCity,
 };
