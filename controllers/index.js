@@ -10,7 +10,7 @@ const createReview = async (req, res) => {
     const location = await Location.findOne({ _id: locationId });
     location.reviews.push(addedReview._id);
     await location.save();
-    return res.status(201).send({ msg: 'success' });
+    return res.status(201).send(addedReview);
   } catch (error) {
     return res.status(500).send({ msg: 'failed' });
   }
