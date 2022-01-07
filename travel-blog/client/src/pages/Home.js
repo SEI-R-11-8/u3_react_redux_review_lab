@@ -1,7 +1,8 @@
-import { PromiseProvider } from 'mongoose';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAllReviews } from '../store/actions/ReviewActions';
+import ReviewCard from '../components/ReviewCard';
+import ReviewForm from '../components/ReviewForm';
 
 const mapStateToProps = ({ reviewState }) => {
   return { reviewState };
@@ -16,8 +17,24 @@ const Home = (props) => {
   useEffect(() => {
     props.fetchReviews();
   }, []);
-  console.log(props.reviewState);
-  return <div>This is Home</div>;
+  console.log(props.reviewState.reviews);
+  return (
+    <div>
+      <div>This is home</div>
+      <ReviewForm />
+      {props.reviewState.reviews.map((review) => (
+        <div className="review-card" key={review._id}>
+          <ReviewCard
+            locationName={review.locationName}
+            address={review.address}
+            content={review.content}
+            photoUrl={review.photoUrl}
+            likes={review.likes}
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchtoProps)(Home);

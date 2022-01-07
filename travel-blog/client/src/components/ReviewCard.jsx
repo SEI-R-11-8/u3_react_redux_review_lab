@@ -12,8 +12,18 @@ const mapDispatchtoProps = (dispatch) => {
   }
 }
 
-const ReviewCard = () => {
-  return <div></div>
+const ReviewCard = (props) => {
+  console.log(props.photoUrl)
+  return (
+  <div>
+    <img src={`${props.photoUrl}`}></img>
+    <h2>{props.locationName}</h2>
+    <h3>{props.address}</h3>
+    <p>{props.content}</p>
+    <div className="likes-count">Likes: {props.likes}</div>
+
+    </div>
+    )
 }
 
 export default connect(mapStateToProps,mapDispatchtoProps)(ReviewCard)
