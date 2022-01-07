@@ -1,6 +1,25 @@
 const { City } = require('../models/index');
 const { Review } = require('../models/index');
 
+const getReviewByCityID = async (req, res) => {
+  try {
+    const { city_id } = req.params;
+    const thiscity = await Review.find({ city_id: city_id }).populate(
+      'city_id'
+    );
+    console.log('test' + thiscity);
+    if (thiscity) {
+      return res.status(200).json({ thiscity });
+    }
+    return res.status(404).send(`City with the specified ID does not exists`);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500);
+  }
+};
+
+////////////////// get review by city id
+
 const createCity = async (req, res) => {
   try {
     const city = await new City(req.body);
@@ -156,5 +175,6 @@ module.exports = {
   deleteCity,
   deleteReview,
   updateReview,
-  updateCity
+  updateCity,
+  getReviewByCityID
 };

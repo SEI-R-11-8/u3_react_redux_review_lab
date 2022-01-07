@@ -7,7 +7,7 @@ import {
 } from '../types';
 
 const iState = {
-  reviews: [],
+  reviews: '',
   reviewsLoading: ''
 };
 
@@ -16,8 +16,10 @@ const ReviewReducer = (state = iState, action) => {
     case REVIEW_LOADING_TYPE:
       return { ...state, reviewsLoading: action.payload };
     case GET_CITY_REVIEWS:
-      return { ...state, review: action.payload };
+      return { ...state, reviews: action.payload };
     default:
       return { ...state };
   }
 };
+
+export default ReviewReducer;

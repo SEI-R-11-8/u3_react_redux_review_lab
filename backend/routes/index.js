@@ -24,4 +24,10 @@ router.delete('/cities/details/:_id', controllers.deleteCity);
 
 router.delete('/reviews/details/:_id', controllers.deleteReview);
 
+///////////////
+
+router.get('/reviews/:city_id', controllers.getReviewByCityID);
+
+//////////////
+
 module.exports = router;
