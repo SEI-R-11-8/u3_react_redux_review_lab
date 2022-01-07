@@ -1,15 +1,17 @@
-// EXAMPLE ROUTER TEMPLATE SETUP ** CHANGE ACCORDINGLY **
+const { Router } = require('express')
+const controllers = require('../controllers');
+const router = Router();
 
-// const { Router } = require('express')
-// const controllers = require('../controllers');
-// const router = Router();
+router.get('/', (request, response) => response.send('This is working!'));
 
-// router.get('/', (request, response) => response.send('This is working!'));
+router.get('/posts', controllers.getPosts)
 
-// router.post('/user', controllers.createUser)
+router.get('/reviews', controllers.getReviews)
 
-// router.put('/playlist/:id', controllers.updatePlaylist)
+// router.post('/reviews/', controllers.createReview)
 
-// router.delete('/playlist/:id', controllers.deletePlaylist)
+// router.put('/reviews/:id', controllers.updateReview)
 
-// module.exports = router;
+// router.delete('/reviews/:id', controllers.deleteReview)
+
+module.exports = router;

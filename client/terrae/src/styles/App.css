@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+body {
+	background-image: url('../images/land_island.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-position: center; */
+	/* position: absolute; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+	background-image: url('../images/Terrae.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: rgba(22, 26, 45, 0.386);
+	margin-top: -40px;
+	cursor: grab;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.skater {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50vw;
+	justify-content: center;
+	margin: -40px auto;
+	padding: 10px;
+	cursor: grab;
+	opacity: 0.8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* .navbar {
+	min-height: 15vh;
+	display: flex;
+	flex-direction: column;
+} */
+
+li {
+	background-color: rgba(92, 109, 184, 0.386);
+	display: inline-block;
+	list-style-type: none;
+	font-family: 'Syncopate', sans-serif;
+	font-size: 20px;
+	letter-spacing: 3px;
+	position: relative;
+	margin-top: 200px;
+	margin-left: 65px;
+	padding: 5px;
+	text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+a:link,
+a:visited {
+	font-weight: bold;
+	color: #fabb51;
+	text-align: center;
+	padding: 14px 30px;
+	margin: 30px;
+	text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:hover,
+a:active {
+	color: #7cd1b8;
+}
+
+.l_shoes {
+	display: flex;
+	flex-wrap: wrap;
+	width: 20vw;
+	justify-content: center;
+	margin: 20px auto;
+	padding: 10px;
+	cursor: grab;
+	opacity: 0.8;
 }

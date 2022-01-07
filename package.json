@@ -1,30 +1,29 @@
 {
-  "name": "u3_react_redux_review_lab",
-  "version": "1.0.0",
-  "description": "![React](https://blog.codecentric.de/files/2017/12/Bildschirmfoto-2017-12-01-um-08.53.32.png)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Terra-06/u3_react_redux_review_lab.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Terra-06/u3_react_redux_review_lab/issues"
-  },
-  "homepage": "https://github.com/Terra-06/u3_react_redux_review_lab#readme",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "mongoose": "^6.1.5",
-    "nodemon": "^2.0.15",
-    "react-router-dom": "^6.2.1",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1"
-  }
+	"name": "u3_react_redux_review_lab",
+	"version": "1.0.0",
+	"description": "![React](https://blog.codecentric.de/files/2017/12/Bildschirmfoto-2017-12-01-um-08.53.32.png)",
+	"main": "server.js",
+	"scripts": {
+		"dev": "concurrently \"nodemon server.js\" \"cd ./client/terrae  && npm start \" ",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Terra-06/u3_react_redux_review_lab.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Terra-06/u3_react_redux_review_lab/issues"
+	},
+	"homepage": "https://github.com/Terra-06/u3_react_redux_review_lab#readme",
+	"dependencies": {
+		"concurrently": "^7.0.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.2",
+		"mongoose": "^6.1.5",
+		"nodemon": "^2.0.15"
+	}
 }

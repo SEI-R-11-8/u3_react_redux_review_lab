@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom'
 import './styles/index.css'
 import App from './App'
 import { Provider } from 'react-redux'
-import store from './store'
+import store from './store/index'
 import { BrowserRouter } from 'react-router-dom'
+import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>

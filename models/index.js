@@ -1,11 +1,13 @@
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// ALL Models/Schemas go in the same folder as this index (lowercase)
+const Review = require('./reviews')
+const Post = require('./posts')
 
-// const PriceSchema = require('./Price') <!~~ example Schema require
 
-// const Price = mongoose.model('price', PriceSchema) <!~~ example module for export
+const Reviews = mongoose.model('reviews', Review)
+const Posts = mongoose.model('posts', Post)
 
-// module.exports = {
-//    Price <!~~ example module export with commas
-// }
+module.exports = {
+   Reviews,
+   Posts
+}
