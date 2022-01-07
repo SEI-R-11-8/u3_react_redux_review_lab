@@ -17,3 +17,21 @@ export const GetDestinationsBYID = async (destinationId) => {
         throw error
     }
 }
+
+// export const CreateDestination = async () => {
+//     try {
+//         const res = await Client.post(`/destinations/${destinationId}`)
+//         return res.data.destinations
+//     } catch (error) {
+//         throw error
+//     }
+// }
+
+// export const DeleteDestination = async () => {
+//     try {
+//         const res = await Client.delete(`/destinations/${destinationId}`)
+//         return res.data.destinations
+//     } catch (error) {
+//         throw error
+//     }
+// }

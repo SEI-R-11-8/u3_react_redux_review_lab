@@ -9,7 +9,7 @@ export const GetReviews = async () => {
     }
 }
 
-export const GetReviewsBYID = async (reviewId) => {
+export const GetReviewsBYId = async (reviewId) => {
     try {
         const res = await Client.get(`/reviews/${reviewId}`)
         return res.data.reviews

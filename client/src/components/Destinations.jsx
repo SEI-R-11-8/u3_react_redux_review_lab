@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function DisplayDestinations(props) {
+    debugger
 
     useEffect(() => {
         props.fetchDestinations()

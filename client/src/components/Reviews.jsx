@@ -1,39 +1,59 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { LoadReviews } from '../store/actions/ReviewActions'
+import { LoadDestinations } from '../store/actions/DestinationActions'
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({ reviewState }) => {
-    return { reviewState }
+const mapStateToProps = ({ reviewState, destinationState }) => {
+    return { reviewState, destinationState }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchReviews: () => dispatch(LoadReviews())
+        fetchReviews: () => dispatch(LoadReviews()),
+        fetchDestinations: () => dispatch(LoadDestinations())
     }
 }
 
 function DisplayReviews(props) {
 
-    useEffect(() => {
-        props.fetchReviews()
-    }, [])
+    const { id } = useParams()
 
-    console.log(props.reviewState)
+
+    useEffect(() => {
+        props.fetchDestinations(id)
+        props.fetchReviews()
+    }, [id])
+
+    console.log(props.destinationState.id)
 
     return (
-        <div>
-            <h1>Some Reviews:</h1>
-            <ul >
-                {props.reviewState.reviews &&
-                    props.reviewState.reviews.map((review) => (
-                        <li key={review._id}>
-                            <h2>{review.name}</h2>
-                            <img src={`${review.image}`} alt={review.name} />
-                            <h4>{review.description}</h4>
-                        </li>
-                    ))}
-            </ul>
+        <div className='review_page'>
+            <h1>Destination</h1>
+            <div>
+
+            </div>
+
+            <h1>Reviews:</h1>
+            <div className='leave_review'>
+                <h3>Write a Review</h3>
+                <textarea cols="70" rows="10"></textarea>
+                <button>Submit</button>
+            </div>
+
+            <div>
+                <ul >
+                    {props.reviewState.reviews &&
+                        props.reviewState.reviews.map((review) => (
+                            <li key={review._id} className='review_box'>
+                                <h2>Destination:{review.name}</h2>
+                                <h3>Rating:{review.rating}</h3>
+                                <h4>Description:{review.description}</h4>
+                                <button>Delete</button>
+                            </li>
+                        ))}
+                </ul>
+            </div>
         </div>
     )
 }

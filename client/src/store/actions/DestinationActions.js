@@ -15,3 +15,11 @@ export const LoadDestinations = () => {
         }
     }
 }
+
+// export const LoadDestinationById = () => {
+//     return async (dispatch) => {
+//         try {
+
+//         }
+//     }
+// }
