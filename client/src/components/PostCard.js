@@ -6,8 +6,9 @@ const PostCard = (props) => {
     return (
         <div className="post-card">
             <div className="post">
-                {props.post_location} 
-                <img src={props.post_image} width={100} height={100} alt="" />  
+                <h3>{props.post_location} </h3>
+                <img src={props.post_image} width={100} height={100} alt="" /> 
+                <p>{props.post_description}</p> 
             </div>
         </div>
     )

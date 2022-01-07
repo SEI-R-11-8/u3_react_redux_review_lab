@@ -8,7 +8,8 @@ function App() {
       <h2>Travel Site</h2>
       <Routes>
         <Route path="/" element={ < Post /> } />
-        <Route path="/postPage/:postId" element={ <PostPage /> } />
+        <Route path="/postPage/:id" 
+              element={ <PostPage /> } />
       </Routes>
       
     </div>
