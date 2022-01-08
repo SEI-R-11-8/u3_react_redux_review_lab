@@ -21,6 +21,7 @@ const getPostByID = async (req, res) => {
     console.log('get post by id id =', id);
 
     const post = await Post.findById(id);
+    console.log('post=', post);
     if (post) {
       return res.status(200).json({ post });
     }

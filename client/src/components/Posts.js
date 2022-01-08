@@ -21,6 +21,7 @@ const Posts = (props) => {
 
   return (
     <div>
+      <h3>Boulder Restaurants</h3>
       {props.postState.posts.map((post) => (
         <>
           <p>
