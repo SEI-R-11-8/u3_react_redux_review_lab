@@ -20,10 +20,14 @@ router.put("/comments/:id", controllers.updateComment);
 
 router.delete("/comments/:id", controllers.deleteComment);
 
+router.get("/comments/:id", controllers.getCommentsByID);
+
 //////////
 
 router.post("/reviews", controllers.postReview);
 
 router.get("/reviews", controllers.getAllReviews);
+
+router.get("/reviews/:id", controllers.getReviewsByID);
 
 module.exports = router;

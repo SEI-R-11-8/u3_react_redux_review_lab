@@ -85,6 +85,26 @@ const getAllReviews = async (req, res) => {
   }
 };
 
+const getReviewsByID = async (req, res) => {
+  try {
+    let cityID = req.params.id;
+    const reviewID = await Review.find({ city_id: cityID });
+    return res.status(200).json({ reviewID });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
+const getCommentsByID = async (req, res) => {
+  try {
+    let cityID = req.params.id;
+    const commentID = await Comment.find({ city_id: cityID });
+    return res.status(200).json({ commentID });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 const postReview = async (req, res) => {
   try {
     const review = await new Review(req.body);
@@ -104,4 +124,6 @@ module.exports = {
   updateComment,
   deleteComment,
   getCity,
+  getReviewsByID,
+  getCommentsByID,
 };
