@@ -3,9 +3,14 @@ import {
   ADD_REVIEW,
   NEW_REVIEW,
   SUBMIT_FORM,
-  SET_FORM
+  SET_FORM,
+  ADD_COMMENT,
+  GET_COMMENTS,
+  SUBMIT_COMMENTS,
+  SET_COMMENT
 } from '../types';
 import { GetReviews, CreateReview } from '../../services/ReviewService';
+import { GetComments, CreateComment } from '../../services/CommentService';
 
 export const getAllReviews = () => {
   return async (dispatch) => {
@@ -42,6 +47,38 @@ export const SetForm = (formValue) => ({
   payload: formValue
 });
 
+export const SetComment = (formValue) => ({
+  type: SET_COMMENT,
+  payload: formValue
+});
+
+export const SubmitComment = (object) => {
+  return async (dispatch) => {
+    try {
+      await CreateComment(object);
+      dispatch({
+        type: SUBMIT_COMMENTS,
+        payload: object
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const GetAllComments = () => {
+  return async (dispatch) => {
+    try {
+      const comments = await GetComments();
+      dispatch({
+        type: GET_COMMENTS,
+        payload: comments
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
 // export const AddReview = (review) => ({
 //   type: ADD_REVIEW,
 //   payload: review

@@ -3,3 +3,7 @@ export const ADD_REVIEW = 'ADD_REVIEW';
 export const NEW_REVIEW = 'NEW_REVIEW';
 export const SET_FORM = 'SET_FORM';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
+export const GET_COMMENTS = 'GET_COMMENTS';
+export const SUBMIT_COMMENTS = 'SUMBIT_COMMENTS';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const SET_COMMENT = 'SET_COMMENT';

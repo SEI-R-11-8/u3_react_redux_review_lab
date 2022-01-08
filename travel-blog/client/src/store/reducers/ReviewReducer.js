@@ -3,7 +3,11 @@ const {
   ADD_REVIEW,
   NEW_REVIEW,
   SET_FORM,
-  SUBMIT_FORM
+  SUBMIT_FORM,
+  GET_COMMENTS,
+  SUBMIT_COMMENTS,
+  ADD_COMMENT,
+  SET_COMMENT
 } = require('../types');
 
 const iState = {
@@ -17,6 +21,13 @@ const iState = {
     likes: 0,
     photoUrl: '',
     comments: []
+  },
+  comments: [],
+  newComment: '',
+  commentForm: {
+    content: '',
+    author: '',
+    review_id: ''
   }
 };
 
@@ -48,6 +59,22 @@ const ReviewReducer = (state = iState, action) => {
         //   comments: []
         // }
       };
+    case GET_COMMENTS:
+      return { ...state, comments: action.payload };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        comment: [...state.comment, action.payload],
+        newComment: ''
+      };
+    case SET_COMMENT:
+      return { ...state, commentForm: action.payload };
+    case SUBMIT_COMMENTS:
+      return {
+        ...state,
+        comments: [...state.comments, action.payload]
+      };
+
     default:
       return { ...state };
   }

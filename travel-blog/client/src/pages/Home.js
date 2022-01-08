@@ -30,6 +30,7 @@ const Home = (props) => {
             content={review.content}
             photoUrl={review.photoUrl}
             likes={review.likes}
+            id={review._id}
           />
         </div>
       ))}
