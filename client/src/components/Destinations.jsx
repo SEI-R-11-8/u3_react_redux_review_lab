@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { LoadDestinations } from '../store/actions/DestinationActions'
+import { LoadDestinations, LoadDestinationById } from '../store/actions/DestinationActions'
 import { connect } from 'react-redux'
 
 const mapStateToProps = ({ destinationState }) => {
@@ -14,17 +14,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function DisplayDestinations(props) {
-    debugger
 
     useEffect(() => {
         props.fetchDestinations()
     }, [])
 
-    console.log(props.destinationState)
-
     return (
         <div>
             <h1>Some Fun Destinations:</h1>
+
             <ul >
                 {props.destinationState.destinations &&
                 props.destinationState.destinations.map((destination) => (

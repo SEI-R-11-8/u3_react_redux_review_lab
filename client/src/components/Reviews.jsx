@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { LoadReviews } from '../store/actions/ReviewActions'
-import { LoadDestinations } from '../store/actions/DestinationActions'
+import { LoadDestinations, LoadDestinationById } from '../store/actions/DestinationActions'
 import { connect } from 'react-redux'
+
+debugger
 
 const mapStateToProps = ({ reviewState, destinationState }) => {
     return { reviewState, destinationState }
@@ -11,7 +13,8 @@ const mapStateToProps = ({ reviewState, destinationState }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchReviews: () => dispatch(LoadReviews()),
-        fetchDestinations: () => dispatch(LoadDestinations())
+        fetchDestinations: () => dispatch(LoadDestinations()),
+        fetchDestinationsById: () => dispatch(LoadDestinationById())
     }
 }
 
@@ -21,15 +24,16 @@ function DisplayReviews(props) {
 
 
     useEffect(() => {
-        props.fetchDestinations(id)
-        props.fetchReviews()
+        props.fetchDestinationsById()
+        // props.fetchReviews()
     }, [id])
 
-    console.log(props.destinationState.id)
+    // console.log(props.destinationState.id)
 
     return (
         <div className='review_page'>
             <h1>Destination</h1>
+
             <div>
 
             </div>
@@ -37,8 +41,11 @@ function DisplayReviews(props) {
             <h1>Reviews:</h1>
             <div className='leave_review'>
                 <h3>Write a Review</h3>
-                <textarea cols="70" rows="10"></textarea>
-                <button>Submit</button>
+                <form>
+                    <input type='text' placeholder='Username'></input>
+                    <textarea cols="70" rows="10"></textarea>
+                    <button>Submit Review</button>
+                </form>
             </div>
 
             <div>

@@ -1,11 +1,10 @@
-import { GetDestinations } from '../../services/DestinationServices'
-import { GET_DESTINATIONS } from '../types'
+import { GetDestinations, GetDestinationsBYID } from '../../services/DestinationServices'
+import { GET_DESTINATIONS, GET_DESTINATION_BY_ID } from '../types'
 
 export const LoadDestinations = () => {
     return async (dispatch) => {
         try {
             const destinations = await GetDestinations()
-            console.log(destinations)
             dispatch({
                 type: GET_DESTINATIONS,
                 payload: destinations
@@ -16,10 +15,18 @@ export const LoadDestinations = () => {
     }
 }
 
-// export const LoadDestinationById = () => {
-//     return async (dispatch) => {
-//         try {
+export const LoadDestinationById = () => {
+    return async (dispatch) => {
+        try {
+            const oneDestination = await GetDestinationsBYID()
+            // console.log(oneDestination)
+            dispatch({
+                type: GET_DESTINATION_BY_ID,
+                payload: oneDestination
+            })
+        } catch (error) {
+            throw error
+        }
+    }
+}
 
-//         }
-//     }
-// }
