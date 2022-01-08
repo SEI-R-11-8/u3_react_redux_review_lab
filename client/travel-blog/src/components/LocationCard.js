@@ -1,6 +1,6 @@
 import React from 'react'
 import CommentCard from './CommentCard'
-import AddComment from './LocationComments'
+import AddComment from '../pages/LocationComments'
 
 const LocationCard = (props) => {
   
@@ -11,10 +11,6 @@ const LocationCard = (props) => {
         <h3>{props.name} {props.description} <br/> </h3>
         <img className = 'img' src={props.img} alt="image"/> 
         </div>
-        <div>
-        <AddComment
-        id = {props.id}/>
-      </div>
     </div>
     
     

@@ -1,10 +1,10 @@
 import './App.css';
 import React, {useState} from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import Header from './components/Header';
-import Location from './components/Location';
+import Header from './pages/Header';
+import Location from './pages/Location';
 import LocationCard from './components/LocationCard';
-import LocationDetails from './components/LocationComments';
+import LocationDetails from './pages/LocationComments';
 
 
 

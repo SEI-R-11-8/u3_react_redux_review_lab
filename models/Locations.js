@@ -8,7 +8,8 @@ const locationSchema = new Schema({
     location: {type: String},
     image: [{type: String}],
     description: {type: String},
-    comments: [{type: Schema.Types.ObjectId, ref:'Comment'}]
+    comments: [{type: Schema.Types.ObjectId, ref:'Comment'}],
+    rating: [{type: Number}]
 });
 
 

@@ -1,12 +1,34 @@
-import React from 'react'
-import LocationCard from './LocationCard'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { DelComments } from '../store/actions/LocationActions'
 
-const CommentCard = (props) => {
-  
+
+
+
+const mapStateToProps = ({commentState }) => {
+  return { commentState }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    takeComments: () => dispatch(DelComments())
+
+  }
+}
+
+const DComments = (props) => {
+
+onclick = () => {
+  props.takeComments()
+}
+
+
+
   return (
       
-    <div className="location-card" onClick={props.onClick}> 
+    <div className="location-card"> 
       <div className="info-wrapper flex-row space">
+        <button className='delete'>delete </button>          
         <h3>{props.name}:  "{props.comment}"</h3>
       </div>
     </div>
@@ -14,4 +36,4 @@ const CommentCard = (props) => {
   )
 }
 
-export default CommentCard
+export default connect(mapStateToProps, mapDispatchToProps)(DComments)

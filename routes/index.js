@@ -12,7 +12,7 @@ router.get('/comments', controllers.getAllComments)
 router.put('/locations/update/:id', controllers.updateLocation)
 router.delete('/comments/:id', controllers.deleteComment)
 router.post('/locations', controllers.createLocation)
-router.post('/locations/:id/comment', controllers.createComment)
+router.post('/locations/:id/', controllers.createComment)
 
 
 

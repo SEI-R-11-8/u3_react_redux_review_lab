@@ -13,7 +13,8 @@ const main = async () => {
         location: 'AZ, USA',
         image: 'https://duckduckgo.com/i/0cd14d9d.jpeg',
         description: "The Grand Canyon is a steep-sided canyon carved by the Colorado River in Arizona, United States. The Grand Canyon is 277 miles long, up to 18 miles wide and attains a depth of over a mile",
-        comments: []
+        comments: [],
+        rating: 0
         
     })
     location.save()

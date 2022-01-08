@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { GetComments } from '../services/LocationService'
 import { LoadLocations } from '../store/actions/LocationActions'
-import LocationCard from './LocationCard'
+import LocationCard from '../components/LocationCard'
 
 const mapStateToProps = ({ locationState }) => {
   return { locationState }

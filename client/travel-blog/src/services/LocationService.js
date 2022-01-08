@@ -3,7 +3,7 @@ import Client from "./";
 
 
 
-export const GetLocations = async () => {
+export const GetLocations = async (id) => {
     try {
       const res = await Client.get(`/locations`)
       return res.data.locations
@@ -12,18 +12,26 @@ export const GetLocations = async () => {
     }
   }
 
-  export const GetComments = async () => {
+  export const GetComments = async (id) => {
     try {
       const res = await Client.get(`/comments`)
-      return res.data.locations
+      return res.data.comments
     } catch (error) {
       throw error
     }
   }
-  export const PostComments = async () => {
+  export const PostComments = async (comment) => {
     try {
-      const res = await Client.post(`/locations/:id/comment`)
-      return res.data.locations
+      const res = await Client.post(`/locations/:id/`)
+      return res.data.comments
+    } catch (error) {
+      throw error
+    }
+  }
+  export const DeleteComments = async (comment) => {
+    try {
+      const res = await Client.delete(`/locations/:id/`)
+      return res.data.comments
     } catch (error) {
       throw error
     }
