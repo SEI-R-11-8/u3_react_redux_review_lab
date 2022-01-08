@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Posts = (props) => {
-  console.log(props);
+  console.log('here', props);
   useEffect(() => {
     props.fetchPosts();
   }, []);
@@ -22,9 +22,15 @@ const Posts = (props) => {
   return (
     <div>
       {props.postState.posts.map((post) => (
-        <ul key={post._id}>
-          <Link to={`/posts/${post._id}`}>{post.name}</Link>
-        </ul>
+        <>
+          <p>
+            Name: {post.name}
+            Location: {post.location}
+            Details: {post.details}
+            <img src={post.image} />
+            <Link to={`/posts/${post._id}`}>{post.name}</Link>
+          </p>
+        </>
       ))}
     </div>
   );

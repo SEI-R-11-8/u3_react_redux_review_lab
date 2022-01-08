@@ -14,8 +14,12 @@ const createPost = async (req, res) => {
 };
 
 const getPostByID = async (req, res) => {
+  console.log('getPostByID');
+  console.log('request apramaetrs =', req.params);
   try {
     const { id } = req.params;
+    console.log('get post by id id =', id);
+
     const post = await Post.findById(id);
     if (post) {
       return res.status(200).json({ post });

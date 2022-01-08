@@ -6,16 +6,19 @@ import { LoadComments } from '../store/actions/PostActions';
 const BASE_URL = 'http://localhost:3001/api';
 
 const mapStateToProps = ({ commentState }) => {
+  console.log('mapStateToProps', commentState);
   return { commentState };
 };
 
 const mapDispatchToProps = (dispatch) => {
+  console.log('MapDispatchToProps');
   return {
     fetchComments: () => dispatch(LoadComments())
   };
 };
 
 const Comments = (props) => {
+  console.log('comments props', props);
   const [Comment, setComment] = useState();
   const [newComment, setNewComment] = useState({
     username: '',
@@ -32,32 +35,32 @@ const Comments = (props) => {
     console.log(res.data.posts);
   };
 
-  const addComment = (e) => {
-    e.preventDefault();
-    const currentComment = Comments;
-    const newestComment = newestComment;
-    currentComment.push(newComment);
-    setNewComment({
-      username: '',
-      details: ''
-    });
-  };
+  // const addComment = (e) => {
+  //   e.preventDefault();
+  //   const currentComment = Comments;
+  //   const newestComment = newestComment;
+  //   currentComment.push(newComment);
+  //   setNewComment({
+  //     username: '',
+  //     details: ''
+  //   });
+  // };
 
-  const handleChange = (e) => {
-    setNewComment({
-      ...newComment,
-      [e.target.name]: e.target.value
-    });
-  };
+  // const handleChange = (e) => {
+  //   setNewComment({
+  //     ...newComment,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
-  const formSubmit = (e) => {
-    addComment(e);
-    allComments();
-    console.log(newComment);
-  };
+  // const formSubmit = (e) => {
+  //   addComment(e);
+  //   allComments();
+  //   console.log(newComment);
+  // };
   return (
     <div>
-      <form onSubmit={formSubmit}>
+      {/* <form onSubmit={formSubmit}>
         <input
           type="text"
           value={newComment.username}
@@ -73,7 +76,8 @@ const Comments = (props) => {
           placeholder={'comment here'}
         />
         <button>Create Comment</button>
-      </form>
+      </form> */}
+      <h2>Rendered</h2>
     </div>
   );
 };

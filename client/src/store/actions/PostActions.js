@@ -34,6 +34,7 @@ export const LoadPostById = (id) => {
 };
 
 export const LoadComments = (id) => {
+  console.log('loadcomments', id);
   return async (dispatch) => {
     try {
       const comments = await GetPostComments(id);

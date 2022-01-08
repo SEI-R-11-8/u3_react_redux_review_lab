@@ -1,9 +1,10 @@
 import Client from './';
 
 export const GetPosts = async () => {
+  console.log('get posts');
   try {
     const res = await Client.get('/posts');
-
+    console.log('posts resposne', res.data.posts);
     return res.data.posts;
   } catch (error) {
     throw error;
@@ -11,6 +12,8 @@ export const GetPosts = async () => {
 };
 
 export const GetPostsById = async (id) => {
+  console.log('postservice get post by id', id);
+
   try {
     const res = await Client.get(`/posts/${id}`);
     return res;
@@ -19,9 +22,10 @@ export const GetPostsById = async (id) => {
   }
 };
 
-export const GetPostComments = async (postid) => {
+export const GetPostComments = async (id) => {
+  console.log('get post comments', id);
   try {
-    const res = await Client.get(`/posts/${postid}`);
+    const res = await Client.get(`/posts/${id}`);
     return res.data.comm;
   } catch (error) {
     throw error;

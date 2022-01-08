@@ -5,13 +5,17 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <h3>Beaches</h3>
+      <h3>Boulder Restaurants</h3>
       <Posts />
       <header className="App-header"></header>
 
-      <Route path="/posts/:id">
-        <Comments />
-      </Route>
+      <Route
+        exact
+        path="/posts/:id"
+        render={(props) => {
+          return <Comments id={props.match.params.id} />;
+        }}
+      />
     </div>
   );
 }
