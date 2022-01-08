@@ -9,8 +9,8 @@ const createComments = async () => {
   // const cities = locations.map((loc) => loc.city);
   const comments = [...Array(10)].map(() => {
     return new Comment({
-      name: faker.name.findName(),
-      city: faker.random.arrayElements([
+      name: faker.name.firstName(),
+      city: faker.random.arrayElement([
         'New York City',
         'Orlando',
         'Seattle',
@@ -33,7 +33,7 @@ const createLocationsWithComments = async (comments) => {
     return {
       city: loc.city,
       country: loc.country,
-      image: dept.image,
+      image: loc.image,
       comments: selectedComments.map((comment) => comment._id)
     };
   });
