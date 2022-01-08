@@ -10,7 +10,7 @@ const mapStateToProps = ({ blogState }) => {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchBlogs: () => dispatch(LoadBlogs()),
-      submitComments: () => dispatch(CreateComment()),
+      submitComments: (input) => dispatch(CreateComment(input)),
       createComment: (comment)=>dispatch(LoadComment(comment))
     }
   }
@@ -19,13 +19,15 @@ const mapStateToProps = ({ blogState }) => {
 const Blogs = (props)=>{
 
     const handleChange =(e)=>{
+        
         props.createComment({comment: e.target.value})
+        
     }
 
     const handleSubmit=(e)=>{
-        console.log('test')
         e.preventDefault()
-        props.submitComments(props.blogState.blogsNew)
+        props.submitComments(props.blogState.blogsNew.comment)
+       
     }
  
     useEffect(() => {
@@ -42,6 +44,7 @@ const Blogs = (props)=>{
                 <div key = {index}>
                     <h1>{blog.date}</h1>
                     <h2>{blog.blog_post}</h2>
+                   
                     <Form
                         blogsNew={props.blogState.blogsNew}
                         handleChange={handleChange}
@@ -52,7 +55,7 @@ const Blogs = (props)=>{
                     
                 </div>
             ))} 
-            {/* {props.blogState.blogsNew.map((newComment, index)=>(
+            {/* {props.blogState.blogsNew.comment.map((newComment, index)=>(
                 <div key={index}>
                     {newComment.comment}
                 </div>

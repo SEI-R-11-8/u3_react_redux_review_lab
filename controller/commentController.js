@@ -1,15 +1,17 @@
 const { Comment } = require('../models')
 
 const addComment = async (req, res) => {
-    console.log(req.body)
-    let allComment = await Comment.insertMany(req.body);
-    res.status(201).send(`Successfully inserted ${allComment}`)
+   
+    let createdComment = await Comment.create(req.body);
+    
+    res.status(201).send( createdComment)
 };
 
 
 const insetComment = async (req, res) => {
     let allComment = await Comment.find(req.body);
-    res.status(201).send(`Successfully inserted ${allComment}`)
+    
+    res.status(201).send(allComment)
 };
 
 module.exports={

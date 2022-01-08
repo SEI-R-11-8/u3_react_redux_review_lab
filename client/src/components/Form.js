@@ -6,7 +6,7 @@ export default function Form(props) {
             <form>
                 <input
                     type='text'
-                    name='createComment'
+                    name='comment'
                     value={props.blogsNew.comment}
                     onChange={props.handleChange}
                 />

@@ -21,14 +21,16 @@ export const LoadBlogs = () => {
  
 
 
-  export const CreateComment = (com) => {
+  export const CreateComment = (inputComment) => {
+   
     return async (dispatch) => {
+     
       try {
-       await AddComment(com) 
+        const comment = await AddComment(inputComment) 
         
         dispatch({
           type: ADD_COMMENT,
-          payload: com
+          payload: comment
         })
   
       } catch (error) {
@@ -38,9 +40,11 @@ export const LoadBlogs = () => {
   }
 
   export const LoadComment = (comment) => ({
+    
           type: BLOG_COMMENT,
           payload: comment
         })
+        
   
     
   
