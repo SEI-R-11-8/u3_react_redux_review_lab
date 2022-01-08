@@ -18,7 +18,7 @@ const mapDispatchtoProps = (dispatch) => {
 const ReviewCard = (props) => {
   useEffect(()=>{
     props.fetchComments()
-    console.log(props.reviewState.comments)
+    console.log(props.reviewState)
   },[])
 
   return (
@@ -31,7 +31,7 @@ const ReviewCard = (props) => {
     <CommentForm 
       reviewID={props.id}
     />
-    {props.reviewState.comments.map((comment)=> (
+    {props.reviewState.comments.filter(comment=>comment.review_id===props.id).map((comment)=> (
       <div className="comment-card" key={comment._id}>
         <CommentCard 
           content={comment.content}
@@ -39,6 +39,17 @@ const ReviewCard = (props) => {
         />
       </div>
     ))}
+    {/* {props.reviewState.comments.reduce((previous, current)=>{
+      if (current.id=`${props.id}`) {
+        const card = (
+        <CommentCard 
+          content={comment.content}
+          author={comment.author}
+        />)
+        previous.push(card)
+      }
+      return previous
+    },[])} */}
     </div>
     )
 }

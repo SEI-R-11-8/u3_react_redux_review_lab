@@ -117,6 +117,16 @@ const deleteComment = async (req, res) => {
   }
 };
 
+const getCommentsByReview = async (req, res) => {
+  const review_id = req.params.review_id;
+  try {
+    const comments = await Comment.find({ review_id: review_id });
+    return res.status(200).json({ comments });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 module.exports = {
   getAllReviews,
   createReview,
@@ -125,5 +135,6 @@ module.exports = {
   updateComment,
   updateReview,
   deleteReview,
-  deleteComment
+  deleteComment,
+  getCommentsByReview
 };

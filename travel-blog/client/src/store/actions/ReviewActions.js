@@ -66,10 +66,10 @@ export const SubmitComment = (object) => {
   };
 };
 
-export const GetAllComments = () => {
+export const GetAllComments = (id) => {
   return async (dispatch) => {
     try {
-      const comments = await GetComments();
+      const comments = await GetComments(id);
       dispatch({
         type: GET_COMMENTS,
         payload: comments

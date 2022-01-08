@@ -11,5 +11,6 @@ router.delete('/review/:id', controllers.deleteReview);
 router.delete('/comment/:id', controllers.deleteComment);
 router.put('/review/:id', controllers.updateReview);
 router.put('/comment/:id', controllers.updateComment);
+router.get('/comments/:review_id', controllers.getCommentsByReview);
 
 module.exports = router;
