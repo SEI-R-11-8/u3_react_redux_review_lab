@@ -1,4 +1,4 @@
-const { GET_DESTINATION, GET_DESTINATION_BY_ID, UPDATE_DESTINATION, DELETE_DESTINATION, CREATE_DESTINATION, ADD_DESTINATION } = require('../types')
+const { GET_DESTINATIONS, GET_DESTINATION_BY_ID, UPDATE_DESTINATION, DELETE_DESTINATION, CREATE_DESTINATION, ADD_DESTINATION } = require('../types')
 
 const destinationState = {
     destinations: [],
@@ -7,7 +7,7 @@ const destinationState = {
 
 const DestinationReducer = (state = destinationState, action) => {
     switch (action.type) {
-        case GET_DESTINATION:
+        case GET_DESTINATIONS:
             return { ...state, destinations: action.payload }
         case GET_DESTINATION_BY_ID:
             return { ...state, destinations: state.destinations.filter((destination, index) => index === action.payload) }

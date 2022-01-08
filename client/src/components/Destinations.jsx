@@ -15,10 +15,11 @@ const mapDispatchToProps = (dispatch) => {
 
 function DisplayDestinations(props) {
 
+
+
     useEffect(() => {
         props.fetchDestinations()
     }, [])
-
     return (
         <div>
             <h1>Some Fun Destinations:</h1>

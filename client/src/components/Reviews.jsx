@@ -4,7 +4,6 @@ import { LoadReviews } from '../store/actions/ReviewActions'
 import { LoadDestinations, LoadDestinationById } from '../store/actions/DestinationActions'
 import { connect } from 'react-redux'
 
-debugger
 
 const mapStateToProps = ({ reviewState, destinationState }) => {
     return { reviewState, destinationState }
@@ -19,9 +18,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function DisplayReviews(props) {
-
+    
     const { id } = useParams()
-
+    
 
     useEffect(() => {
         props.fetchDestinationsById()
