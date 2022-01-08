@@ -12,29 +12,32 @@ const mapStateToProps = ({ reviewState, destinationState }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchReviews: () => dispatch(LoadReviews()),
-        fetchDestinations: () => dispatch(LoadDestinations()),
         fetchDestinationsById: () => dispatch(LoadDestinationById())
     }
 }
 
 function DisplayReviews(props) {
-    
+
     const { id } = useParams()
-    
+
 
     useEffect(() => {
         props.fetchDestinationsById()
-        // props.fetchReviews()
+        props.fetchReviews()
     }, [id])
 
-    // console.log(props.destinationState.id)
+   console.log(props.destinationState.destinations)
 
     return (
         <div className='review_page'>
             <h1>Destination</h1>
 
             <div>
-
+                <h3>{props.destinationState.destinations.image}</h3>
+                                {/* <h2>{destination.name}</h2>
+                                <img src={`${destination.image}`} alt={destination.name} />
+                                <h4>{destination.description}</h4> */}
+                         
             </div>
 
             <h1>Reviews:</h1>

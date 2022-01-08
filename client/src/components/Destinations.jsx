@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { LoadDestinations, LoadDestinationById } from '../store/actions/DestinationActions'
+import { LoadDestinations } from '../store/actions/DestinationActions'
 import { connect } from 'react-redux'
 
 const mapStateToProps = ({ destinationState }) => {
@@ -14,8 +14,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function DisplayDestinations(props) {
-
-
 
     useEffect(() => {
         props.fetchDestinations()
