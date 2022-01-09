@@ -1,7 +1,7 @@
 const Beach = require('../models/beach');
 const Comment = require('../models/comment');
 
-const getAllBeaches = async (req, res) => {
+const getAllBeachesController = async (req, res) => {
   try {
     const beaches = await Beach.find();
     return res.status(200).json({ beaches });
@@ -10,7 +10,7 @@ const getAllBeaches = async (req, res) => {
   }
 };
 
-const getBeachById = async (req, res) => {
+const getBeachByIdController = async (req, res) => {
   try {
     const { id } = req.params;
     const beach = await Beach.findById(id);
@@ -23,7 +23,7 @@ const getBeachById = async (req, res) => {
   }
 };
 
-const createBeach = async (req, res) => {
+const createBeachController = async (req, res) => {
   try {
     const beach = await new Beach(req.body);
     await beach.save();
@@ -35,7 +35,7 @@ const createBeach = async (req, res) => {
   }
 };
 
-const updateBeach = async (req, res) => {
+const updateBeachController = async (req, res) => {
   try {
     const { id } = req.params;
     await Beach.findByIdAndUpdate(id, req.body, { new: true }, (err, beach) => {
@@ -44,7 +44,7 @@ const updateBeach = async (req, res) => {
   } catch (error) {}
 };
 
-const deleteBeach = async (req, res) => {
+const deleteBeachController = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await Beach.findByIdAndDelete(id);
@@ -57,7 +57,7 @@ const deleteBeach = async (req, res) => {
   }
 };
 
-const getAllComments = async (req, res) => {
+const getAllCommentsController = async (req, res) => {
   try {
     const Comnment = await Comment.find();
     return res.status(200).json({ comments });
@@ -66,7 +66,7 @@ const getAllComments = async (req, res) => {
   }
 };
 
-const getCommentById = async (req, res) => {
+const getCommentByIdController = async (req, res) => {
   try {
     const { id } = req.params;
     const comment = await Comment.findById(id);
@@ -79,7 +79,7 @@ const getCommentById = async (req, res) => {
   }
 };
 
-const createComment = async (req, res) => {
+const createCommentController = async (req, res) => {
   try {
     const comment = await new Comment(req.body);
     await comment.save();
@@ -91,7 +91,7 @@ const createComment = async (req, res) => {
   }
 };
 
-const updateComment = async (req, res) => {
+const updateCommentController = async (req, res) => {
   try {
     const { id } = req.params;
     await Comment.findByIdAndUpdate(
@@ -105,7 +105,7 @@ const updateComment = async (req, res) => {
   } catch (error) {}
 };
 
-const deleteComment = async (req, res) => {
+const deleteCommentController = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await Comment.findByIdAndDelete(id);
@@ -119,14 +119,14 @@ const deleteComment = async (req, res) => {
 };
 
 module.exports = {
-  createBeach,
-  getAllBeaches,
-  getBeachById,
-  updateBeach,
-  deleteBeach,
-  getAllComments,
-  getCommentById,
-  createComment,
-  deleteComment,
-  updateComment
+  createBeachController,
+  getAllBeachesController,
+  getBeachByIdController,
+  updateBeachController,
+  deleteBeachController,
+  getAllCommentsController,
+  getCommentByIdController,
+  createCommentController,
+  deleteCommentController,
+  updateCommentController
 };
