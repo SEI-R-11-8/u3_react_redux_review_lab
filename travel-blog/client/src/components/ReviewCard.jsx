@@ -28,9 +28,14 @@ const ReviewCard = (props) => {
     <h3>{props.address}</h3>
     <p>{props.content}</p>
     <div className="likes-count">Likes: {props.likes}</div>
-    <CommentForm 
-      reviewID={props.id}
-    />
+    <div className="submit-comment hidden">
+      <CommentForm 
+        reviewID={props.id}
+        commentForm={props.commentForm}
+        index={props.index}
+      />
+    </div>
+   
     {props.reviewState.comments.filter(comment=>comment.review_id===props.id).map((comment)=> (
       <div className="comment-card" key={comment._id}>
         <CommentCard 
@@ -39,19 +44,8 @@ const ReviewCard = (props) => {
         />
       </div>
     ))}
-    {/* {props.reviewState.comments.reduce((previous, current)=>{
-      if (current.id=`${props.id}`) {
-        const card = (
-        <CommentCard 
-          content={comment.content}
-          author={comment.author}
-        />)
-        previous.push(card)
-      }
-      return previous
-    },[])} */}
     </div>
-    )
+  )
 }
 
 export default connect(mapStateToProps,mapDispatchtoProps)(ReviewCard)

@@ -7,8 +7,7 @@ const Review = new Schema(
     content: { type: String, required: true },
     address: { type: String, required: true },
     likes: { type: Number, required: true },
-    photoUrl: { type: String, required: true },
-    comments: { type: Array, required: true }
+    photoUrl: { type: String, required: true }
   },
   { timestamps: true }
 );

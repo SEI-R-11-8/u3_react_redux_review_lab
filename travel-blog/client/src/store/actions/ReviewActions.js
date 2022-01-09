@@ -26,12 +26,15 @@ export const getAllReviews = () => {
   };
 };
 
+export const SetForm = (formValue) => ({
+  type: SET_FORM,
+  payload: formValue
+});
+
 export const SubmitForm = (object) => {
   return async (dispatch) => {
     try {
       await CreateReview(object);
-      console.log('Trigger Review Submission');
-      console.log(object);
       dispatch({
         type: SUBMIT_FORM,
         payload: object
@@ -42,14 +45,9 @@ export const SubmitForm = (object) => {
   };
 };
 
-export const SetForm = (formValue) => ({
-  type: SET_FORM,
-  payload: formValue
-});
-
-export const SetComment = (formValue) => ({
+export const SetComment = (formValue, index) => ({
   type: SET_COMMENT,
-  payload: formValue
+  payload: { formValue: formValue, index: index }
 });
 
 export const SubmitComment = (object) => {

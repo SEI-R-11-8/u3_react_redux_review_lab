@@ -22,7 +22,7 @@ const Home = (props) => {
     <div>
       <div>This is home</div>
       <ReviewForm />
-      {props.reviewState.reviews.map((review) => (
+      {props.reviewState.reviews.map((review, index) => (
         <div className="review-card" key={review._id}>
           <ReviewCard
             locationName={review.locationName}
@@ -31,6 +31,8 @@ const Home = (props) => {
             photoUrl={review.photoUrl}
             likes={review.likes}
             id={review._id}
+            commentForm={review.commentForm}
+            index={index}
           />
         </div>
       ))}

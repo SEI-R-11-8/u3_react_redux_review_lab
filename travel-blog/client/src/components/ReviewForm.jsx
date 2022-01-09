@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { SetForm, SubmitForm } from '../store/actions/ReviewActions';
 
@@ -17,7 +17,7 @@ const mapDispatchtoProps = (dispatch) => {
 const ReviewForm = (props) => {
   const handleChange = (e) => {
     props.setForm({...props.reviewState.form, [e.target.name]: e.target.value})
-    // console.log(props.reviewState.form)
+
   }
 
   const onSubmit =(e)=>{
@@ -37,30 +37,35 @@ const ReviewForm = (props) => {
           name="locationName" 
           placeholder={'What are you reviewing?'}
           onChange={handleChange} 
+          value={props.reviewState.form.locationName}
         />
         <input 
           type="text" 
           name="description"
           placeholder={'Description summary'}
-          onChange={handleChange} 
+          onChange={handleChange}
+          value={props.reviewState.form.description}
         />
         <input 
           type="text" 
           name="content" 
           placeholder={'Add your review here'}
           onChange={handleChange}
+          value={props.reviewState.form.content}
         />
         <input 
           type="text" 
           name="address" 
           placeholder={'Address/location'}
           onChange={handleChange}
+          value={props.reviewState.form.address}
         />
         <input 
           type="text" 
           name="photoUrl" 
           placeholder={'Add a link to a photo here!'}
           onChange={handleChange}
+          value={props.reviewState.form.photoUrl}
         />
         <button type="submit">Submit</button>
       </form>
