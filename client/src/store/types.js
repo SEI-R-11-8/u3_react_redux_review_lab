@@ -1,4 +1,4 @@
 export const BEACH_LOADING_TYPE = 'BEACH_LOADING_TYPE';
-export const GET_BEACHES = 'GET_BEACHES';
-export const ADD_BEACH = 'ADD_BEACH';
-export const NEW_BEACH = 'NEW_BEACH';
+export const GET_BEACHES_TYPE = 'GET_BEACHES_TYPE';
+export const ADD_BEACH_TYPE = 'ADD_BEACH_TYPE';
+export const NEW_BEACH_TYPE = 'NEW_BEACH_TYPE';
