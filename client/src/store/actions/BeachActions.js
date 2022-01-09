@@ -21,8 +21,7 @@ export const LoadBeachesAction = () => {
 export const AddBeachAction = (beach) => {
   return async (dispatch) => {
     try {
-      const newBeach = await CreateBeachService();
-      console.log(newBeach);
+      await CreateBeachService(beach);
       dispatch({
         type: ADD_BEACH_TYPE,
         payload: beach

@@ -1,8 +1,8 @@
 const {
   BEACH_LOADING_TYPE,
-  GET_BEACHES,
-  ADD_BEACH,
-  NEW_BEACH
+  GET_BEACHES_TYPE,
+  ADD_BEACH_TYPE,
+  NEW_BEACH_TYPE
 } = require('../types');
 
 const iState = {
@@ -22,9 +22,9 @@ const BeachReducer = (state = iState, action) => {
   switch (action.type) {
     case BEACH_LOADING_TYPE:
       return { ...state, beachesLoading: action.payload };
-    case GET_BEACHES:
+    case GET_BEACHES_TYPE:
       return { ...state, beaches: action.payload };
-    case ADD_BEACH:
+    case ADD_BEACH_TYPE:
       return {
         ...state,
         beaches: [...state.beaches, action.payload],
@@ -37,7 +37,7 @@ const BeachReducer = (state = iState, action) => {
           likes: 0
         }
       };
-    case NEW_BEACH:
+    case NEW_BEACH_TYPE:
       return { ...state, newBeach: action.payload };
     default:
       return { ...state };
