@@ -17,3 +17,14 @@ export const GetComments = async (locationId) => {
     throw error;
   }
 };
+
+export const PostLocation = async () => {
+  try {
+    const res = await Client.post('/locations');
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const PostComment = async () => {};
