@@ -9,9 +9,9 @@ export const GetLocations = async () => {
   }
 };
 
-export const GetComments = async () => {
+export const GetComments = async (locationId) => {
   try {
-    const res = await Client.get('/comments');
+    const res = await Client.get(`/comments/${locationId}`);
     return res.data;
   } catch (error) {
     throw error;
