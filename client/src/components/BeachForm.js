@@ -2,36 +2,34 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   AddBeachAction,
-  CreateNewBeach,
-  LoadBeaches
+  CreateNewBeachAction,
+  LoadBeachesAction
 } from '../store/actions/BeachActions';
 
-const mapStateToProps = (state) => {
-  return { beachState: state.beachState };
+const mapStateToProps = ({ beachState }) => {
+  return { beachState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchBeaches: () => dispatch(LoadBeaches()),
-    addBeach: () => dispatch(AddBeachAction()),
-    createBeach: () => dispatch(CreateNewBeach())
+    fetchBeachesProp: () => dispatch(LoadBeachesAction()),
+    addBeachProp: (beach) => dispatch(AddBeachAction(beach)),
+    createBeachProp: (formValue) => dispatch(CreateNewBeachAction(formValue))
   };
 };
 
 const BeachForm = (props) => {
   const handleChange = (event) => {
-    props.createBeach({
+    props.createBeachProp({
       ...props.beachState.newBeach,
       [event.target.name]: event.target.value
     });
-    console.log(props.beachState.newBeach);
-    console.log(props.beachState.beach);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.addBeach(props.beachState.beach);
-    // console.log(props.beachState.newBeach);
+    props.addBeachProp(props.beachState.newBeach);
+    console.log(props.beachState.newBeach);
   };
 
   return (

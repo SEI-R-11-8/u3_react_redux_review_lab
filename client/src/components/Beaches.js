@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { LoadBeaches } from '../store/actions/BeachActions';
+import { LoadBeachesAction } from '../store/actions/BeachActions';
 
 const mapStateToProps = ({ beachState }) => {
   return { beachState };
@@ -9,13 +9,13 @@ const mapStateToProps = ({ beachState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchBeaches: () => dispatch(LoadBeaches())
+    fetchBeachesProp: () => dispatch(LoadBeachesAction())
   };
 };
 
 const Beaches = (props) => {
   useEffect(() => {
-    props.fetchBeaches();
+    props.fetchBeachesProp();
   }, []);
 
   return (
