@@ -38,15 +38,15 @@ const Location = (props) => {
             ))}
             </div>: null }
       </div>
-      <div className='comments'><h3>Show All Comments here: </h3>
-      <Switch>
-        <Route exact path="/locations/{props.match.params.id}/" component={Comments} locId={props.match.params.id} />
-        {/* <Route path="/locations/:id" component={Location} /> */}
-      </Switch>
-      </div>
-    </div>
-    
-        
+       <div className='comments'>
+        <h3>Show All Comments here: </h3>
+        <Comments />
+      {/* <Switch>
+        <Route exact path="/locations/{props.match.params.id}/" component={<Comments locId={props.match.params.id}/>}/>
+        <Route path="/locations/:id" component={Location} /> 
+      </Switch> */}
+      </div> 
+    </div>    
   )
 };
 

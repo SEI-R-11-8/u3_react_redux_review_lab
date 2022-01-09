@@ -18,3 +18,23 @@ export const GetLocationById = async (locationId) => {
     throw error;
   }
 };
+
+export const GetComments = async () => {
+  try {
+    const res = await Client.get(`/comments`);
+    console.log(res);
+    return res.data.comments;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const GetCommentById = async (commentId) => {
+  try {
+    const res = await Client.get(`/comments/${commentId}`);
+    console.log(res);
+    return res.data.comments;
+  } catch (error) {
+    throw error;
+  }
+};

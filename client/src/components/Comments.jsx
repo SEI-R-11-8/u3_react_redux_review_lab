@@ -9,7 +9,7 @@ const mapStateToProps = ({ locationState, commentState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchComments: () => dispatch(LoadComments()),
+    fetchComments: () => dispatch(LoadComments())
   }
 };
 
@@ -22,7 +22,6 @@ const Comments = (props) => {
      props.commentState.comments?
     <div className='container'>
       {props.commentState.comments.map((comment) => (
-  //  console.log(location.id)
         <div className='comment-holder' key={comment._id}>
           <Link to={`/locations/${props.locId}/`}>
           <div className='comment'>

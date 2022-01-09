@@ -1,5 +1,16 @@
-import { GetLocations, GetLocationById } from '../../services/LocationService';
-import { GET_LOCATIONS, GET_LOCATIONBYID, UPDATE_LOCATIONBYID } from '../types';
+import {
+  GetLocations,
+  GetLocationById,
+  GetComments,
+  GetCommentById
+} from '../../services/LocationService';
+import {
+  GET_LOCATIONS,
+  GET_LOCATIONBYID,
+  UPDATE_LOCATIONBYID,
+  GET_COMMENTBYID,
+  GET_COMMENTS
+} from '../types';
 
 export const LoadLocations = () => {
   return async (dispatch) => {
@@ -24,6 +35,36 @@ export const LoadLocationById = (locationId) => {
       dispatch({
         type: GET_LOCATIONBYID,
         payload: location
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const LoadComments = () => {
+  return async (dispatch) => {
+    try {
+      const comments = await GetComments();
+      console.log(comments);
+      dispatch({
+        type: GET_COMMENTS,
+        payload: comments
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const LoadCommentById = (commentId) => {
+  return async (dispatch) => {
+    try {
+      const comment = await GetCommentById(commentId);
+      console.log(commentId);
+      dispatch({
+        type: GET_COMMENTBYID,
+        payload: comment
       });
     } catch (error) {
       throw error;
