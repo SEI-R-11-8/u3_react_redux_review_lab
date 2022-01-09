@@ -8,23 +8,23 @@ const main = async () => {
     const comments = [
         {
             comment: 'guatape is nice ',
-            destination: undefined
+            destination: []
         },
         {
             comment: 'colorful river',
-            destination: undefined
+            destination: []
         },
         {
             comment: 'beautiful islands',
-            destination: undefined
+            destination: []
         },
         {
             comment: 'awesome park',
-            destination: undefined
+            destination: []
         },
         {
             comment: 'the northermost point of south america',
-            destination: undefined
+            destination: []
         }
     ]
 

@@ -1,7 +1,10 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { LoadDestinationsById } from '../store/actions/DestinationAction'
 import { useParams } from 'react-router-dom'
+import Comment from './subComponents/Comment'
+import Review from './subComponents/Review'
+import Like from './subComponents/Like'
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -10,26 +13,33 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapStateToProps = (destinationState) => {
-    return { destinationState }
+const mapStateToProps = (destinationDetailState) => {
+    return { destinationDetailState }
 }
 
 const Details = (props) => {
 
-    // console.log(props)
-    // console.log(props.destinationState.destinationState.details)
-    // console.log(props.destinationState.destination)
+    // console.log(props.destinationDetailState.destinationDetailState.destination)
 
     const { id } = useParams()
+    const details = props.destinationDetailState.destinationDetailState.destination
 
     useEffect(() => {
         props.fetchDetails(id)
-    }, [id])
+    }, [])
 
     
     return (
         <div>
-            {/* {props.destinationState} */}
+            these are some details
+            <div>
+                    <div> {details.name} </div>
+                    <img src={`${details.image}`} alt={`${details.name}`}/>
+                    <div> {details.details} </div>
+                    <div> comments: <Comment /> {details.comments} </div>
+                    <div>  reviews: <Review /> </div>
+                    <div> likes: {details.likes} <Like />  </div>
+            </div>
         </div>
     )
 }

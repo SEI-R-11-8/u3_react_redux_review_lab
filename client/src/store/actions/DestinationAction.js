@@ -22,9 +22,9 @@ export const LoadDestinationsById = (id) => {
             const destination = await GetDestinationById(id)
             dispatch({
                 type: GET_DESTINATION_BY_ID,
-                payload: destination
+                payload: destination.destination
             })
-            console.log(destination)
+            console.log(destination.destination)
         }catch(error){
             throw error
         }
