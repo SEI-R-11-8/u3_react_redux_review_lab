@@ -9,7 +9,7 @@ const locations = [
     city: 'Orlando',
     country: 'USA',
     image:
-      'https://lp-cms-production.imgix.net/2019-06/402a086ef3d2265cd694c8f29f0d3639-orlando.jpg?sharp=10&vib=20&w=1200&auto=compress&fit=crop&fm=auto&h=800'
+      'https://img.theculturetrip.com/450x/smart/wp-content/uploads/2020/08/jxr59r-e1598640697765.jpg'
   },
   {
     city: 'Seattle',

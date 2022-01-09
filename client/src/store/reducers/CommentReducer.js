@@ -14,15 +14,15 @@ const iState = {
 const CommentReducer = (state = iState, action) => {
   switch (action.type) {
     case GET_COMMENTBYID:
-      return { ...state, moviesLoading: action.payload };
+      return { ...state, comment: action.payload };
     case GET_COMMENTS:
-      return { ...state, movies: action.payload };
+      return { ...state, comments: action.payload };
     case UPDATE_COMMENTBYID:
-      return { ...state, movies: action.payload };
+      return { ...state, comment: action.payload };
     case CREATE_COMMENT:
-      return { ...state, movies: action.payload };
+      return { ...state, comments: action.payload };
     case DELETE_COMMENTBYID:
-      return { ...state, movies: action.payload };
+      return { ...state };
     default:
       return { ...state };
   }
