@@ -19,6 +19,15 @@ const getReviews = async (request, response) => {
       return response.status(500).send(error.message);
    }
 };
+// const createReview = async (request, response) => {
+//    try {
+//       const newReview = await new Reviews(request.body)
+//       await newReview.save()
+//       return response.status(201).json(newReview)
+//    } catch (error) {
+//       return response.status(500).send(error.message)
+//    }
+// };
 
 // const updateReview = async (request, response) => {
 //    try {
@@ -36,37 +45,29 @@ const getReviews = async (request, response) => {
 //    }
 // };
 
-// const deleteReview = async (request, response) => {
-//    try {
-//       console.log('this is working')
-//       const { id } = request.params;
-//       const deleted = await Reviews.delete(id)
-//       if (deleted) {
-//          return response.status(200).send('Review deleted');
-//       }
-//       throw new Error('Reviews not found')
-//    } catch (error) {
-//       return response.status(500).send(error.message);
-//    }
-// };
+const deleteReview = async (request, response) => {
+   try {
+      console.log('this is working')
+      const { id } = request.params;
+      const deleted = await Reviews.delete(id)
+      if (deleted) {
+         return response.status(200).send('Review deleted');
+      }
+      throw new Error('Reviews not found')
+   } catch (error) {
+      return response.status(500).send(error.message);
+   }
+};
 
 
 
-// const createReview = async (request, response) => {
-//    try {
-//       const newReview = await new Reviews(request.body)
-//       await newReview.save()
-//       return response.status(201).json(newReview)
-//    } catch (error) {
-//       return response.status(500).send(error.message)
-//    }
-// };
+
 
 
 module.exports = {
    getPosts,
    // updateReview,
-   // deleteReview,
+   deleteReview,
    getReviews,
    // createReview
 }

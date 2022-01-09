@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const Post = new mongoose.Schema(
    {
       review_id: { type: Schema.Types.ObjectID, ref: 'Review' },
+      image_path: { type: String, required: true },
       title: { type: String, required: true },
       author: { type: String, required: true },
       description: { type: String, required: true },

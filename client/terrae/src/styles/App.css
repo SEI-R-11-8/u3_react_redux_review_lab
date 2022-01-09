@@ -1,58 +1,82 @@
 body {
 	background-image: url('../images/land_island.jpg');
+	background-color: rgba(92, 109, 184, 0.386);
 	background-repeat: no-repeat;
 	background-size: cover;
 	/* background-position: center; */
 	/* position: absolute; */
 }
 
-.header {
-	background-image: url('../images/Terrae.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-color: rgba(22, 26, 45, 0.386);
-	margin-top: -40px;
+.logo {
+	/* background-color: rgba(138, 146, 184, 0.625); */
+
+	margin: 80 auto;
+	padding-left: 500px;
+	justify-content: center;
+	width: 600px;
+	top: 10px;
+	/* background-position: center; */
+	/* margin-top: 80px; */
 	cursor: grab;
 }
 
-.skater {
+.header {
+	background-color: rgba(67, 84, 167, 0.242);
+}
+
+.travel {
 	display: flex;
 	flex-wrap: wrap;
 	width: 50vw;
 	justify-content: center;
-	margin: -40px auto;
+	margin: 10px auto;
 	padding: 10px;
+	border-radius: 20px;
+	overflow: hidden;
 	cursor: grab;
-	opacity: 0.8;
 }
 
-/* .navbar {
-	min-height: 15vh;
+.navbar {
+	background-color: rgba(138, 146, 184, 0.625);
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
-} */
+}
+
+.list {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+}
 
 li {
-	background-color: rgba(92, 109, 184, 0.386);
+	background-color: rgba(10, 238, 223, 0.288);
 	display: inline-block;
 	list-style-type: none;
-	font-family: 'Syncopate', sans-serif;
-	font-size: 20px;
-	letter-spacing: 3px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif, sans-serif;
+	font-size: 3vmin;
+	font-weight: bolder;
+	letter-spacing: 1px;
 	position: relative;
-	margin-top: 200px;
-	margin-left: 65px;
-	padding: 5px;
+	/* margin-top: 200px; */
+	margin-left: 2vmin;
+	/* padding: 5px; */
 	text-align: center;
+	border-radius: 40px;
 }
 
 a:link,
 a:visited {
-	font-weight: bold;
+	font-weight: bolder;
 	color: #fabb51;
 	text-align: center;
-	padding: 14px 30px;
-	margin: 30px;
+	padding: 3vh 0.5vw;
+	/* margin: 30px; */
 	text-decoration: none;
 }
 
@@ -61,7 +85,7 @@ a:active {
 	color: #7cd1b8;
 }
 
-.l_shoes {
+/* .l_shoes {
 	display: flex;
 	flex-wrap: wrap;
 	width: 20vw;
@@ -70,4 +94,4 @@ a:active {
 	padding: 10px;
 	cursor: grab;
 	opacity: 0.8;
-}
+} */

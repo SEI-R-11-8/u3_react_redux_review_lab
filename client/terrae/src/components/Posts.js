@@ -15,17 +15,23 @@ const mapDispatchToProps = (dispatch) => {
 const Posts = (props) => {
 
    useEffect(() => {
-      console.log('this is working')
-
       props.fetchPosts()
    }, [])
 
    return (
       <div className='p_grid'>
-         {props.postState.posts.map((post) => (
-            <div key={post.id} className='card'>
-            </div>
-         ))}
+         <h1>Stories</h1>
+         <div>
+            {props.postState.posts.map((post, index) => (
+               <div key={index} className='p_card'>
+                  <img src={`${post.image_path}`} alt='' />
+                  <h2>{post.title}</h2>
+                  <h3>{post.author}</h3>
+                  <p> {post.description}</p>
+                  <p> {post.date}</p>
+               </div>
+            ))}
+         </div>
       </div >
    )
 }

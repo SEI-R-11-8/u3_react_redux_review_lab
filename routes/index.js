@@ -12,6 +12,6 @@ router.get('/reviews', controllers.getReviews)
 
 // router.put('/reviews/:id', controllers.updateReview)
 
-// router.delete('/reviews/:id', controllers.deleteReview)
+router.delete('/reviews/:id', controllers.deleteReview)
 
 module.exports = router;
