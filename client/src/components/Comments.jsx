@@ -26,6 +26,7 @@ const Comments = (props) => {
           <Link to={`/locations/${props.locId}/`}>
           <div className='comment'>
               <h3>{comment.name}</h3>
+              <h3>{comment.city}</h3>
               <h3>{comment.comment}</h3>
               <h3>{comment.rating}</h3>
           </div>
