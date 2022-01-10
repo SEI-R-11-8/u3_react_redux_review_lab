@@ -6,7 +6,8 @@ function Nav() {
   return (
     <nav className="navbar">
       <Link to="/" style={{ textDecoration: 'none', color: 'lightgrey', fontFamily: 'Andale Mono' }}>Home </Link>
-      
+      <Link to="/cities/details/:cityId" style={{ textDecoration: 'none', color: 'lightgrey', fontFamily: 'Andale Mono' }}> |Reviews|  </Link> 
+
       <Link to="/PlusReview" style={{ textDecoration: 'none', color: 'lightgrey', fontFamily: 'Andale Mono' }}> Add Review|  </Link>  
       
       </nav>

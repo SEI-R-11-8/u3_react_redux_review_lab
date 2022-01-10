@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { LoadReviews } from '../store/actions/CityActions'
-import { AddReview, LoadReview } from '../store/actions/CityActions'
 
 
 

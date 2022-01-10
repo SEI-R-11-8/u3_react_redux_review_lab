@@ -48,6 +48,7 @@ const PlusReview = (props) => {
         </button>
   
       </form>
+      {/* <h1>{newReview}</h1> */}
       </div>
     )
 }

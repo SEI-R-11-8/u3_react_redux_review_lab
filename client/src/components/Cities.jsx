@@ -26,7 +26,9 @@ props.fetchCities()
       
       {props.cityState.cities.map((city) => (
         <ul>
-          <Link to={`/cities/details/${city._id}`} key={city._id} >{city.name} </Link>
+          <Link to={`/cities/details/${city._id}`} key={city._id} >{city.name} </Link> <br/>
+          <img src={city.url}></img>
+          
         </ul>
       ))}
     </div>
