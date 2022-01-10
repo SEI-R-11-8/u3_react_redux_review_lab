@@ -42,10 +42,33 @@ export const LoadLocationById = (locationId) => {
   };
 };
 
-export const LoadComments = () => {
+// export const LoadComments = () => {
+//   return async (dispatch) => {
+//     try {
+//       const comments = await GetComments();
+//       console.log(comments);
+//       dispatch({
+//         type: GET_COMMENTS,
+//         payload: comments
+//       });
+//     } catch (error) {
+//       throw error;
+//     }
+//   };
+// };
+
+export const LoadComments = (commIds) => {
   return async (dispatch) => {
     try {
-      const comments = await GetComments();
+      // const comments = commIds.map((id) => GetCommentById(id));
+      let comments = [];
+      if (commIds) {
+        for (let i = 0; i < commIds.length; i++) {
+          let comment = await GetCommentById(commIds[i]);
+          comments.push(comment);
+        }
+      }
+
       console.log(comments);
       dispatch({
         type: GET_COMMENTS,

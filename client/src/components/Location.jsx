@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { LoadLocationById, LoadCommentById } from '../store/actions/LocationActions';
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Comment from './Comment'
+import Comments from './Comments';
+import PostForm from './PostForm';
 
 const mapStateToProps = ({ locationState, commentState }) => {
   return { locationState, commentState };
@@ -17,10 +16,23 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Location = (props) => {
+  let commentsOfCity = []
   useEffect(() => {
     props.fetchLocationById(props.match.params.id);
   }, [props.match.params.id]);
- 
+
+  const handleChange = (e) => {
+    props.createComment(e.target.value)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.postComment(props.commentState.comment)
+  }
+  const handleDelete = (index) => {
+    props.deleteComment(index)
+  }
+
+
   return (
     <div>
       <div className='locDetails'>
@@ -31,27 +43,22 @@ const Location = (props) => {
           props.locationState.location.comments? <h3> Comments: 
           {props.locationState.location.comments.length}
           </h3>:null }
-          <button>Post a Comment?</button>
+         <PostForm />
+
           <h3>Show All Comments here: </h3>
-             {
-              props.locationState.location.comments? <ol>
+          {props.locationState.location.comments? <ol>
               {props.locationState.location.comments.map((commentId, index)=>(
               <li key={index}>
-                <Comment commentId = {commentId} /></li>
+                 {commentId} 
+              </li>
             ))}
-            </ol>: null } 
-           
+            </ol>: null}
+          <Comments commentIds = {props.locationState.location.comments}/> 
       </div>
-       {/* <div className='comments'>
-        <h3>Show All Comments here: </h3>
-         <Comments /> 
-       <Switch>
-        <Route exact path="/locations/{props.match.params.id}/" component={<Comments locId={props.match.params.id}/>}/>
-        <Route path="/locations/:id" component={Location} /> 
-      </Switch>
-      </div>  */}
     </div>    
   )
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Location);
+
+

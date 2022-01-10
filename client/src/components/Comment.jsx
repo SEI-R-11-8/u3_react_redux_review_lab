@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const Location = (props) => {
+const Comment = (props) => {
   useEffect(() => {
     props.fetchCommentById(props.commentId);
   }, [props.commentId]);
@@ -31,4 +31,4 @@ const Location = (props) => {
   )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Location);
+export default connect(mapStateToProps, mapDispatchToProps)(Comment);

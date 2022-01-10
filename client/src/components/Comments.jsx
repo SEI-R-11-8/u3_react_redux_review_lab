@@ -1,39 +1,35 @@
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { LoadComments, LoadCommentById } from '../store/actions/LocationActions';
+import { LoadComments } from '../store/actions/LocationActions';
 import React, { useEffect } from 'react';
 
-const mapStateToProps = ({ locationState, commentState }) => {
-  return { locationState, commentState };
+const mapStateToProps = ({ commentState }) => {
+  return { commentState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchComments: () => dispatch(LoadComments())
+    fetchComments: (commIds) => dispatch(LoadComments(commIds))
   }
 };
 
 const Comments = (props) => {
   useEffect(() => {
-    props.fetchComments();
+    props.fetchComments(props.commentIds);
   }, []);
 
   return (
      props.commentState.comments?
-    <div className='container'>
-      {props.commentState.comments.map((comment) => (
-        <div className='comment-holder' key={comment._id}>
-          <Link to={`/locations/${props.locId}/`}>
-          <div className='comment'>
-              <h3>{comment.name}</h3>
-              <h3>{comment.city}</h3>
-              <h3>{comment.comment}</h3>
-              <h3>{comment.rating}</h3>
-          </div>
-          </Link>
-        </div>
+    <ol className='container'>
+      {props.commentState.comments.map((comment, index) => (
+        <li className='comment' key={index}> 
+              <h3>Name: {comment.name}</h3>
+              <h3>City: {comment.city}</h3>
+              <h3>Rating: {comment.rating}</h3>
+              <h3>Comment: {comment.comment}</h3>
+              <button onClick={props.deleteComment}>Delete</button>
+        </li>
       ))}
-    </div> : null
+    </ol> : null
   );
 };
 
