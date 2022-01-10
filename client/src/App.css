@@ -68,6 +68,9 @@
 .commentDiv button {
   margin-bottom: 1em;
 }
+.commentDiv textarea {
+  font-family: inherit;
+}
 
 /* Reviews */
 .postReview {

@@ -9,7 +9,7 @@ const addComment = async (req, res) => {
             { comments: [...post.comments, comment[0]._id] },
             { new: true }
         );
-        res.status(200).json(comment);
+        res.status(200).json(comment[0]);
     } catch (error) {
         res.status(500).json({ error: error.message });
     };

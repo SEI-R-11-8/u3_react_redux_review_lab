@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { LoadOnePost, UpdatePostLike } from '../store/actions/PostActions';
 import { LoadPostReviews } from '../store/actions/ReviewActions';
-import { LoadPostComments } from '../store/actions/CommentActions';
+import { LoadPostComments, AddComment } from '../store/actions/CommentActions';
 import Review from '../components/Review';
 import Comment from '../components/Comment';
 
@@ -19,16 +19,32 @@ const mapDispatchToProps = (dispatch) => {
         LoadOnePost: (id) => dispatch(LoadOnePost(id)),
         UpdatePostLike: (postId) => dispatch(UpdatePostLike(postId)),
         LoadPostReviews: (postId) => dispatch(LoadPostReviews(postId)),
-        LoadPostComments: (postId) => dispatch(LoadPostComments(postId))
+        LoadPostComments: (postId) => dispatch(LoadPostComments(postId)),
+        AddComment: (postId, newComment) => dispatch(AddComment(postId, newComment))
     };
 };
 
 const Post = (props) => {
+    const [comment, setComment] = useState('');
+    const [author, setAuthor] = useState('');
+    
     useEffect(() => {
         props.LoadOnePost(props.match.params.postId);
         props.LoadPostReviews(props.match.params.postId);
         props.LoadPostComments(props.match.params.postId);
     }, []);
+
+    const handleAddComment = (e) => {
+        e.preventDefault();
+        let newComment = {
+            author: author,
+            content: comment,
+            post: props.match.params.postId
+        }
+        props.AddComment(props.match.params.postId, newComment);
+        setComment('');
+        setAuthor('');
+    };
     
     return (
         <div>
@@ -57,11 +73,17 @@ const Post = (props) => {
                 {props.commentState.comments.map((index) => (
                     <Comment key={index._id} comment={index} />
                 ))}
-                <form>
-                    <textarea placeholder='Write a comment'></textarea>
+                <form onSubmit={handleAddComment}>
+                    <textarea 
+                        onChange={(e) => setComment(e.target.value)} 
+                        placeholder='Write a comment' 
+                        value={comment}
+                    />
                     <input 
+                        onChange={(e) => setAuthor(e.target.value)}
                         type='text'
                         placeholder='name'
+                        value={author}
                     />
                     <button type='submit'>Add comment</button>
                 </form>
