@@ -7,6 +7,7 @@ router.post('/comments', controllers.createComment);
 
 router.get('/', (req, res) => res.send('This is root!'));
 router.get('/locations', controllers.getAllLocations);
+router.get('/locations/:id', controllers.getLocationById);
 router.get('/comments', controllers.getAllComments);
 router.get('/comments/:id', controllers.getCommentsByLocation);
 

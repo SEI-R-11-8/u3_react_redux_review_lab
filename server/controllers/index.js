@@ -40,6 +40,19 @@ const getAllComments = async (req, res) => {
   }
 };
 
+const getLocationById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const location = await Location.find({ _id: id });
+    if (location) {
+      return res.status(200).json({ location });
+    }
+    return res.status(404).send('This ID does not match any location.');
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 const getCommentsByLocation = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +121,7 @@ module.exports = {
   getAllLocations,
   getAllComments,
   getCommentsByLocation,
+  getLocationById,
   updateLocation,
   updateComment
 };
