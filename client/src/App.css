@@ -99,3 +99,23 @@
 .postComment em {
   font-size: 12px;
 }
+
+/* reviewForm */
+.reviewForm form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  gap: .8em;
+  border: 1px solid black;
+  padding: 1em;
+  width: 30%;
+  align-items: center;
+}
+.reviewForm label {
+  margin-top: 1em;
+  text-align: left;
+}
+.reviewForm button {
+  margin: 1em;
+  width: 30%;
+}

@@ -9,7 +9,7 @@ const addReview = async (req, res) => {
             { reviews: [...post.reviews, review[0]._id] },
             { new: true }
         );
-        res.status(200).json(review);
+        res.status(200).json(review[0]);
     } catch (error) {
         res.status(500).json({ error: error.message });
     };

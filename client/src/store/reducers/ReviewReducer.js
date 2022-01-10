@@ -8,6 +8,8 @@ const ReviewReducer = (state = initialState, action) => {
             return { ...state, reviews: action.payload };
         case 'ADD_REVIEW_LIKE':
             return { ...state, reviews: action.payload.allReviews }
+        case 'ADD_NEW_REVIEW':
+            return { ...state, reviews: action.payload }
         default:
             return { ...state };
     };
