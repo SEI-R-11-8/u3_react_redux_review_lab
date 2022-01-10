@@ -36,10 +36,10 @@ export const UpdatePost = async (updatedPost) => {
     }
 }
 
-export const DeletePost = async (deletePost) => {
+export const DeletePost = async (id) => {
     try {
-        const res = await Client.delete(`/posts/${deletePost._id}`, deletePost)
-        return res.data
+        const res = await Client.delete(`/posts/${id}`)
+        console.log('delete res', res) 
     } catch (error) {
         throw error
     }

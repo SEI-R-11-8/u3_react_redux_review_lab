@@ -2,8 +2,8 @@ import '../styles/index.css'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { LoadPostsById, LoadDeletePost } from '../store/actions/PostAction'
-import { Link } from 'react-router-dom'
+import { LoadPostsById, LoadDeletePost, LoadPosts } from '../store/actions/PostAction'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const mapStateToProps = ({ postState }) => {
@@ -13,22 +13,27 @@ const mapStateToProps = ({ postState }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchPost: (id) => dispatch(LoadPostsById(id)),
-        deletePost: (id) => dispatch(LoadDeletePost(id))
+        deletePost: (id) => dispatch(LoadDeletePost(id)),
+        fetchPosts: () => dispatch(LoadPosts())
     }
 }
 
-
-
 function PostPage(props) {
 
+    let navigate = useNavigate()
     const { id } = useParams()
 
     useEffect(() => {
 
         props.fetchPost(id)
-        props.deletePost(id)
 
     }, [])
+
+    const handleSubmit = () => {
+        props.deletePost(id)
+        props.fetchPosts()
+        navigate('/')
+    }
 
     // console.log('in post page details', props.postState)
     console.log('props postState.post', props.postState.post)
@@ -44,17 +49,15 @@ function PostPage(props) {
                     <button>
                         Edit details
                     </button>
-                </Link>
+                </Link>  
 
-                
+
                     <button
                         type='submit'
-                        onClick={props.deletePost}
+                        onClick={handleSubmit}
                     >
                         Delete post
                     </button>
-                
-
             </div>
         </div>
     )

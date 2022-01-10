@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const PostForm = (props) => {
     //First let's declare form labels
     let previousData = { 
@@ -7,6 +8,8 @@ const PostForm = (props) => {
         post_description: 'Description',
         post_image: 'Image'
     }
+
+      
     //Check to see if this is a new post or edited one::
     //IF a post is passed, set those as form labels
     if (Object.keys(props.post).length > 0) previousData = props.post
