@@ -18,13 +18,46 @@ export const GetComments = async (locationId) => {
   }
 };
 
-export const PostLocation = async () => {
+export const PostLocation = async (locationInfo) => {
   try {
-    const res = await Client.post('/locations');
+    const res = await Client.post('/locations', {
+      locationInfo
+    });
     return res.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const PostComment = async () => {};
+export const PostComment = async (commentInfo) => {
+  try {
+    const res = await Client.post('/comments', {
+      commentInfo
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const AddLocationLike = async (locationId) => {
+  try {
+    const res = await Client.put(`/locations/${locationId}`, {
+      likes: likes + 1
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const AddCommentLike = async (commentId, likesAmount) => {
+  try {
+    const res = await Client.put(`/comments/${commentId}`, {
+      likesAmount
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
