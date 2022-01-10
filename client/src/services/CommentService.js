@@ -8,3 +8,13 @@ export const GetCommentsByID = async (id) => {
     throw error;
   }
 };
+
+export const PostComment = async () => {
+  try {
+    const res = await Client.post("/comment");
+    console.log(res);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
