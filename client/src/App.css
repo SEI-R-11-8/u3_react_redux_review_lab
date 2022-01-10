@@ -57,6 +57,17 @@
 .postDetails span {
   margin-right: 1em;
 }
+.reviewBtn {
+  margin-bottom: 1em;
+}
+.commentDiv form textarea,
+.commentDiv form input {
+  display: block;
+  margin: .5em auto;
+}
+.commentDiv button {
+  margin-bottom: 1em;
+}
 
 /* Reviews */
 .postReview {
@@ -67,4 +78,21 @@
 }
 .postReview span {
   margin-right: 1em;
+}
+.postReview em {
+  font-size: 12px;
+}
+
+/* Comments */
+.postComment {
+  margin: 1em auto;
+  border: 1px solid black;
+  width: 60%;
+}
+.postComment p {
+  text-align: left;
+  margin-left: 1em;
+}
+.postComment em {
+  font-size: 12px;
 }

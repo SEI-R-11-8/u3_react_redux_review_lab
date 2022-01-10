@@ -6,7 +6,8 @@ import PostPreview from "../components/PostPreview";
 const mapStateToProps = (state) => {
     return {
         postState: state.postState,
-        reviewState: state.reviewState
+        reviewState: state.reviewState,
+        commentState: state.commentState
     };
 };
 const mapDispatchToProps = (dispatch) => {
