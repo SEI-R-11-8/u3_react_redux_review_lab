@@ -12,7 +12,7 @@ export const GetDestinations = async () => {
 export const GetDestinationsBYID = async (destinationId) => {
     try {
         const res = await Client.get(`/destinations/${destinationId}`)
-        return res.data.destinations
+        return res.data.destination
     } catch (error) {
         throw error
     }

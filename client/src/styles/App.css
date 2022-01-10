@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .App {
   text-align: center;
 }
@@ -40,4 +43,63 @@
 
 .review_box {
 border: 2px solid black;
+}
+
+body {
+  background-image: url(https://images.pond5.com/sunny-sky-pink-sunset-background-073737565_prevstill.jpeg);
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Comforter Brush', cursive; 
+  font-size: 110px;
+  color: lightpink;
+
+}
+
+h2 {
+  font-size: 50px;
+  font-family: 'Lobster', cursive;
+  color: lightblue;
+  padding-top: -30px;
+  -webkit-text-stroke: .5px white;
+}
+
+h4 {
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0 200px 0 200px;
+}
+
+.detail_img {
+  border: 2px solid white;
+}
+
+.destination_box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  border: 5px white solid;
+  border-radius: 50px;
+  margin: 3em;
+  overflow: hidden;
+}
+
+.leave_review {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: fit-content;
+  align-content: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

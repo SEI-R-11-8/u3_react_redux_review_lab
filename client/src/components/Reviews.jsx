@@ -12,7 +12,7 @@ const mapStateToProps = ({ reviewState, destinationState }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchReviews: () => dispatch(LoadReviews()),
-        fetchDestinationsById: () => dispatch(LoadDestinationById())
+        fetchDestinationsById: (id) => dispatch(LoadDestinationById(id))
     }
 }
 
@@ -22,31 +22,25 @@ function DisplayReviews(props) {
 
 
     useEffect(() => {
-        props.fetchDestinationsById()
+        props.fetchDestinationsById(id)
         props.fetchReviews()
-    }, [id])
-
-   console.log(props.destinationState.destinations)
+    }, [])
 
     return (
         <div className='review_page'>
-            <h1>Destination</h1>
-
             <div>
-                <h3>{props.destinationState.destinations.image}</h3>
-                                {/* <h2>{destination.name}</h2>
-                                <img src={`${destination.image}`} alt={destination.name} />
-                                <h4>{destination.description}</h4> */}
-                         
+                <h2>{props.destinationState.destinations.name}</h2>
+                <img className='detail_img' src={`${props.destinationState.destinations.image}`}></img>
+                <h4>{props.destinationState.destinations.description}</h4>
             </div>
 
-            <h1>Reviews:</h1>
+            <h2>Comments:</h2>
             <div className='leave_review'>
-                <h3>Write a Review</h3>
+                <h3>Write a comment</h3>
                 <form>
                     <input type='text' placeholder='Username'></input>
                     <textarea cols="70" rows="10"></textarea>
-                    <button>Submit Review</button>
+                    <button>Submit Coment</button>
                 </form>
             </div>
 
@@ -55,7 +49,7 @@ function DisplayReviews(props) {
                     {props.reviewState.reviews &&
                         props.reviewState.reviews.map((review) => (
                             <li key={review._id} className='review_box'>
-                                <h2>Destination:{review.name}</h2>
+                                <h2>{review.name}</h2>
                                 <h3>Rating:{review.rating}</h3>
                                 <h4>Description:{review.description}</h4>
                                 <button>Delete</button>

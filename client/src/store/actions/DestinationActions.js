@@ -15,11 +15,10 @@ export const LoadDestinations = () => {
     }
 }
 
-export const LoadDestinationById = () => {
+export const LoadDestinationById = (id) => {
     return async (dispatch) => {
         try {
-            const oneDestination = await GetDestinationsBYID()
-            // console.log(oneDestination)
+            const oneDestination = await GetDestinationsBYID(id)
             dispatch({
                 type: GET_DESTINATION_BY_ID,
                 payload: oneDestination

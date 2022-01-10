@@ -5,10 +5,15 @@ const Review = require('../models/review');
 db.on('error', console.error.bind(console, 'MongoDB Connection error:'));
 
 const createReviews = async () => {
+
+    const names = [
+        'Machu Picchu', 'South Island, New Zealand', 'Paris', 'Tahiti', 'Rome'
+    ]
+
     const reviews = [...Array(30)].map((review) => {
         return new Review({
             title: faker.lorem.sentence(),
-            name: 'TULUM',
+            name: faker.random.word(names),
             username: faker.name.firstName(),
             description: faker.lorem.paragraph(),
             rating: faker.random.number(5)

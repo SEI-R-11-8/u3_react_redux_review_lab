@@ -8,8 +8,16 @@ function App() {
   return (
     <div className='Displays'>
       <Routes>
-        <Route path='/' element={<Destinations />} />
-        <Route path='/details/:id' element={<Reviews />} />
+        <Route path='/' 
+        element={<Destinations 
+        />} 
+        />
+
+        <Route path='/details/:id' 
+        element={ <Reviews
+        />} 
+        />
+
       </Routes>
     </div>
   )

@@ -10,7 +10,7 @@ const DestinationReducer = (state = destinationState, action) => {
         case GET_DESTINATIONS:
             return { ...state, destinations: action.payload }
         case GET_DESTINATION_BY_ID:
-            return { ...state, destinations: state.destinations.filter((destination, index) => index === action.payload) }
+            return { destinations: action.payload }
         // case UPDATE_DESTINATION:
         //     return { ...state, destinations: action.payload }
         case DELETE_DESTINATION:

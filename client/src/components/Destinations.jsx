@@ -20,18 +20,24 @@ function DisplayDestinations(props) {
     }, [])
     return (
         <div>
-            <h1>Some Fun Destinations:</h1>
+            <header>
+                <h1>Travel Blog</h1>
+            </header>
 
-            <ul >
+            <h2>My latest adventures:</h2>
+
+            <ul>
                 {props.destinationState.destinations &&
-                props.destinationState.destinations.map((destination) => (
-                    <li key={destination._id}>
-                        <h2>{destination.name}</h2>
-                        <img src={`${destination.image}`} alt={destination.name} />
-                        <h4>{destination.description}</h4>
-                        <Link to={`/details/${destination._id}`}>Click here to see reviews about {destination.name}</Link>
-                    </li>
-                ))}
+                    props.destinationState.destinations.map((destination) => (
+                        <li key={destination._id} className='destination_box'>
+                            <img src={`${destination.image}`} alt={destination.name} />
+                            <div className='details'>
+                                <h2>{destination.name}</h2>
+                                <h4>{destination.description}</h4>
+                                <Link to={`/details/${destination._id}`}>Click here to read more about {destination.name}</Link>
+                            </div>
+                        </li>
+                    ))}
             </ul>
         </div>
     )
