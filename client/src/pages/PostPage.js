@@ -39,6 +39,9 @@ function PostPage(props) {
     console.log('props postState.post', props.postState.post)
     return (
         <div>
+            < Link to={'/'}>
+                <div className="addBtn">Home Page</div>
+            </Link>
             <div>
                 {props.postState.post.post_location} <br />
                 <img src={props.postState.post.post_image} alt='pic' width={200} height={200} />

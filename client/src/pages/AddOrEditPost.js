@@ -1,7 +1,7 @@
 import '../styles/index.css'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link} from 'react-router-dom'
 import { LoadUpdatePost, LoadNewPost, LoadPostsById } from '../store/actions/PostAction'
 import PostForm from '../components/PostForm'
 
@@ -31,7 +31,7 @@ function AddOrEditPost(props) {
             setNewPost(props.postState.post)
         }
 
-    }, [])
+    }, [props, id])
 
     const handleChange = (e) => {
         
@@ -47,6 +47,10 @@ function AddOrEditPost(props) {
 
     return (
         <div>
+            < Link to={'/'}>
+                <div className="addBtn">Home Page</div>
+            </Link>
+
             <div className="Post">
 
                 <h4>{id ? 'Edit' : 'Add'} Post </h4>
