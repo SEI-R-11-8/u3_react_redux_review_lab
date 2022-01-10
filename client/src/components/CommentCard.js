@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import comment from '../../../models/comment';
-import { LoadComments } from '../store/actions/BeachActions';
+import { LoadCommentsAction } from '../store/actions/BeachActions';
 
 const mapStateToProps = ({ commentState }) => {
   return { commentState };
@@ -9,24 +8,29 @@ const mapStateToProps = ({ commentState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchComments: (id) => dispatch(LoadComments(id))
+    fetchComments: () => dispatch(LoadCommentsAction())
   };
 };
 
-const Comments = (props) => {
+const CommentCard = (props) => {
   useEffect(() => {
-    props.fetchComments(props.match.params.id);
-  }, [props.match.params.id]);
+    props.fetchComments();
+    // console.log(props.commentState);
+  }, []);
+
+  // comment id: props.commentState.comments[0].beach_id
 
   return (
     <div>
-      {props.commentState.comments.map((product) => (
-        <ul key={comment._id}>
-          {comment.author} {comment.author}
-        </ul>
-      ))}
+      {props.commentState.comments
+        .filter((comment) => props.beachID === comment.beach_id)
+        .map((comment) => (
+          <ul key={comment._id}>
+            "{comment.content}" -{comment.author}
+          </ul>
+        ))}
     </div>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentCard);

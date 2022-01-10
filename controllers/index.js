@@ -59,7 +59,7 @@ const deleteBeachController = async (req, res) => {
 
 const getAllCommentsController = async (req, res) => {
   try {
-    const Comnment = await Comment.find();
+    const comments = await Comment.find();
     return res.status(200).json({ comments });
   } catch (error) {
     return res.status(500).send(error.message);
