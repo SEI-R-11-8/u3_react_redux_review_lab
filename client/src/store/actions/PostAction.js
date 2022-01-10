@@ -59,13 +59,13 @@ export const LoadUpdatePost = (postToUpdate) => {
     }
 }
 
-export const LoadDeletePost = (postToDelete) => {
+export const LoadDeletePost = (id) => {
     return async (dispatch) => {
         try {
-            const deletePost = await DeletePost(postToDelete)
+            const deletePost = await DeletePost(id)
             dispatch({
                 type: DELETE_POST,
-                payload: deletePost
+                payload: id
             })
         } catch (error) {
             throw error

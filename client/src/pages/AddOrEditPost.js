@@ -1,7 +1,7 @@
 import '../styles/index.css'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { LoadUpdatePost, LoadNewPost, LoadPostsById } from '../store/actions/PostAction'
 import PostForm from '../components/PostForm'
 
@@ -22,6 +22,7 @@ function AddOrEditPost(props) {
 
     const { id } = useParams()
     const [ post, setNewPost ] = useState({})
+    let navigate = useNavigate()
 
     useEffect(() => {
 
@@ -41,14 +42,14 @@ function AddOrEditPost(props) {
     const onSubmit = (e) => {
         e.preventDefault()
         id ? props.updatePost(post) : props.addNewPost(post)
-        
+        navigate('/')
     }
 
     return (
         <div>
             <div className="Post">
 
-                <h4>Edit Post</h4>
+                <h4>{id ? 'Edit' : 'Add'} Post </h4>
                 <div className="Post">
                         <div className="Post">
                             < PostForm
