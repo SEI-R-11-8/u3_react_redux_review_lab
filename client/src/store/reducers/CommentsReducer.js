@@ -7,7 +7,12 @@ const {
 
 const iState = {
   comments: [],
-  newComment: ''
+  newComment: {
+    location: '',
+    username: '',
+    comment: '',
+    likes: 0
+  }
 };
 
 const CommentsReducer = (state = iState, action) => {
@@ -20,7 +25,12 @@ const CommentsReducer = (state = iState, action) => {
       return {
         ...state,
         comments: [...state.comments, action.payload],
-        newComment: ''
+        newComment: {
+          location: '',
+          username: '',
+          comment: '',
+          likes: 0
+        }
       };
     case LIKE_COMMENT:
       return { ...state };

@@ -3,7 +3,7 @@ import Client from './';
 export const GetLocations = async () => {
   try {
     const res = await Client.get('/locations');
-    return res.data;
+    return res.data.locations;
   } catch (error) {
     throw error;
   }
@@ -12,7 +12,16 @@ export const GetLocations = async () => {
 export const GetComments = async (locationId) => {
   try {
     const res = await Client.get(`/comments/${locationId}`);
-    return res.data;
+    return res.data.comments;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const GetLocationById = async (locationId) => {
+  try {
+    const res = await Client.get(`/locations/${locationId}`);
+    return res.data.location[0];
   } catch (error) {
     throw error;
   }
@@ -43,7 +52,7 @@ export const PostComment = async (commentInfo) => {
 export const AddLocationLike = async (locationId) => {
   try {
     const res = await Client.put(`/locations/${locationId}`, {
-      likes: likes + 1
+      // likes: likes + 1
     });
     return res.data;
   } catch (error) {

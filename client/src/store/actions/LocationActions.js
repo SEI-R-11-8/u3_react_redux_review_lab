@@ -1,5 +1,6 @@
 import {
   GetLocations,
+  GetLocationById,
   GetComments,
   PostLocation,
   PostComment,
@@ -8,9 +9,11 @@ import {
 } from '../../services/LocationService';
 import {
   GET_LOCATIONS,
+  GET_CURRENT_LOCATION,
   ADD_LOCATION,
   LIKE_LOCATION,
   GET_COMMENTS,
+  NEW_COMMENT,
   ADD_COMMENT,
   LIKE_COMMENT
 } from '../types';
@@ -22,6 +25,20 @@ export const LoadLocations = () => {
       dispatch({
         type: GET_LOCATIONS,
         payload: locations
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const LoadCurrentLocation = (locationId) => {
+  return async (dispatch) => {
+    try {
+      const location = await GetLocationById(locationId);
+      dispatch({
+        type: GET_CURRENT_LOCATION,
+        payload: location
       });
     } catch (error) {
       throw error;
@@ -71,16 +88,16 @@ export const AddComment = (commentInfo) => {
   };
 };
 
-export const LikeLocation = (locationId) => {
-  return async (dispatch) => {
-    try {
-      const likedLocation = await AddLocationLike(locationId, likesAmount);
-      dispatch({
-        type: ADD_LOCATION,
-        payload: likesAmount
-      });
-    } catch (error) {
-      throw error;
-    }
-  };
-};
+// export const LikeLocation = (locationId) => {
+//   return async (dispatch) => {
+//     try {
+//       const likedLocation = await AddLocationLike(locationId);
+//       dispatch({
+//         type: ADD_LOCATION,
+//         payload:
+//       });
+//     } catch (error) {
+//       throw error;
+//     }
+//   };
+// };
