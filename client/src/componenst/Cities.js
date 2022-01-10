@@ -5,8 +5,8 @@ import { LoadCities } from '../store/actions/CityActions';
 import { REVIEW_LOADING_TYPE } from '../store/types';
 import Reviews from './Reviews';
 
-const mapStateToProps = ({ cityState }) => {
-  return { cityState };
+const mapStateToProps = ({ cityState, reviewState }) => {
+  return { cityState, reviewState };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -17,6 +17,7 @@ function Cities(props) {
   useEffect(() => {
     props.fetchCities();
   }, []);
+  console.log(props.reviewState);
 
   return (
     <div>

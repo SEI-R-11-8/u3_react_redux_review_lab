@@ -7,7 +7,7 @@ const getReviewByCityID = async (req, res) => {
     const thiscity = await Review.find({ city_id: city_id }).populate(
       'city_id'
     );
-    console.log('test' + thiscity);
+    // console.log(thiscity);
     if (thiscity) {
       return res.status(200).json({ thiscity });
     }

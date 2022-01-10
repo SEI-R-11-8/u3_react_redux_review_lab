@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const City = new Schema(
+const Review = new Schema(
   {
     review: { type: String, required: true },
     city_id: { type: Schema.Types.ObjectId, ref: 'cities' }
@@ -9,4 +9,4 @@ const City = new Schema(
   { timestamps: true }
 );
 
-module.exports = City;
+module.exports = Review;

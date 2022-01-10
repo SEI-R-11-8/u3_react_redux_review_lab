@@ -7,7 +7,7 @@ import {
 } from '../types';
 
 const iState = {
-  reviews: '',
+  reviews: [],
   reviewsLoading: ''
 };
 
