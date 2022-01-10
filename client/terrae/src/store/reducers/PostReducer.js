@@ -11,7 +11,7 @@ const iState = {
    posts: [],
    getPosts: '', // Should be type enum('Loading', 'Loaded', 'Inactive')
    getPostsById: '',
-   createPost: '',
+   createPost: {},
    addPost: '',
    updatePost: ''
 }

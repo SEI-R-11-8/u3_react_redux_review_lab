@@ -8,7 +8,7 @@ router.get('/posts', controllers.getPosts)
 
 router.get('/reviews', controllers.getReviews)
 
-// router.post('/reviews/', controllers.createReview)
+router.post('/reviews', controllers.createReview)
 
 // router.put('/reviews/:id', controllers.updateReview)
 

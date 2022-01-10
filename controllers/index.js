@@ -19,15 +19,16 @@ const getReviews = async (request, response) => {
       return response.status(500).send(error.message);
    }
 };
-// const createReview = async (request, response) => {
-//    try {
-//       const newReview = await new Reviews(request.body)
-//       await newReview.save()
-//       return response.status(201).json(newReview)
-//    } catch (error) {
-//       return response.status(500).send(error.message)
-//    }
-// };
+
+const createReview = async (request, response) => {
+   try {
+      console.log('something')
+      const addReview = await Reviews.insertMany(request.body)
+      return response.status(201).json({ addReview })
+   } catch (error) {
+      return response.status(500).send(error.message)
+   }
+};
 
 // const updateReview = async (request, response) => {
 //    try {
@@ -69,7 +70,7 @@ module.exports = {
    // updateReview,
    deleteReview,
    getReviews,
-   // createReview
+   createReview
 }
 
 

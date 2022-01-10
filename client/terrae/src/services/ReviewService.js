@@ -9,18 +9,11 @@ export const GetReviews = async () => {
    }
 }
 
-export const CreateReviews = async () => {
-   try {
-      const response = await Client.post('/reviews')
-      return response.data.reviews
-   } catch (error) {
-      throw error
-   }
-}
 
-export const AddReviews = async () => {
+export const AddReviews = async (reviewInfo) => {
+   console.log(reviewInfo)
    try {
-      const response = await Client.post('/reviews')
+      const response = await Client.post('/reviews', reviewInfo)
       return response.data.reviews
    } catch (error) {
       throw error

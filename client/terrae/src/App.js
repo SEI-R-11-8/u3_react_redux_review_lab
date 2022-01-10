@@ -8,6 +8,8 @@ import About from './pages/About'
 import Explore from './pages/Explore'
 import Posts from './components/Posts'
 import Reviews from './components/Reviews'
+import ReviewForm from './components/ReviewForm'
+import ReviewList from './components/ReviewList'
 
 export default function App() {
 
@@ -25,6 +27,8 @@ export default function App() {
                   <Route path='/Explore' element={<Explore />} />
                   <Route path='/Posts' element={<Posts />} />
                   <Route path='/Reviews' element={<Reviews />} />
+                  <Route path='/ReviewList' element={<ReviewList />} />
+                  <Route path='/ReviewForm' element={<ReviewForm />} />
                </Routes>
             </main>
          </div>

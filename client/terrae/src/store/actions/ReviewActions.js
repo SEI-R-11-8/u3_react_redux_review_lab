@@ -1,17 +1,5 @@
-import {
-   GetReviews,
-   CreateReviews,
-   AddReviews,
-   DeleteReviews,
-   UpdateReviews
-} from '../../services/ReviewService'
-import {
-   GET_REVIEWS,
-   CREATE_REVIEW,
-   ADD_REVIEW,
-   UPDATE_REVIEW,
-   DELETE_REVIEW
-} from '../types'
+import { GetReviews, AddReviews, UpdateReviews } from '../../services/ReviewService'
+import { GET_REVIEWS, CREATE_REVIEW, ADD_REVIEW, UPDATE_REVIEW, DELETE_REVIEW } from '../types'
 
 
 export const LoadReviews = () => {
@@ -29,25 +17,16 @@ export const LoadReviews = () => {
    }
 }
 
-export const CreateReview = (form) => {
-   return async (dispatch) => {
-      try {
-         const createReview = await CreateReviews()
-         dispatch({
-            type: CREATE_REVIEW,
-            payload: form
-         })
-      }
-      catch (error) {
-         throw error
-      }
-   }
-}
+export const CreateReview = (key, value) => ({
+   type: CREATE_REVIEW,
+   payload: { key, value }
+})
 
-export const AddReview = (review) => {
+
+export const AddReview = (reviewInfo) => {
    return async (dispatch) => {
       try {
-         const addReview = await AddReviews()
+         const review = await AddReviews(reviewInfo)
          dispatch({
             type: ADD_REVIEW,
             payload: review
@@ -74,20 +53,10 @@ export const UpdateReview = () => {
    }
 }
 
-export const DeleteReview = (index) => {
-   return async (dispatch) => {
-      try {
-         const deleteReview = await DeleteReviews()
-         dispatch({
-            type: DELETE_REVIEW,
-            payload: index
-         })
-      }
-      catch (error) {
-         throw error
-      }
-   }
-}
+export const DeleteReview = (index) => ({
+   type: DELETE_REVIEW,
+   payload: index
+})
 
 
 

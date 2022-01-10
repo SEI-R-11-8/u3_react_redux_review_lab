@@ -1,6 +1,6 @@
 const {
    GET_REVIEWS,
-   GET_REVIEWS_BY_ID,
+   // GET_REVIEWS_BY_ID,
    CREATE_REVIEW,
    ADD_REVIEW,
    UPDATE_REVIEW,
@@ -10,8 +10,13 @@ const {
 const iState = {
    reviews: [],
    getReviews: '', // Should be type enum('Loading', 'Loaded', 'Inactive')
-   getReviewsById: '',
-   createReview: '',
+   // getReviewsById: '',
+   createReview: {
+      title: '',
+      description: '',
+      date: '',
+      rating: ''
+   },
    addReview: '',
    updateReview: ''
 }
@@ -20,16 +25,16 @@ const ReviewReducer = (state = iState, action) => {
    switch (action.type) {
       case GET_REVIEWS:
          return { ...state, reviews: action.payload }
-      case GET_REVIEWS_BY_ID:
-         return { ...state, getReviewById: action.payload }
+      // case GET_REVIEWS_BY_ID:
+      //    return { ...state, getReviewById: action.payload }
       case CREATE_REVIEW:
-         return { ...state, createReview: action.payload }
+         return { ...state, createReview: { ...state.createReview, [action.payload.key]: action.payload.value } }
       case ADD_REVIEW:
-         return { ...state, reviews: [...state.reviews, action.payload], createReview: '' }
+         return { ...state, reviews: [...state.reviews, action.payload], createReview: {} }
       case UPDATE_REVIEW:
          return { ...state, updateReview: action.payload }
       case DELETE_REVIEW:
-         return { ...state, reviews: state.reviews.filter((review, index) => index !== action.payload) }
+         return { ...state, reviews: state.filter((review, index) => index !== action.payload) }
       default:
          return { ...state }
    }
