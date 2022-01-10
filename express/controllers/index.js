@@ -18,7 +18,7 @@ const createReview = async (req, res) => {
   try {
     console.log(req.body);
     const review = await new Review(req.body);
-    await experience.save();
+    await review.save();
     return res.status(201).json({
       review
     });
@@ -70,6 +70,22 @@ const getReviewById = async (req, res) => {
       return res.status(200).json({ review });
     }
     return res.status(404).send(`Review with the specified ID does not exists`);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500);
+  }
+};
+
+const getReviewByCityId = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const review = await City.findById(_id);
+    if (review) {
+      return res.status(200).json({ review });
+    }
+    return res
+      .status(404)
+      .send(`Review with the specified city ID does not exists`);
   } catch (error) {
     console.log(error.message);
     return res.status(500);
@@ -156,5 +172,6 @@ module.exports = {
   deleteCity,
   deleteReview,
   updateReview,
-  updateCity
+  updateCity,
+  getReviewByCityId
 };

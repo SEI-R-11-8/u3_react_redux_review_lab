@@ -14,7 +14,9 @@ router.get('/reviews', controllers.getAllReviews);
 
 router.get('/cities/details/:_id', controllers.getCityById);
 
-router.get('/reviews/details/:_id', controllers.getReviewById);
+// router.get('/reviews/details/:_id', controllers.getReviewById);
+
+router.get('/reviews/details/:_id', controllers.getReviewByCityId);
 
 router.put('/cities/details/:_id', controllers.updateCity);
 

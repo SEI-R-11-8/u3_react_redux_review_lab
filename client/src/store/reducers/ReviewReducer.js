@@ -1,8 +1,14 @@
-const { REVIEW_LOADING_TYPE, GET_CITY_REVIEWS } = require('../types');
+const {
+  REVIEW_LOADING_TYPE,
+  GET_CITY_REVIEWS,
+  CREATE_CITY_REVIEW,
+  NEW_CITY_REVIEW
+} = require('../types');
 
 const iState = {
   reviews: [],
-  reviewsLoading: ''
+  reviewsLoading: '',
+  newReview: { review: '' }
 };
 
 const ReviewReducer = (state = iState, action) => {
@@ -11,6 +17,17 @@ const ReviewReducer = (state = iState, action) => {
       return { ...state, reviewsLoading: action.payload };
     case GET_CITY_REVIEWS:
       return { ...state, reviews: action.payload };
+    case CREATE_CITY_REVIEW:
+      return {
+        ...state,
+        reviews: [...state.reviews, action.payload],
+        newReview: { review: '', city_id: '' }
+      };
+    case NEW_CITY_REVIEW:
+      return {
+        ...state,
+        newReview: { ...state.newReview, review: action.payload }
+      };
     default:
       return { ...state };
   }
