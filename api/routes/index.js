@@ -8,9 +8,9 @@ router.get('/comments', controllers.getAllComments)
 
 router.get('/posts', controllers.getAllPosts)
 
-router.post('/comments/new', controllers.addNewComment)
+router.post('/comments', controllers.addNewComment)
 
-router.post('/posts/new', controllers.addNewPost)
+router.post('/posts', controllers.addNewPost)
 
 router.get('/comments/:id', controllers.getCommentById)
 
