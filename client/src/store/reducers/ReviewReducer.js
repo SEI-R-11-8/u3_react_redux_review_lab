@@ -17,6 +17,8 @@ const ReviewReducer = (state = iState, action) => {
       return { ...state, reviewsLoading: action.payload };
     case GET_CITY_REVIEWS:
       return { ...state, reviews: action.payload };
+    case CREATE_REVIEW:
+      return { ...state, reviews: action.payload };
     default:
       return { ...state };
   }

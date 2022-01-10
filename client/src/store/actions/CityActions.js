@@ -3,15 +3,20 @@ import {
   GetCityById,
   GetReviews,
   GetReviewById,
-  GetCitiReviews
+  GetCitiReviews,
+  PostReview
 } from '../../services/CityServices';
-import { GET_CITIES, GET_CITY_REVIEWS, CREATE_CITY_REVIEW } from '../types';
+import {
+  GET_CITIES,
+  GET_CITY_REVIEWS,
+  CREATE_CITY_REVIEW,
+  CREATE_REVIEW
+} from '../types';
 
 export const LoadCities = () => {
   return async (dispatch) => {
     try {
       const cities = await GetCities();
-      console.log(cities);
       dispatch({
         type: GET_CITIES,
         payload: cities
@@ -22,6 +27,19 @@ export const LoadCities = () => {
   };
 };
 
+export const createReview = () => {
+  return async (dispatch) => {
+    try {
+      const newReview = await PostReview();
+      dispatch({
+        type: CREATE_REVIEW,
+        payload: newReview
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
 export const LoadReviews = () => {
   return async (dispatch) => {
     try {

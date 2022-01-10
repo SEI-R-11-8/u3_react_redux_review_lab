@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import {
-  LoadCitisReviews,
-  LoadReviewsById
-} from '../store/actions/CityActions';
-import { CITY_LOADING_TYPE } from '../store/types';
+import { createReview } from '../store/actions/CityActions';
 
-// const mapStateToProps = ({ reviewState }) => {
-//   return { reviewState };
-// };
+const mapStateToProps = ({ reviewState }) => {
+  return { reviewState };
+};
 
-// const mapDispatchToProps = (dispatch) => {
-//   return { fetchReviews: (id) => dispatch(LoadCitisReviews(id)) };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return { createReview: () => dispatch(createReview()) };
+};
 
 const Reviews = (props) => {
   const [pop, setPop] = useState('');
+
   useEffect(() => {
-    // props.fetchReviews(props.cityId);
     async function reviewed() {
       const res = await axios.get(
         `http://localhost:3001/api/reviews/${props.cityId}`
@@ -27,9 +23,18 @@ const Reviews = (props) => {
     }
     reviewed();
   }, []);
-  return <div className="ReviewComponent"> {pop} </div>;
-  // return <div>{props.reviewState.reviews}</div>;
+
+  function postReview() {}
+
+  return (
+    <div>
+      <div className="ReviewComponent">{pop}</div>
+      <form>
+        <input placeholder="Post a review" id="newReview" type="text"></input>
+        <button onClick={postReview}>post</button>
+      </form>
+    </div>
+  );
 };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Reviews);
-export default Reviews;
+export default connect(mapStateToProps, mapDispatchToProps)(Reviews);

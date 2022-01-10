@@ -9,6 +9,16 @@ export const GetCities = async () => {
   }
 };
 
+export const PostReview = async (newReview) => {
+  try {
+    const res = await Client.post('/reviews', { newReview });
+    console.log(res);
+    // return res.data.cities;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const GetCityById = async (cityId) => {
   try {
     const res = await Client.get(`/cities/details/${cityId}`);
