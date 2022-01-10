@@ -27,7 +27,7 @@ const Reviews = (props) => {
     }
     reviewed();
   }, []);
-  return <div> {pop} </div>;
+  return <div className="ReviewComponent"> {pop} </div>;
   // return <div>{props.reviewState.reviews}</div>;
 };
 

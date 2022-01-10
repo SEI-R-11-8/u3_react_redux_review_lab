@@ -1,4 +1,40 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.Feed {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 300px;
+}
+
+.Post {
+  background-color: bisque;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.PostText{
+  padding: 0;
+  margin: 0 0 0 4px;
+  text-align: left;
+}
+.ReviewComponent{
+  text-align: left;
+  background-color: whitesmoke;
+  padding:  4px;
+
+}
+
+
+img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+ul{padding: 0;}

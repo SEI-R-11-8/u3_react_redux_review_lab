@@ -20,11 +20,15 @@ function Cities(props) {
   console.log(props.reviewState);
 
   return (
-    <div>
+    <div className="Feed">
       {props.cityState.cities.map((city) => (
-        <ul>
-          <Link to={'/cities'} key={city._id}>
-            {city.name}
+        <ul className="Post">
+          <Link to={'/cities'} key={city._id} className="Shell">
+            <img src={city.url} />
+            <div className="PostText">
+              <h3>{city.name}</h3>
+              <h5>{city.description}</h5>
+            </div>
           </Link>
           <Reviews cityId={city._id} />
         </ul>
