@@ -22,7 +22,7 @@ const Posts = (props) => {
 
     }, [])
 
-    // console.log('props postState.posts', props.postState.posts)
+    console.log('props postState.posts', props.postState.posts)
 
     return (
         <div>
@@ -30,17 +30,24 @@ const Posts = (props) => {
 
             {props.postState.posts.map((post) => (
                 <Link to={`/postPage/${post._id}`} key={post._id} post={post}>
-                <div key={post._id} className="post"> 
-                    <PostCard
-                        post_location={post.post_location}
-                        post_image={post.post_image}
-                        post_description={post.post_description}
-                        id={post._id}
-                    />
+                    <div key={post._id} className="post">
+                        <PostCard
+                            post_location={post.post_location}
+                            post_image={post.post_image}
+                            post_description={post.post_description}
+                            id={post._id}
+                        />
 
-                </div>
+                    </div>
                 </Link>
             ))}
+
+            <Link to={'/addPostPage'}>
+                <button>
+                    <p>Add Post</p>
+                </button>
+            </Link>
+
 
         </div>
 

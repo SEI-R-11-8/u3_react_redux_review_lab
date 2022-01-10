@@ -5,7 +5,7 @@ const Posts = new Schema(
     {
         post_location: { type: String, required: true },
         post_description: { type: String, required: true },
-        post_image: { type: String, required: true },
+        post_image: { type: String, required: false },
         comment_id: [ { type: mongoose.Schema.Types.ObjectId, ref: 'comments' } ]
         
     },
