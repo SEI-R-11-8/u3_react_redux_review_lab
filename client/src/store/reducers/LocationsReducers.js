@@ -39,7 +39,17 @@ const LocationsReducer = (state = iState, action) => {
         }
       };
     case LIKE_LOCATION:
-      return { ...state };
+      return {
+        ...state,
+        currentLocation: {
+          city: action.payload1,
+          country: action.payload2,
+          image: action.payload3,
+          description: action.payload4,
+          _id: action.payload5,
+          likes: (action.payload6 += 1)
+        }
+      };
     default:
       return { ...state };
   }

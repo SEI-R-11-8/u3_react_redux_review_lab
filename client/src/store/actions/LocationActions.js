@@ -106,7 +106,13 @@ export const LikeLocation = (locationId, currentLikes) => {
       const likedLocation = await AddLocationLike(locationId, currentLikes);
       dispatch({
         type: LIKE_LOCATION,
-        payload: (likedLocation.likes += 1)
+        payload1: likedLocation.city,
+        // payload: (currentLikes += 1),
+        payload2: likedLocation.country,
+        payload3: likedLocation.image,
+        payload4: likedLocation.description,
+        payload5: likedLocation._id,
+        payload6: currentLikes
       });
     } catch (error) {
       throw error;
