@@ -1,7 +1,8 @@
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LocationsList from './components/LocationsList';
 import LocationCard from './components/LocationCard';
-import Location from './components/Location';
+import LocationForm from './components/LocationForm';
 import './styles/App.css';
 
 function App() {
@@ -11,10 +12,15 @@ function App() {
       <div className="flex-row">
         <div className="left">
           <LocationsList />
-          <button>Add Location</button>
+          <Link to="/new-location">
+            <button>Add Location</button>
+          </Link>
         </div>
         <div className="right">
-          <Route path="/locations/:id" component={LocationCard} />
+          <Switch>
+            <Route path="/locations/:id" component={LocationCard} />
+            <Route path="/new-location" component={LocationForm} />
+          </Switch>
         </div>
       </div>
     </div>

@@ -9,7 +9,13 @@ const {
 const iState = {
   locations: [],
   currentLocation: {},
-  newLocation: ''
+  newLocation: {
+    city: '',
+    country: '',
+    image: '',
+    description: '',
+    likes: 0
+  }
 };
 
 const LocationsReducer = (state = iState, action) => {
@@ -24,7 +30,13 @@ const LocationsReducer = (state = iState, action) => {
       return {
         ...state,
         locations: [...state.locations, action.payload],
-        newLocation: ''
+        newLocation: {
+          city: '',
+          country: '',
+          image: '',
+          description: '',
+          likes: 0
+        }
       };
     case LIKE_LOCATION:
       return { ...state };

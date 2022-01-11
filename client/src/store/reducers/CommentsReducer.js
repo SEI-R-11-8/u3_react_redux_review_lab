@@ -26,7 +26,6 @@ const CommentsReducer = (state = iState, action) => {
         ...state,
         comments: [...state.comments, action.payload],
         newComment: {
-          location: '',
           username: '',
           comment: '',
           likes: 0

@@ -68,6 +68,7 @@ const getCommentsByLocation = async (req, res) => {
 
 // PUT -->
 const updateLocation = async (req, res) => {
+  console.log(req.body);
   try {
     const { id } = req.params;
     await Location.findByIdAndUpdate(

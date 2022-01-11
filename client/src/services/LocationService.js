@@ -29,10 +29,8 @@ export const GetLocationById = async (locationId) => {
 
 export const PostLocation = async (locationInfo) => {
   try {
-    const res = await Client.post('/locations', {
-      locationInfo
-    });
-    return res.data;
+    const res = await Client.post('/locations', locationInfo);
+    return res.data.locations;
   } catch (error) {
     throw error;
   }
@@ -40,19 +38,18 @@ export const PostLocation = async (locationInfo) => {
 
 export const PostComment = async (commentInfo) => {
   try {
-    const res = await Client.post('/comments', {
-      commentInfo
-    });
-    return res.data;
+    const res = await Client.post('/comments', commentInfo);
+    return res.data.comments;
   } catch (error) {
     throw error;
   }
 };
 
-export const AddLocationLike = async (locationId) => {
+export const AddLocationLike = async (locationId, currentLikes) => {
+  console.log(currentLikes);
   try {
     const res = await Client.put(`/locations/${locationId}`, {
-      // likes: likes + 1
+      likes: (currentLikes += 1)
     });
     return res.data;
   } catch (error) {

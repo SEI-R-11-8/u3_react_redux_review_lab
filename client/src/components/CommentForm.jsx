@@ -1,14 +1,20 @@
-import { AddComment } from "../store/actions/LocationActions"
-
 const CommentForm = (props) => {
   return (
     <form>
       <h3>New Comment</h3>
-      <h5>Username:</h5>
-      <input type="text" name="newCommentUsername" value={props.newComment} onChange={props.newComment}/>
-      <h5>Comment:</h5>
-      <textarea type="text" name="newCommentComment" value={props.newComment} onChange={props.newComment}/>
-      <button type="submit" onClick={()=>{}}>Submit</button>
+      <label htmlFor="username">Username:</label>
+      <input 
+        type="text" 
+        name="username" 
+        onChange={props.handleChange}
+      />
+      <label htmlFor="comment">Comment:</label>
+      <textarea 
+        type="text" 
+        name="comment" 
+        onChange={props.handleChange}
+      />
+      <button type="submit" onClick={()=>{props.handleSubmit(props.newComment)}}>Submit</button>
     </form>
   )
 }

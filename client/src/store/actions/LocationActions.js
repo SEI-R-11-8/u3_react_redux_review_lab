@@ -10,6 +10,7 @@ import {
 import {
   GET_LOCATIONS,
   GET_CURRENT_LOCATION,
+  NEW_LOCATION,
   ADD_LOCATION,
   LIKE_LOCATION,
   GET_COMMENTS,
@@ -60,6 +61,11 @@ export const LoadComments = (locationId) => {
   };
 };
 
+export const CreateNewLocation = (formValue) => ({
+  type: NEW_LOCATION,
+  payload: formValue
+});
+
 export const AddLocation = (locationInfo) => {
   return async (dispatch) => {
     try {
@@ -73,6 +79,11 @@ export const AddLocation = (locationInfo) => {
     }
   };
 };
+
+export const CreateNewComment = (formValue) => ({
+  type: NEW_COMMENT,
+  payload: formValue
+});
 
 export const AddComment = (commentInfo) => {
   return async (dispatch) => {
@@ -88,16 +99,17 @@ export const AddComment = (commentInfo) => {
   };
 };
 
-// export const LikeLocation = (locationId) => {
-//   return async (dispatch) => {
-//     try {
-//       const likedLocation = await AddLocationLike(locationId);
-//       dispatch({
-//         type: ADD_LOCATION,
-//         payload:
-//       });
-//     } catch (error) {
-//       throw error;
-//     }
-//   };
-// };
+export const LikeLocation = (locationId, currentLikes) => {
+  console.log(currentLikes);
+  return async (dispatch) => {
+    try {
+      const likedLocation = await AddLocationLike(locationId, currentLikes);
+      dispatch({
+        type: LIKE_LOCATION,
+        payload: (likedLocation.likes += 1)
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
