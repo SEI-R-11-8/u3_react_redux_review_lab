@@ -1,6 +1,6 @@
 const CommentForm = (props) => {
   return (
-    <form>
+    <form className="form">
       <h3>New Comment</h3>
       <label htmlFor="username">Username:</label>
       <input 

@@ -28,7 +28,7 @@ const LocationForm = (props) => {
   }
 
   return (
-    <form>
+    <form className='form'>
       <h3>New Location</h3>
       <label htmlFor="city">City:</label>
       <input 

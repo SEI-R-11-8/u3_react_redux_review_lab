@@ -20,6 +20,7 @@ const LocationsList = (props) => {
 
   return (
     <div>
+      <h2>Locations</h2>
       {props.locationsState.locations.map((location) => (
         <ul key={location._id}>
           <Link to={`/locations/${location._id}`} className='location-links'>{location.city}, {location.country}</Link>
