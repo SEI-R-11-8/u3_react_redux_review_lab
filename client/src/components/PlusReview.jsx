@@ -1,15 +1,33 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { AddReview, LoadReview } from '../store/actions/CityActions'
+import { AddReview, LoadReviews, LoadReview } from '../store/actions/CityActions'
 
-const mapActionsToProps = (dispatch) => {
+// const mapActionsToProps = (dispatch) => {
+//     return {
+//       addReview: (newReview) => dispatch(AddReview(newReview)),
+//       createReview: (formValue) => dispatch(LoadReview(formValue))
+//     }
+//   }
+
+  const mapStateToProps = (state) => {
     return {
-      addReview: (newReview) => dispatch(AddReview(newReview)),
-      createReview: (formValue) => dispatch(LoadReview(formValue))
+      reviewState: state.reviewState
+    };
+  };
+
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchReviews: () => dispatch(LoadReviews()),
+        addReview: (newReview) => dispatch(AddReview(newReview)),
+        createReview: (formValue) => dispatch(LoadReview(formValue))
     }
-  }
+}
 
 const PlusReview = (props) => {
+  // console.log(props.reviewState)
+  useEffect(() => {
+    props.fetchReviews()
+}, [])
 
   const handleName = (event) => {
     props.createReview(event.target.value)
@@ -18,10 +36,12 @@ const PlusReview = (props) => {
     const handleChange = (event) => {
         props.createReview(event.target.value)
       }
+      const submitValue = { review: 'love it', city_id: '61d71073c88d2ae6facd834a' }
     
       const handleSubmit = (event) => {
+        console.log('click')
         event.preventDefault()
-        props.addReview(props.addReview.newReview)
+        props.addReview(submitValue)
       }
     
 
@@ -33,14 +53,12 @@ const PlusReview = (props) => {
         <input
           type="text"
           name="cityName"
-          // value={newReview}
           onChange={handleName}
         />
         <br />
         <input
           type="text"
           name="newReview"
-          // value={newReview}
           onChange={handleChange}
         />
         <button type="submit" onClick={handleSubmit}>
@@ -48,9 +66,9 @@ const PlusReview = (props) => {
         </button>
   
       </form>
-      {/* <h1>{newReview}</h1> */}
+      <h1>{props.review}</h1>
       </div>
     )
 }
 
-export default connect(mapActionsToProps) (PlusReview)
+export default connect(mapStateToProps, mapDispatchToProps) (PlusReview)

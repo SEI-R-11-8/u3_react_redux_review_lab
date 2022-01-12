@@ -8,7 +8,7 @@ const {
 const iState = {
   reviews: [],
   reviewsLoading: '',
-  newReview: { review: '' }
+  newReview: { review: '', city_id: '' }
 };
 
 const ReviewReducer = (state = iState, action) => {

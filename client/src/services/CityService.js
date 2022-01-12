@@ -35,9 +35,9 @@ export const GetReviewById = async (reviewId) => {
   }
 };
 
-export const CreateReview = async () => {
+export const CreateReview = async (review) => {
   try {
-    const res = await Client.post('/reviews/');
+    const res = await Client.post('/reviews', review);
     return res.data.reviews;
   } catch (error) {
     throw error;

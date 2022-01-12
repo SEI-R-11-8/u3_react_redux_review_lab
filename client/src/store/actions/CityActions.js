@@ -5,6 +5,7 @@ import {
   GetReviewById,
   CreateReview
 } from '../../services/CityService';
+
 import {
   GET_CITIES,
   GET_CITY_REVIEWS,
@@ -14,10 +15,19 @@ import {
   NEW_CITY_REVIEW
 } from '../types';
 
-export const AddReview = (review) => ({
-  type: ADD_CITY_REVIEW,
-  payload: review
-});
+export const AddReview = (review) => {
+  return async (dispatch) => {
+    try {
+      await CreateReview(review);
+      dispatch({
+        type: ADD_CITY_REVIEW,
+        payload: review
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
 
 export const LoadReview = (formValue) => ({
   type: NEW_CITY_REVIEW,

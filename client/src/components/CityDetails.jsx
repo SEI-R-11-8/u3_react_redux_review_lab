@@ -10,9 +10,9 @@ import { LoadReviews } from '../store/actions/CityActions'
 
 const mapStateToProps = (state) => {
     return {
-      reviewState: state.reviewState
+    reviewState: state.reviewState
     };
-  };
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const CityDetails = (props) => {
-    console.log(props)
+    console.log(props.reviewState)
     useEffect(() => {
         props.fetchReviews(props.match.params.id)
     }, [])
